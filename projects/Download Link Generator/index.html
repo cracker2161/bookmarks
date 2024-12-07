@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium Download Link Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-xl rounded-2xl p-8 custom-shadow">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">
+            Direct Download Link Generator
+        </h1>
+        
+        <div class="space-y-4">
+            <input 
+                type="text" 
+                id="linkInput" 
+                placeholder="Paste Google Drive, Dropbox, or Terabox Link" 
+                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+            
+            <div class="grid grid-cols-3 gap-3">
+                <select 
+                    id="platformSelect" 
+                    class="col-span-1 px-3 py-3 border-2 border-gray-300 rounded-lg"
+                >
+                    <option value="googledrive">Google Drive</option>
+                    <option value="dropbox">Dropbox</option>
+                    <option value="terabox">Terabox</option>
+                </select>
+                
+                <button 
+                    onclick="generateLink()" 
+                    class="col-span-2 bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition duration-300"
+                >
+                    Generate Direct Download
+                </button>
+            </div>
+            
+            <div id="resultArea" class="hidden">
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Direct Download Link:
+                </label>
+                <div class="flex">
+                    <input 
+                        type="text" 
+                        id="resultLink" 
+                        readonly 
+                        class="flex-grow px-4 py-3 border-2 border-gray-300 rounded-l-lg bg-gray-100"
+                    >
+                    <button 
+                        onclick="copyLink()" 
+                        class="bg-green-500 text-white px-4 rounded-r-lg hover:bg-green-600 transition duration-300"
+                    >
+                        Copy
+                    </button>
+                </div>
+            </div>
+            
+            <div id="errorMessage" class="text-red-500 text-center hidden"></div>
+        </div>
+        
+        <div class="mt-6 text-center text-sm text-gray-600">
+            <p>✨ Supports Multiple Platforms | 🔒 Secure Link Generation</p>
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            const link = document.getElementById('linkInput').value;
+            const platform = document.getElementById('platformSelect').value;
+            const resultArea = document.getElementById('resultArea');
+            const resultLink = document.getElementById('resultLink');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Reset previous states
+            resultArea.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            errorMessage.textContent = '';
+
+            // Basic validation
+            if (!link.trim()) {
+                showError('Please enter a valid link');
+                return;
+            }
+
+            try {
+                let directLink = '';
+                switch(platform) {
+                    case 'googledrive':
+                        directLink = convertGoogleDriveLink(link);
+                        break;
+                    case 'dropbox':
+                        directLink = convertDropboxLink(link);
+                        break;
+                    case 'terabox':
+                        directLink = convertTeraboxLink(link);
+                        break;
+                }
+
+                if (directLink) {
+                    resultLink.value = directLink;
+                    resultArea.classList.remove('hidden');
+                } else {
+                    showError('Unable to generate direct download link');
+                }
+            } catch (error) {
+                showError('Error processing link: ' + error.message);
+            }
+        }
+
+        function convertGoogleDriveLink(link) {
+            const driveRegex = /\/d\/([a-zA-Z0-9_-]+)\//;
+            const match = link.match(driveRegex);
+            
+            if (match && match[1]) {
+                return `https://drive.google.com/uc?export=download&id=${match[1]}`;
+            }
+            return '';
+        }
+
+        function convertDropboxLink(link) {
+            return link.replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+                       .replace('?dl=0', '');
+        }
+
+        function convertTeraboxLink(link) {
+            // Note: Actual conversion might require more complex processing
+            return link.replace('terabox.com', 'terabox.com/download');
+        }
+
+        function copyLink() {
+            const resultLink = document.getElementById('resultLink');
+            resultLink.select();
+            document.execCommand('copy');
+            
+            // Optional: Temporary visual feedback
+            const copyButton = event.target;
+            copyButton.textContent = 'Copied!';
+            copyButton.classList.remove('bg-green-500');
+            copyButton.classList.add('bg-green-700');
+            
+            setTimeout(() => {
+                copyButton.textContent = 'Copy';
+                copyButton.classList.remove('bg-green-700');
+                copyButton.classList.add('bg-green-500');
+            }, 2000);
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
