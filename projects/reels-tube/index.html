@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelsTube - Advanced Video Streaming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            overscroll-behavior-y: contain;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+        }
+        .video-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .video-container::-webkit-scrollbar {
+            display: none;
+        }
+        .reel-video {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+            background: black;
+        }
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+            z-index: 20;
+        }
+        .pause-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 50%;
+            display: none;
+            z-index: 30;
+        }
+        .video-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background-color: #ff0000;
+            width: 0;
+            transition: width linear;
+            z-index: 25;
+        }
+        .sound-control {
+            position: absolute;
+            right: 20px;
+            bottom: 100px;
+            z-index: 40;
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .video-controls {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 40;
+        }
+        .control-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .control-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .like-counter {
+            position: absolute;
+            right: 20px;
+            bottom: 150px;
+            z-index: 40;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div id="app" class="max-w-md mx-auto relative h-screen overflow-hidden">
+        <!-- Header -->
+        <header class="fixed top-0 z-50 w-full bg-black/50 p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">ReelsTube</h1>
+            <div class="flex space-x-4 items-center">
+                <button id="searchBtn" class="text-white">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="upcomingFeaturesBtn" class="text-white">
+                    <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Video Container -->
+        <div id="videoContainer" class="video-container"></div>
+
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-0 left-0 right-0 bg-black/50 p-4 flex justify-around z-50">
+            <button class="nav-btn active" data-action="home">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="nav-btn" data-action="search">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="nav-btn" data-action="upcoming">
+                <i class="fas fa-rocket"></i>
+            </button>
+        </nav>
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="fixed inset-0 bg-black bg-opacity-80 z-[100] hidden">
+            <div class="bg-gray-900 p-6 rounded-lg max-w-md w-full mx-auto mt-20">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Search Videos</h2>
+                    <button id="closeSearch" class="text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <input type="text" id="searchInput" 
+                    class="w-full bg-gray-800 text-white p-3 rounded-lg mb-4" 
+                    placeholder="Search videos...">
+                <div id="searchResults" class="max-h-96 overflow-y-auto"></div>
+            </div>
+        </div>
+
+        <!-- Upcoming Features Modal -->
+        <div id="upcomingFeaturesModal" class="fixed inset-0 bg-black bg-opacity-80 z-[100] hidden flex items-center justify-center">
+            <div class="bg-gray-900 p-6 rounded-lg max-w-md w-full">
+                <h2 class="text-2xl font-bold mb-4 text-center">Upcoming Features</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <i class="fas fa-video mr-3 text-blue-500"></i>
+                        AI-Powered Content Recommendations
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-filter mr-3 text-green-500"></i>
+                        Advanced Content Filtering
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-user-friends mr-3 text-purple-500"></i>
+                        Social Interaction Features
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-magic mr-3 text-pink-500"></i>
+                        AI Video Editing Tools
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-globe mr-3 text-yellow-500"></i>
+                        Multi-Language Support
+                    </li>
+                </ul>
+                <button id="closeUpcomingFeatures" class="mt-6 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    class ReelsApp {
+        constructor() {
+            // Core Elements
+            this.videoContainer = document.getElementById('videoContainer');
+            this.upcomingFeaturesModal = document.getElementById('upcomingFeaturesModal');
+            this.upcomingFeaturesBtn = document.getElementById('upcomingFeaturesBtn');
+            this.closeUpcomingFeatures = document.getElementById('closeUpcomingFeatures');
+            this.searchBtn = document.getElementById('searchBtn');
+            this.loadingOverlay = document.getElementById('loadingOverlay');
+            this.searchModal = document.getElementById('searchModal');
+            this.searchInput = document.getElementById('searchInput');
+            this.closeSearch = document.getElementById('closeSearch');
+
+            // State Management
+            this.videoEntries = [];
+            this.currentVideoIndex = 0;
+            this.isGlobalMuted = true;
+            this.isLoading = true;
+
+            // M3U Links - Add your video sources here
+            this.m3uLinks = [
+                'https://raw.githubusercontent.com/msplayerapp/-Mitu/refs/heads/main/Yeash%20BD%20TV/Yeash/Yeash.m3u',
+                // Add more M3U links as needed
+            ];
+
+            this.initializeApp();
+        }
+
+        initializeApp() {
+            this.setupEventListeners();
+            this.loadVideosFromM3ULinks();
+        }
+
+        setupEventListeners() {
+            // Modal Controls
+            this.upcomingFeaturesBtn.addEventListener('click', () => {
+                this.upcomingFeaturesModal.classList.remove('hidden');
+            });
+
+            this.closeUpcomingFeatures.addEventListener('click', () => {
+                this.upcomingFeaturesModal.classList.add('hidden');
+            });
+
+            // Search Controls
+            this.searchBtn.addEventListener('click', () => {
+                this.searchModal.classList.remove('hidden');
+            });
+
+            this.closeSearch.addEventListener('click', () => {
+                this.searchModal.classList.add('hidden');
+            });
+
+            this.searchInput.addEventListener('input', (e) => {
+                this.handleSearch(e.target.value);
+            });
+
+            // Navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    this.handleNavigation(e.currentTarget.dataset.action);
+                });
+            });
+
+            // Scroll Event
+            this.videoContainer.addEventListener('scroll', () => {
+                this.handleScroll();
+            });
+        }
+
+        handleSearch(query) {
+            const filteredVideos = this.videoEntries.filter(entry =>
+                entry.title.toLowerCase().includes(query.toLowerCase())
+            );
+            this.displaySearchResults(filteredVideos);
+        }
+
+        displaySearchResults(results) {
+            const resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = '';
+
+            results.forEach((result, index) => {
+                const resultElement = document.createElement('div');
+                resultElement.className = 'p-3 hover:bg-gray-800 cursor-pointer rounded';
+                resultElement.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-video mr-3"></i>
+                        <span>${result.title}</span>
+                    </div>
+                `;
+                resultElement.addEventListener('click', () => {
+                    this.jumpToVideo(index);
+                    this.searchModal.classList.add('hidden');
+                });
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+
+        jumpToVideo(index) {
+            const videos = document.querySelectorAll('.reel-video-container');
+            if (videos[index]) {
+                videos[index].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        handleNavigation(action) {
+            switch(action) {
+                case 'home':
+                    this.videoContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                    break;
+                case 'search':
+                    this.searchModal.classList.remove('hidden');
+                    break;
+                case 'upcoming':
+                    this.upcomingFeaturesModal.classList.remove('hidden');
+                    break;
+            }
+        }
+
+        async loadVideosFromM3ULinks() {
+            try {
+                for (const link of this.m3uLinks) {
+                    const response = await fetch(link);
+                    const m3uData = await response.text();
+                    const entries = this.parseM3UContent(m3uData);
+                    this.videoEntries = [...this.videoEntries, ...entries];
+                }
+
+                // Shuffle videos for random order
+                this.videoEntries = this.shuffleArray(this.videoEntries);
+                
+                // Create video elements
+                this.videoEntries.forEach(entry => this.createVideoElement(entry));
+                
+                // Hide loading overlay
+                this.isLoading = false;
+                this.loadingOverlay.style.display = 'none';
+            } catch (error) {
+                console.error('Error loading videos:', error);
+                this.loadingOverlay.innerHTML = 'Error loading videos. Please try again.';
+            }
+        }
+
+        shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        parseM3UContent(m3uData) {
+            const lines = m3uData.split('\n');
+            const videoEntries = [];
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].startsWith('#EXTINF:')) {
+                    const titleMatch = lines[i].match(/,(.+)$/);
+                    const title = titleMatch ? titleMatch[1].trim() : 'Untitled Video';
+                    const url = lines[i + 1] ? lines[i + 1].trim() : null;
+
+                    if (url && this.isValidVideoURL(url)) {
+                        videoEntries.push({ title, url });
+                    }
+                }
+            }
+
+            return videoEntries;
+        }
+
+        isValidVideoURL(url) {
+            return /\.(mp4|m3u8|avi|mkv|webm)$|^(https?:\/\/).*\.(mp4|m3u8|avi|mkv|webm)$/i.test(url) || 
+                   url.includes('.mp4') || 
+                   url.includes('.m3u8');
+        }
+
+        createVideoElement(entry) {
+            const reelContainer = document.createElement('div');
+            reelContainer.classList.add('relative', 'reel-video-container');
+
+            const videoElement = document.createElement('video');
+            videoElement.src = entry.url;
+            videoElement.classList.add('reel-video');
+            videoElement.setAttribute('playsinline', '');
+            videoElement.setAttribute('preload', 'metadata');
+            videoElement.muted = this.isGlobalMuted;
+
+            // Progress Bar
+            const progressBar = document.createElement('div');
+            progressBar.classList.add('video-progress');
+
+            // Pause Indicator
+            const pauseIndicator = document.createElement('div');
+            pauseIndicator.classList.add('pause-indicator');
+            pauseIndicator.innerHTML = '<i class="fas fa-pause text-white text-3xl"></i>';
+
+            // Video Controls
+            const controlsContainer = document.createElement('div');
+            controlsContainer.classList.add('video-controls');
+
+            // Sound Control
+            const soundControl = document.createElement('div');
+            soundControl.classList.add('sound-control');
+            soundControl.innerHTML = `<i class="fas fa-volume-mute text-white"></i>`;
+
+            // Like Counter
+            const likeCounter = document.createElement('div');
+            likeCounter.classList.add('like-counter');
+            likeCounter.innerHTML = `
+                <button class="control-btn">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <div class="text-sm">0</div>
+            `;
+
+            // Title Overlay
+            const titleOverlay = document.createElement('div');
+            titleOverlay.classList.add('video-overlay');
+            titleOverlay.textContent = entry.title;
+
+            // Append all elements
+            reelContainer.appendChild(videoElement);
+            reelContainer.appendChild(progressBar);
+            reelContainer.appendChild(pauseIndicator);
+            reelContainer.appendChild(controlsContainer);
+            reelContainer.appendChild(soundControl);
+            reelContainer.appendChild(likeCounter);
+            reelContainer.appendChild(titleOverlay);
+
+            this.setupVideoControls(videoElement, progressBar, pauseIndicator, soundControl, likeCounter);
+
+            this.videoContainer.appendChild(reelContainer);
+        }
+
+        setupVideoControls(videoElement, progressBar, pauseIndicator, soundControl, likeCounter) {
+            let isLiked = false;
+            let likeCount = 0;
+
+            // Progress Update
+            videoElement.addEventListener('timeupdate', () => {
+                const progress = (videoElement.currentTime / videoElement.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+            });
+
+            // Sound Control
+            soundControl.addEventListener('click', () => {
+                videoElement.muted = !videoElement.muted;
+                soundControl.innerHTML = videoElement.muted ? 
+                    `<i class="fas fa-volume-mute text-white"></i>` : 
+                    `<i class="fas fa-volume-up text-white"></i>`;
+            });
+
+            // Like Control
+            const likeBtn = likeCounter.querySelector('button');
+            likeBtn.addEventListener('click', () => {
+                isLiked = !isLiked;
+                likeCount += isLiked ? 1 : -1;
+                likeBtn.style.color = isLiked ? '#ff4444' : 'white';
+                likeCounter.querySelector('div').textContent = likeCount;
+            });
+
+            // Double Tap to Like
+            let lastTap = 0;
+            videoElement.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 500 && tapLength > 0) {
+                    if (!isLiked) {
+                        isLiked = true;
+                        likeCount++;
+                        likeBtn.style.color = '#ff4444';
+                        likeCounter.querySelector('div').textContent = likeCount;
+                    }
+                }
+                lastTap = currentTime;
+            });
+
+            // Autoplay when in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        videoElement.play();
+                    } else {
+                        videoElement.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(videoElement);
+        }
+
+        handleScroll() {
+            requestAnimationFrame(() => {
+                const videos = document.querySelectorAll('.reel-video');
+                videos.forEach(video => {
+                    const rect = video.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top >= 0 &&
+                        rect.bottom <= window.innerHeight &&
+                        rect.height * 0.5 <= window.innerHeight
+                    );
+
+                    if (isVisible) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
+            });
+        }
+    }
+
+    // Initialize app when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        new ReelsApp();
+    });
+    </script>
+</body>
+</html>
+
