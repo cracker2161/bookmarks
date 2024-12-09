@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced M3U Playlist Checker & Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .channel-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        .channel-item:hover {
+            background-color: #f0f0f0;
+        }
+        .channel-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .modal-video {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1 class="display-6">
+                <i class="fas fa-stream"></i> M3U Playlist Checker & Player
+            </h1>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Upload M3U File</label>
+                    <input type="file" id="fileInput" class="form-control" accept=".m3u">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Or Enter M3U URL</label>
+                    <input type="url" id="urlInput" class="form-control" placeholder="https://example.com/playlist.m3u">
+                </div>
+                <div class="d-grid">
+                    <button id="checkBtn" class="btn btn-primary">
+                        <i class="fas fa-check-circle"></i> Check & Load Playlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultSection" class="mt-4" style="display: none;">
+            <div class="card">
+                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Playlist Analysis</h5>
+                    <div class="export-buttons">
+                        <button id="exportM3U" class="btn btn-success btn-sm">
+                            <i class="fas fa-file-export"></i> Export M3U
+                        </button>
+                        <button id="exportJSON" class="btn btn-warning btn-sm">
+                            <i class="fas fa-file-export"></i> Export JSON
+                        </button>
+                        <button id="exportTXT" class="btn btn-info btn-sm">
+                            <i class="fas fa-file-export"></i> Export TXT
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Total Channels: <span id="totalChannels">0</span></h6>
+                            <h6>Working Channels: <span id="workingChannels">0</span></h6>
+                            <h6>Broken Channels: <span id="brokenChannels">0</span></h6>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="channelList" class="channel-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="channelName"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <video id="videoPlayer" class="modal-video" controls>
+                        <source id="videoSource" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const checkBtn = document.getElementById('checkBtn');
+        const resultSection = document.getElementById('resultSection');
+        const channelList = document.getElementById('channelList');
+        const totalChannelsSpan = document.getElementById('totalChannels');
+        const workingChannelsSpan = document.getElementById('workingChannels');
+        const brokenChannelsSpan = document.getElementById('brokenChannels');
+
+        // Export Buttons
+        const exportM3UBtn = document.getElementById('exportM3U');
+        const exportJSONBtn = document.getElementById('exportJSON');
+        const exportTXTBtn = document.getElementById('exportTXT');
+
+        let workingChannels = [];
+
+        checkBtn.addEventListener('click', checkPlaylist);
+        exportM3UBtn.addEventListener('click', () => exportChannels('m3u'));
+        exportJSONBtn.addEventListener('click', () => exportChannels('json'));
+        exportTXTBtn.addEventListener('click', () => exportChannels('txt'));
+
+        async function checkPlaylist() {
+            const fileInput = document.getElementById('fileInput');
+            const urlInput = document.getElementById('urlInput');
+
+            let playlistContent = '';
+            workingChannels = [];
+
+            // Get playlist from file or URL
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                playlistContent = await file.text();
+            } else if (urlInput.value) {
+                try {
+                    const response = await axios.get(urlInput.value);
+                    playlistContent = response.data;
+                } catch (error) {
+                    alert('Error fetching playlist');
+                    return;
+                }
+            } else {
+                alert('Please upload a file or enter a URL');
+                return;
+            }
+
+            // Parse and check playlist
+            const channels = parseM3UPlaylist(playlistContent);
+            await checkChannelLinks(channels);
+        }
+
+        function parseM3UPlaylist(content) {
+            const lines = content.split('\n');
+            const channels = [];
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].startsWith('#EXTINF')) {
+                    const name = lines[i].split(',')[1];
+                    const url = lines[i + 1];
+                    if (url && url.startsWith('http')) {
+                        channels.push({ name, url });
+                    }
+                }
+            }
+
+            return channels;
+        }
+
+        async function checkChannelLinks(channels) {
+    totalChannelsSpan.textContent = channels.length;
+    let working = 0;
+    let broken = 0;
+
+    resultSection.style.display = 'block';
+    channelList.innerHTML = '';
+
+    for (let i = 0; i < channels.length; i++) {
+        try {
+            const response = await axios.get(channels[i].url, { 
+                timeout: 5000,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                }
+            });
+            
+            if (response.status === 200) {
+                working++;
+                workingChannels.push(channels[i]);
+                
+                const channelItem = document.createElement('div');
+                channelItem.classList.add('channel-item');
+                channelItem.innerHTML = `
+                    <span class="text-success">
+                        <i class="fas fa-check-circle"></i> ${channels[i].name}
+                    </span>
+                    <div class="channel-actions">
+                        <button class="btn btn-sm btn-info open-link" data-url="${channels[i].url}">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                        <button class="btn btn-sm btn-primary play-channel" data-name="${channels[i].name}" data-url="${channels[i].url}">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                `;
+                
+                channelList.appendChild(channelItem);
+            } else {
+                broken++;
+            }
+        } catch (error) {
+            broken++;
+        }
+
+        // Update counts
+        workingChannelsSpan.textContent = working;
+        brokenChannelsSpan.textContent = broken;
+    }
+
+    // Add event listeners for link and play buttons
+    addChannelEventListeners();
+}
+
+function addChannelEventListeners() {
+    // Open link in new tab
+    document.querySelectorAll('.open-link').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const url = e.currentTarget.getAttribute('data-url');
+            window.open(url, '_blank');
+        });
+    });
+
+    // Play channel in modal
+    document.querySelectorAll('.play-channel').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const url = e.currentTarget.getAttribute('data-url');
+            const name = e.currentTarget.getAttribute('data-name');
+            
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoSource = document.getElementById('videoSource');
+            const channelNameModal = document.getElementById('channelName');
+            
+            videoSource.src = url;
+            channelNameModal.textContent = name;
+            
+            // Use Bootstrap modal
+            const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+            videoModal.show();
+            
+            videoPlayer.load();
+            videoPlayer.play();
+        });
+    });
+}
+
+function exportChannels(format) {
+    if (workingChannels.length === 0) {
+        alert('No working channels to export');
+        return;
+    }
+
+    let exportContent = '';
+    
+    switch(format) {
+        case 'm3u':
+            exportContent = '#EXTM3U\n' + workingChannels.map(channel => 
+                `#EXTINF:-1,${channel.name}\n${channel.url}`
+            ).join('\n');
+            downloadFile('working_channels.m3u', exportContent);
+            break;
+        
+        case 'json':
+            exportContent = JSON.stringify(workingChannels, null, 2);
+            downloadFile('working_channels.json', exportContent);
+            break;
+        
+        case 'txt':
+            exportContent = workingChannels.map(channel => 
+                `${channel.name}: ${channel.url}`
+            ).join('\n');
+            downloadFile('working_channels.txt', exportContent);
+            break;
+    }
+}
+
+function downloadFile(filename, content) {
+    const blob = new Blob([content], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+}
+</script>
+</body>
+</html>
+https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u
