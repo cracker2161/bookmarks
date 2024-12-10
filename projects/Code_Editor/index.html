@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>ProCode Studio 4.0</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Essential Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #252525;
+            --accent-color: #00ff9d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --error-color: #ff4444;
+            --success-color: #00c851;
+            --warning-color: #ffbb33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'JetBrains Mono', monospace;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            overflow: hidden;
+            height: 100vh;
+            position: fixed;
+            width: 100%;
+            user-select: none;
+        }
+
+        /* App Container */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--secondary-dark);
+            padding: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 100;
+            -webkit-app-region: drag;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        /* Menu Styles */
+        .menu-btn {
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            -webkit-app-region: no-drag;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100%;
+            background: var(--secondary-dark);
+            z-index: 999;
+            transition: left 0.3s ease;
+            padding: 1rem;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .menu-panel.active {
+            left: 0;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .menu-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+
+        .menu-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-section-title {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin: 2px 0;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-item:active {
+            transform: scale(0.98);
+        }
+
+        .menu-item-left {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .shortcut {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        /* Editor Workspace */
+        .editor-workspace {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .CodeMirror {
+            height: 100% !important;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Suggestions Popup */
+        .suggestions-popup {
+            position: absolute;
+            background: var(--secondary-dark);
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .suggestion-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .suggestion-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .suggestion-item i {
+            color: var(--accent-color);
+        }
+
+        /* Modals */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: var(--secondary-dark);
+            padding: 1.5rem;
+            border-radius: 12px;
+            z-index: 1001;
+            max-width: 500px;
+            width: 90%;
+            opacity: 0;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .modal.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            display: block;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+
+        .modal-content {
+            margin-bottom: 1rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            background: var(--secondary-dark);
+            color: var(--text-primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--primary-dark);
+        }
+
+        .btn-danger {
+            background: var(--error-color);
+            color: var(--text-primary);
+        }
+
+        /* Select Control */
+        .select-control {
+            padding: 0.8rem;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 22px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-switch label {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #484848;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-switch label:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + label {
+            background-color: var(--accent-color);
+        }
+
+        .toggle-switch input:checked + label:before {
+            transform: translateX(22px);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .menu-panel {
+                width: 85%;
+                max-width: 320px;
+            }
+
+            .shortcut {
+                display: none;
+            }
+
+            .btn {
+                padding: 0.7rem 1rem;
+            }
+
+            .modal {
+                width: 95%;
+            }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--text-secondary);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: var(--accent-color);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <button class="menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <i class="fas fa-code logo-icon"></i>
+                <span class="logo-text">ProCode Studio 4.0</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="saveBtn">
+                    <i class="fas fa-save"></i>
+                    <span class="hide-mobile">Save</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Menu Panel -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        <div class="menu-panel" id="menuPanel">
+            <div class="menu-header">
+                <span>Menu</span>
+                <button class="menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- File Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">File</div>
+                <a href="#" class="menu-item" id="newFileBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-file"></i>
+                        <span>New File</span>
+                    </div>
+                    <span class="shortcut">Ctrl+N</span>
+                </a>
+                <a href="#" class="menu-item" id="openFileBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Open File</span>
+                    </div>
+                    <span class="shortcut">Ctrl+O</span>
+                </a>
+                <a href="#" class="menu-item" id="saveFileBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-save"></i>
+                        <span>Save File</span>
+                    </div>
+                    <span class="shortcut">Ctrl+S</span>
+                </a>
+                <a href="#" class="menu-item" id="downloadBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </div>
+                </a>
+                <a href="#" class="menu-item" id="shareBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share Code</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Edit Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">Edit</div>
+                <a href="#" class="menu-item" id="undoBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-undo"></i>
+                        <span>Undo</span>
+                    </div>
+                    <span class="shortcut">Ctrl+Z</span>
+                </a>
+                <a href="#" class="menu-item" id="redoBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-redo"></i>
+                        <span>Redo</span>
+                    </div>
+                    <span class="shortcut">Ctrl+Y</span>
+                </a>
+                <a href="#" class="menu-item" id="formatCodeBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-align-left"></i>
+                        <span>Format Code</span>
+                    </div>
+                    <span class="shortcut">Alt+F</span>
+                </a>
+                <a href="#" class="menu-item" id="findReplaceBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-search"></i>
+                        <span>Find & Replace</span>
+                    </div>
+                    <span class="shortcut">Ctrl+F</span>
+                </a>
+                <a href="#" class="menu-item" id="selectAllBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-check-double"></i>
+                        <span>Select All</span>
+                    </div>
+                    <span class="shortcut">Ctrl+A</span>
+                </a>
+            </div>
+
+            <!-- View Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">View</div>
+                <a href="#" class="menu-item" id="togglePreviewBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-eye"></i>
+                        <span>Preview</span>
+                    </div>
+                    <span class="shortcut">Ctrl+P</span>
+                </a>
+                <a href="#" class="menu-item" id="toggleFullscreenBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-expand"></i>
+                        <span>Fullscreen</span>
+                    </div>
+                    <span class="shortcut">F11</span>
+                </a>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">Tools</div>
+                <a href="#" class="menu-item" id="beautifyBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-magic"></i>
+                        <span>Beautify Code</span>
+                    </div>
+                </a>
+                <a href="#" class="menu-item" id="minifyBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span>Minify Code</span>
+                    </div>
+                </a>
+                <a href="#" class="menu-item" id="validateBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Validate Code</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">Settings</div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="fas fa-code"></i>
+                        <span>Language</span>
+                    </div>
+                    <select class="select-control" id="languageSelect">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="php">PHP</option>
+                    </select>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Theme</span>
+                    </div>
+                    <select class="select-control" id="themeSelect">
+                        <option value="dracula">Dracula</option>
+                        <option value="monokai">Monokai</option>
+                        <option value="material">Material</option>
+                        <option value="nord">Nord</option>
+                    </select>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <i class="fas fa-font"></i>
+                        <span>Font Size</span>
+                    </div>
+                    <select class="select-control" id="fontSizeSelect">
+                        <option value="12">12px</option>
+                        <option value="14">14px</option>
+                        <option value="16" selected>16px</option>
+                        <option value="18">18px</option>
+                        <option value="20">20px</option>
+                    </select>
+                </div>
+                <a href="#" class="menu-item" id="autoSaveToggle">
+                    <div class="menu-item-left">
+                        <i class="fas fa-clock"></i>
+                        <span>Auto Save</span>
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="autoSaveCheckbox" checked>
+                        <label for="autoSaveCheckbox"></label>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Reset Section -->
+            <div class="menu-section">
+                <div class="menu-section-title">Reset</div>
+                <a href="#" class="menu-item" id="resetSettingsBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-sync"></i>
+                        <span>Reset Settings</span>
+                    </div>
+                </a>
+                <a href="#" class="menu-item warning" id="resetAllBtn">
+                    <div class="menu-item-left">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Reset Everything</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Editor -->
+        <div class="editor-workspace">
+            <textarea id="codeEditor"></textarea>
+        </div>
+
+        <!-- Preview Modal -->
+        <div class="modal" id="previewModal">
+            <div class="modal-header">
+                <div class="modal-title">Preview</div>
+                <button class="modal-close" id="closePreviewBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <iframe id="previewFrame" style="width: 100%; height: 500px; border: none;"></iframe>
+            </div>
+        </div>
+
+        <!-- Reset Confirmation Modal -->
+        <div class="modal" id="resetModal">
+            <div class="modal-header">
+                <div class="modal-title">Reset Confirmation</div>
+                <button class="modal-close" id="closeResetModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p>Are you sure you want to reset everything? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelResetBtn">Cancel</button>
+                <button class="btn btn-danger" id="confirmResetBtn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Essential Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/xml-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/html-hint.min.js"></script>
+
+    <script>
+        // Initialize CodeMirror
+        const editor = CodeMirror.fromTextArea(document.getElementById("codeEditor"), {
+            lineNumbers: true,
+            theme: "dracula",
+            mode: "xml",
+            autoCloseTags: true,
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            tabSize: 4,
+            lineWrapping: true,
+            autofocus: true,
+            extraKeys: {
+                "Ctrl-Space": "autocomplete",
+                "Ctrl-S": function(cm) { saveCode(); },
+                "Ctrl-/": "toggleComment",
+                "Alt-F": function(cm) { formatCode(); }
+            }
+        });
+
+        // Menu Functions
+        const menuBtn = document.getElementById('menuBtn');
+        const menuPanel = document.getElementById('menuPanel');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuClose = document.getElementById('menuClose');
+
+        function toggleMenu() {
+            menuPanel.classList.toggle('active');
+            menuOverlay.style.display = menuPanel.classList.contains('active') ? 'block' : 'none';
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        menuClose.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // File Operations
+        document.getElementById('newFileBtn').addEventListener('click', () => {
+            editor.setValue('');
+            toggleMenu();
+            showNotification('New file created');
+        });
+
+        document.getElementById('openFileBtn').addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.html,.css,.js,.txt';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    editor.setValue(e.target.result);
+                    showNotification(`File opened: ${file.name}`);
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+            toggleMenu();
+        });
+
+        function saveCode() {
+            const code = editor.getValue();
+            const fileType = document.getElementById('languageSelect').value;
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `code.${fileType}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('Code saved successfully!');
+        }
+
+        document.getElementById('saveBtn').addEventListener('click', saveCode);
+        document.getElementById('saveFileBtn').addEventListener('click', () => {
+            saveCode();
+            toggleMenu();
+        });
+
+        // Code Formatting
+        function formatCode() {
+            let code = editor.getValue();
+            let formatted = '';
+            let indent = 0;
+            const tab = '    ';
+
+            code.split('\n').forEach(line => {
+                line = line.trim();
+                if (line.match(/<\//)) {
+                    indent--;
+                }
+                formatted += tab.repeat(indent) + line + '\n';
+                if (line.match(/<[^/].*>/) && !line.match(/<.*\/>/)) {
+                    indent++;
+                }
+            });
+
+            editor.setValue(formatted);
+            showNotification('Code formatted');
+        }
+
+        document.getElementById('formatCodeBtn').addEventListener('click', () => {
+            formatCode();
+            toggleMenu();
+        });
+
+        // Preview Functions
+        function togglePreview() {
+            const previewModal = document.getElementById('previewModal');
+            previewModal.classList.toggle('active');
+            if (previewModal.classList.contains('active')) {
+                updatePreview();
+            }
+        }
+
+        function updatePreview() {
+            const code = editor.getValue();
+            const preview = document.getElementById('previewFrame').contentWindow.document;
+            preview.open();
+            preview.write(code);
+            preview.close();
+        }
+
+        document.getElementById('togglePreviewBtn').addEventListener('click', () => {
+            togglePreview();
+            toggleMenu();
+        });
+
+        document.getElementById('closePreviewBtn').addEventListener('click', togglePreview);
+
+        // Settings
+        document.getElementById('languageSelect').addEventListener('change', (e) => {
+            editor.setOption('mode', e.target.value);
+            showNotification(`Language changed to ${e.target.value}`);
+        });
+
+        document.getElementById('themeSelect').addEventListener('change', (e) => {
+            editor.setOption('theme', e.target.value);
+            showNotification(`Theme changed to ${e.target.value}`);
+        });
+
+        document.getElementById('fontSizeSelect').addEventListener('change', (e) => {
+            document.querySelector('.CodeMirror').style.fontSize = e.target.value + 'px';
+            showNotification(`Font size changed to ${e.target.value}px`);
+        });
+
+        // Reset Functions
+        document.getElementById('resetSettingsBtn').addEventListener('click', () => {
+            editor.setOption('theme', 'dracula');
+            document.getElementById('themeSelect').value = 'dracula';
+            document.getElementById('languageSelect').value = 'html';
+            document.getElementById('fontSizeSelect').value = '16';
+            document.querySelector('.CodeMirror').style.fontSize = '16px';
+            document.getElementById('autoSaveCheckbox').checked = true;
+            showNotification('Settings reset to default');
+            toggleMenu();
+        });
+
+        document.getElementById('resetAllBtn').addEventListener('click', () => {
+            document.getElementById('resetModal').classList.add('active');
+            toggleMenu();
+        });
+
+        document.getElementById('confirmResetBtn').addEventListener('click', () => {
+            editor.setValue('');
+            localStorage.clear();
+            document.getElementById('resetModal').classList.remove('active');
+            showNotification('Everything has been reset');
+        });
+
+        document.getElementById('cancelResetBtn').addEventListener('click', () => {
+            document.getElementById('resetModal').classList.remove('active');
+        });
+
+        document.getElementById('closeResetModalBtn').addEventListener('click', () => {
+            document.getElementById('resetModal').classList.remove('active');
+        });
+
+        // Notification System
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <i class="fas fa-info-circle"></i>
+                <span>${message}</span>
+            `;
+
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Auto-save
+        let autoSaveInterval;
+        function toggleAutoSave() {
+            if (document.getElementById('autoSaveCheckbox').checked) {
+                autoSaveInterval = setInterval(() => {
+                    localStorage.setItem('savedCode', editor.getValue());
+                }, 30000);
+                showNotification('Auto-save enabled');
+            } else {
+                clearInterval(autoSaveInterval);
+                showNotification('Auto-save disabled');
+            }
+        }
+
+        document.getElementById('autoSaveCheckbox').addEventListener('change', toggleAutoSave);
+
+        // Load saved code
+        const savedCode = localStorage.getItem('savedCode');
+        if (savedCode) {
+            editor.setValue(savedCode);
+        } else {
+            editor.setValue(`<!DOCTYPE html>
+<html>
+<head>
+    <title>My Code</title>
+</head>
+<body>
+    <h1>Welcome to ProCode Studio</h1>
+    <p>Start coding here...</p>
+</body>
+</html>`);
+        }
+
+        // Initialize auto-save
+        toggleAutoSave();
+
+        // Mobile Detection
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            document.querySelector('.CodeMirror').style.fontSize = '16px';
+        }
+    </script>
+</body>
+</html>
+
