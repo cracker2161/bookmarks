@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat with Cracker AI</title>
+  <title>Chat with Orbit Ai</title>
   <link
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css"
     rel="stylesheet"
@@ -80,7 +80,7 @@
               class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded w-full sm:w-auto"
               id="sendButton"
             >
-              Ask Cracker!
+              Orbit Ai!
             </button>
           </div>
         </div>
@@ -97,7 +97,7 @@
     let websocket = null;
 
     let receiving = false;
-    const systemPrompt = "You are Cracker AI, a street racer and skilled mechanic known for your loyalty to family and friends.";
+    const systemPrompt = "You are Orbit Ai, a street racer and skilled mechanic known for your loyalty to family and friends.";
 
     function createMessageElement(text, alignment) {
       const messageElement = document.createElement("div");
@@ -140,7 +140,7 @@
             chatId: chatId,
             appId: "music-husband",
             systemPrompt: systemPrompt,
-            message: initChat ? "Welcome! I'm Cracker AI, your virtual assistant." : message,
+            message: initChat ? "Welcome! I'm Orbit Ai, your virtual assistant." : message,
           })
         );
       });
@@ -156,12 +156,12 @@
       websocket.onclose = (event) => {
         if (event.code === 1000) {
           receiving = false;
-          sendButton.textContent = "Ask Cracker!";
+          sendButton.textContent = "Ask Orbit Ai!";
         } else {
           messageElement.textContent += "Error getting response from server. Refresh the page and try again.";
           chatbox.scrollTop = chatbox.scrollHeight;
           receiving = false;
-          sendButton.textContent = "Ask Cracker!";
+          sendButton.textContent = "Ask Orbit Ai!";
         }
       };
     }
@@ -182,7 +182,7 @@
       } else if (receiving && websocket) {
         websocket.close(1000);
         receiving = false;
-        sendButton.textContent = "Ask Cracker!";
+        sendButton.textContent = "Ask Orbit Ai!";
       }
     });
 
