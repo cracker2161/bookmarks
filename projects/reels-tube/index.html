@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reels Tube</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .reels-container {
+            height: 100vh;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            position: relative;
+            background: #000;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .reels-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .reel {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            color: #fff;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            font-weight: 500;
+        }
+
+        .stats {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .views, .duration {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .controls {
+            position: absolute;
+            right: 15px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .control-btn {
+            background: rgba(0,0,0,0.6);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            z-index: 2;
+        }
+
+        .progress {
+            height: 100%;
+            background: #ff0000;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+
+        .play-pause-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .play-pause-overlay i {
+            font-size: 60px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 25px;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="reels-container" id="reelsContainer"></div>
+    <div class="error-message" id="errorMessage">Video loading failed</div>
+
+    <script type="module">
+        // Firebase imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getDatabase, ref, onValue, set, increment } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAZk2xsw55MuQ0peWi57Ise32HHDicjW18",
+            authDomain: "live-demo-e51e1.firebaseapp.com",
+            databaseURL: "https://live-demo-e51e1-default-rtdb.firebaseio.com",
+            projectId: "live-demo-e51e1",
+            storageBucket: "live-demo-e51e1.firebasestorage.app",
+            messagingSenderId: "660315839677",
+            appId: "1:660315839677:web:1d1c30dc8dbd0a3fddabd4",
+            measurementId: "G-7V2PL4EEDV"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        class ReelsPlayer {
+            constructor() {
+                this.container = document.getElementById('reelsContainer');
+                this.errorMessage = document.getElementById('errorMessage');
+                this.allReels = [];
+                this.displayedReels = new Set();
+                this.isLoading = false;
+                this.currentPlayingVideo = null;
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadReels();
+                    this.setupFirebase();
+                    this.setupInfiniteScroll();
+                    this.setupObserver();
+                } catch (error) {
+                    console.error('Initialization error:', error);
+                }
+            }
+
+            setupFirebase() {
+                this.viewsRef = ref(db, 'views/');
+                onValue(this.viewsRef, (snapshot) => {
+                    const views = snapshot.val() || {};
+                    Object.entries(views).forEach(([reelId, viewCount]) => {
+                        this.updateViewsDisplay(reelId, viewCount);
+                    });
+                });
+            }
+
+            updateViewsDisplay(reelId, views) {
+                const viewElement = document.querySelector(`[data-reel-id="${reelId}"] .views span`);
+                if (viewElement) {
+                    viewElement.textContent = this.formatViews(views);
+                }
+            }
+
+            incrementViews(reelId) {
+                const reelRef = ref(db, `views/${reelId}`);
+                set(reelRef, increment(1));
+            }
+
+            async loadReels() {
+                try {
+                    const response = await fetch('https://raw.githubusercontent.com/msplayerapp/-Mitu/refs/heads/main/Yeash%20BD%20TV/Yeash/Yeash.m3u');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    
+                    const text = await response.text();
+                    let tempReels = [];
+                    let currentTitle = '';
+
+                    text.split('\n').forEach(line => {
+                        if (line.startsWith('#EXTINF')) {
+                            currentTitle = line.substring(line.indexOf(',') + 1).trim();
+                        } else if (line.startsWith('http')) {
+                            tempReels.push({
+                                id: crypto.randomUUID(),
+                                title: currentTitle,
+                                url: line.trim(),
+                                views: Math.floor(Math.random() * 10000)
+                            });
+                        }
+                    });
+
+                    this.allReels = this.shuffleArray(tempReels);
+                    this.addInitialReels();
+                } catch (error) {
+                    console.error('Error loading reels:', error);
+                    this.showError('Failed to load videos');
+                }
+            }
+
+            shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            addInitialReels() {
+                for (let i = 0; i < 5; i++) {
+                    this.addNewReel();
+                }
+            }
+
+            getRandomReel() {
+                const availableReels = this.allReels.filter(reel => !this.displayedReels.has(reel.id));
+                if (availableReels.length === 0) {
+                    this.displayedReels.clear();
+                    return this.allReels[Math.floor(Math.random() * this.allReels.length)];
+                }
+                return availableReels[Math.floor(Math.random() * availableReels.length)];
+            }
+
+            addNewReel() {
+                const reel = this.getRandomReel();
+                if (!reel) return null;
+
+                this.displayedReels.add(reel.id);
+                const reelElement = document.createElement('div');
+                reelElement.className = 'reel';
+                reelElement.dataset.reelId = reel.id;
+
+                reelElement.innerHTML = `
+                    <div class="loading"></div>
+                    <video
+                        src="${reel.url}"
+                        loop
+                        playsinline
+                        preload="metadata"
+                        autoplay
+                    ></video>
+                    <div class="play-pause-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="info">
+                        <div class="title">${reel.title}</div>
+                        <div class="stats">
+                            <div class="views">
+                                <i class="fas fa-eye"></i>
+                                <span>${this.formatViews(reel.views)}</span>
+                            </div>
+                            <div class="duration">
+                                <i class="fas fa-clock"></i>
+                                <span>0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="control-btn mute-btn">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                `;
+
+                this.setupVideoEvents(reelElement);
+                this.container.appendChild(reelElement);
+                return reelElement;
+            }
+
+            setupVideoEvents(reelElement) {
+                const video = reelElement.querySelector('video');
+                const loading = reelElement.querySelector('.loading');
+                const progress = reelElement.querySelector('.progress');
+                const duration = reelElement.querySelector('.duration span');
+                const playPauseOverlay = reelElement.querySelector('.play-pause-overlay');
+                const muteBtn = reelElement.querySelector('.mute-btn');
+
+                // Set initial state
+                video.muted = false;
+                video.playsInline = true;
+                video.preload = 'metadata';
+                muteBtn.querySelector('i').className = 'fas fa-volume-up';
+
+                const stopAllOtherVideos = () => {
+                    document.querySelectorAll('video').forEach(v => {
+                        if (v !== video) {
+                            v.pause();
+                            v.currentTime = 0;
+                            const overlay = v.parentElement.querySelector('.play-pause-overlay');
+                            if (overlay) overlay.style.display = 'flex';
+                        }
+                    });
+                };
+
+                // Add click event for play/pause
+                reelElement.addEventListener('click', (e) => {
+                    // Ignore clicks on control buttons
+                    if (e.target.closest('.control-btn')) return;
+
+                    if (video.paused) {
+                        stopAllOtherVideos();
+                        video.play().catch(() => {});
+                        playPauseOverlay.style.display = 'none';
+                    } else {
+                        video.pause();
+                        playPauseOverlay.style.display = 'flex';
+                    }
+                });
+
+                video.addEventListener('loadedmetadata', () => {
+                    const minutes = Math.floor(video.duration / 60);
+                    const seconds = Math.floor(video.duration % 60);
+                    duration.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    loading.style.display = 'none';
+                });
+
+                video.addEventListener('play', () => {
+                    playPauseOverlay.style.display = 'none';
+                    stopAllOtherVideos();
+                    this.currentPlayingVideo = video;
+                });
+
+                video.addEventListener('pause', () => {
+                    playPauseOverlay.style.display = 'flex';
+                    playPauseOverlay.innerHTML = '<i class="fas fa-play"></i>';
+                    if (this.currentPlayingVideo === video) {
+                        this.currentPlayingVideo = null;
+                    }
+                });
+
+                video.addEventListener('timeupdate', () => {
+                    const percent = (video.currentTime / video.duration) * 100;
+                    progress.style.width = `${percent}%`;
+                });
+
+                video.addEventListener('waiting', () => {
+                    loading.style.display = 'block';
+                });
+
+                video.addEventListener('playing', () => {
+                    loading.style.display = 'none';
+                });
+
+                video.addEventListener('error', () => {
+                    loading.style.display = 'none';
+                    this.showError('Video failed to load');
+                });
+
+                muteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    video.muted = !video.muted;
+                    muteBtn.querySelector('i').className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+                });
+
+                playPauseOverlay.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (video.paused) {
+                        stopAllOtherVideos();
+                        video.play().catch(() => {});
+                        playPauseOverlay.style.display = 'none';
+                    }
+                });
+            }
+
+            setupObserver() {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            const video = entry.target.querySelector('video');
+                            
+                            if (entry.isIntersecting) {
+                                if (video.paused) {
+                                    video.play().catch(() => {});
+                                    this.currentPlayingVideo = video;
+                                }
+                            } else {
+                                if (!video.paused) {
+                                    video.pause();
+                                    video.currentTime = 0;
+                                }
+                                if (this.currentPlayingVideo === video) {
+                                    this.currentPlayingVideo = null;
+                                }
+                            }
+                        });
+                    },
+                    { 
+                        threshold: 0.7,
+                        rootMargin: '-10% 0px'
+                    }
+                );
+
+                const mutationObserver = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        mutation.addedNodes.forEach((node) => {
+                            if (node.classList && node.classList.contains('reel')) {
+                                observer.observe(node);
+                            }
+                        });
+                    });
+                });
+
+                mutationObserver.observe(this.container, { childList: true });
+
+                document.querySelectorAll('.reel').forEach(reel => {
+                    observer.observe(reel);
+                });
+            }
+
+            setupInfiniteScroll() {
+                this.container.addEventListener('scroll', () => {
+                    if (this.isLoading) return;
+
+                    const scrollPosition = this.container.scrollTop;
+                    const containerHeight = this.container.clientHeight;
+                    const contentHeight = this.container.scrollHeight;
+
+                    if (scrollPosition + containerHeight >= contentHeight - 1000) {
+                        this.isLoading = true;
+                        this.addNewReel();
+                        this.isLoading = false;
+                    }
+
+                    if (scrollPosition <= 1000) {
+                        this.isLoading = true;
+                        const firstReel = this.container.firstElementChild;
+                        const newReel = this.addNewReel();
+                        if (newReel) {
+                            this.container.insertBefore(newReel, firstReel);
+                            this.container.scrollTop = scrollPosition + newReel.offsetHeight;
+                        }
+                        this.isLoading = false;
+                    }
+
+                    this.cleanupOldReels();
+                });
+            }
+
+            cleanupOldReels() {
+                const reels = this.container.children;
+                if (reels.length > 10) {
+                    const scrollPosition = this.container.scrollTop;
+                    const containerHeight = this.container.clientHeight;
+
+                    while (reels.length > 10 && 
+                           reels[reels.length - 1].offsetTop > scrollPosition + containerHeight * 2) {
+                        this.container.removeChild(reels[reels.length - 1]);
+                    }
+
+                    while (reels.length > 10 && 
+                           reels[0].offsetTop + reels[0].offsetHeight < scrollPosition - containerHeight) {
+                        this.container.removeChild(reels[0]);
+                    }
+                }
+            }
+
+            formatViews(views) {
+                if (views >= 1000000) return `${(views / 1000000).toFixed(1)}M`;
+                if (views >= 1000) return `${(views / 1000).toFixed(1)}K`;
+                return views.toString();
+            }
+
+            showError(message) {
+                this.errorMessage.textContent = message;
+                this.errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    this.errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new ReelsPlayer();
+        });
+    </script>
+</body>
+</html>
+
