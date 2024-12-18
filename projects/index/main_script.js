@@ -1,5 +1,4 @@
-// Validate the current URL to ensure only the main homepage is accessible
-const allowedURL = "https://oriby.netlify.app/";
+const allowedURL = "https://bookmarks-web.netlify.app/projects/index/";
 if (window.location.href !== allowedURL) {
     document.body.innerHTML = `
         <div style="text-align: center; margin-top: 20%; font-family: Arial, sans-serif;">
@@ -10,3 +9,4 @@ if (window.location.href !== allowedURL) {
     `;
     throw new Error("Unauthorized access to the page!");
 }
+// Validate the current URL to ensure only the main homepage is accessible
