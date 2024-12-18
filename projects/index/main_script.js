@@ -1,3 +1,4 @@
+// Validate the current URL to ensure only the main homepage is accessible
 const allowedURL = "https://bookmarks-web.netlify.app/projects/index/";
 if (window.location.href !== allowedURL) {
     document.body.innerHTML = `
@@ -9,4 +10,3 @@ if (window.location.href !== allowedURL) {
     `;
     throw new Error("Unauthorized access to the page!");
 }
-// Validate the current URL to ensure only the main homepage is accessible
