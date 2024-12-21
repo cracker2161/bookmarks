@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reels Tube</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .video-info {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            z-index: 1;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        }
+
+        .video-text-container {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .time-display {
+            font-size: 0.9rem;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .play-pause-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-pause-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            width: 60px;
+            height: 60px;
+            display: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 10px;
+            top: 10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="mainVideo" playsinline autoplay></video>
+
+        <div class="video-info">
+            <div class="video-text-container">
+                <div class="video-title" id="videoTitle"></div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="play-pause-icon">
+            <i class="fas fa-play"></i>
+        </div>
+
+        <div class="loading" id="loading"></div>
+    </div>
+
+    <script>
+        class VideoPlayer {
+            constructor() {
+                this.video = document.getElementById('mainVideo');
+                this.titleElement = document.getElementById('videoTitle');
+                this.currentTimeElement = document.getElementById('currentTime');
+                this.durationElement = document.getElementById('duration');
+                this.loadingElement = document.getElementById('loading');
+                this.playPauseIcon = document.querySelector('.play-pause-icon');
+                
+                this.videos = [];
+                this.currentIndex = 0;
+                this.isSwipeInProgress = false;
+                this.shouldLoop = true;
+                
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.loadVideos();
+            }
+
+            setupEventListeners() {
+                this.video.addEventListener('loadedmetadata', () => {
+                    this.updateDuration();
+                    this.hideLoading();
+                    this.video.play();
+                });
+
+                this.video.addEventListener('timeupdate', () => this.updateTime());
+                
+                this.video.addEventListener('ended', () => {
+                    if (this.shouldLoop) {
+                        this.video.currentTime = 0;
+                        this.video.play();
+                    }
+                });
+
+                this.video.addEventListener('waiting', () => this.showLoading());
+                
+                this.video.addEventListener('playing', () => {
+                    this.hideLoading();
+                    this.playPauseIcon.style.display = 'none';
+                });
+
+                this.video.addEventListener('pause', () => {
+                    this.playPauseIcon.style.display = 'flex';
+                    this.playPauseIcon.querySelector('i').className = 'fas fa-play';
+                });
+
+                this.video.addEventListener('click', () => this.togglePlayPause());
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.visibilityState === 'visible') {
+                        this.video.play();
+                    }
+                });
+
+                this.video.addEventListener('canplay', () => {
+                    this.video.play();
+                });
+                
+                let touchStartY = 0;
+                let touchStartTime = 0;
+                
+                this.video.addEventListener('touchstart', (e) => {
+                    touchStartY = e.touches[0].clientY;
+                    touchStartTime = Date.now();
+                });
+
+                this.video.addEventListener('touchend', (e) => {
+                    if (this.isSwipeInProgress) return;
+                    
+                    const touchEndY = e.changedTouches[0].clientY;
+                    const touchEndTime = Date.now();
+                    const diff = touchStartY - touchEndY;
+                    const timeDiff = touchEndTime - touchStartTime;
+
+                    if (Math.abs(diff) > 50 && timeDiff < 300) {
+                        this.isSwipeInProgress = true;
+                        if (diff > 0) {
+                            this.shouldLoop = false;
+                            this.playNext();
+                        } else {
+                            this.shouldLoop = false;
+                            this.playPrevious();
+                        }
+                        setTimeout(() => {
+                            this.isSwipeInProgress = false;
+                            this.shouldLoop = true;
+                        }, 300);
+                    }
+                });
+            }
+
+            async loadVideos() {
+                try {
+                    this.showLoading();
+                    const response = await fetch('https://raw.githubusercontent.com/msplayerapp/-Mitu/refs/heads/main/Yeash%20BD%20TV/Yeash/Yeash.m3u');
+                    const text = await response.text();
+                    
+                    const lines = text.split('\n');
+                    let currentTitle = '';
+                    let tempVideos = [];
+
+                    lines.forEach(line => {
+                        if (line.startsWith('#EXTINF')) {
+                            currentTitle = line.substring(line.indexOf(',') + 1).trim();
+                        } else if (line.startsWith('http')) {
+                            tempVideos.push({
+                                title: currentTitle,
+                                url: line.trim()
+                            });
+                        }
+                    });
+
+                    this.videos = tempVideos.sort(() => Math.random() - 0.5);
+
+                    if (this.videos.length > 0) {
+                        this.loadVideo(0);
+                    }
+                } catch (error) {
+                    console.error('Error loading videos:', error);
+                }
+            }
+
+            loadVideo(index) {
+                const video = this.videos[index];
+                this.currentIndex = index;
+                this.video.src = video.url;
+                this.titleElement.textContent = video.title;
+                this.video.load();
+                this.shouldLoop = true;
+
+                const playPromise = this.video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Autoplay started
+                    }).catch(error => {
+                        // Autoplay failed, show play button
+                        this.playPauseIcon.style.display = 'flex';
+                    });
+                }
+            }
+
+            togglePlayPause() {
+                if (this.video.paused) {
+                    this.video.play();
+                } else {
+                    this.video.pause();
+                }
+            }
+
+            playNext() {
+                this.currentIndex = (this.currentIndex + 1) % this.videos.length;
+                this.loadVideo(this.currentIndex);
+            }
+
+            playPrevious() {
+                this.currentIndex = (this.currentIndex - 1 + this.videos.length) % this.videos.length;
+                this.loadVideo(this.currentIndex);
+            }
+
+            updateTime() {
+                this.currentTimeElement.textContent = this.formatTime(this.video.currentTime);
+            }
+
+            updateDuration() {
+                this.durationElement.textContent = this.formatTime(this.video.duration);
+            }
+
+            formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+
+            showLoading() {
+                this.loadingElement.style.display = 'block';
+            }
+
+            hideLoading() {
+                this.loadingElement.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new VideoPlayer();
+        });
+    </script>
+</body>
+</html>
+
