@@ -38,12 +38,6 @@ https://ninjatv.host/star/ninjatv.m3u8?id=355543.ts
 https://ninjatv.host/star/ninjatv.m3u8?id=355545.ts
 #EXTINF:-1 tvg-id="chintutv.in" tvg-name="KAN: Chintu TV SD"  group-title="KANNADA",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",KAN: Chintu TV SD
 https://ninjatv.host/star/ninjatv.m3u8?id=355546.ts
-#EXTINF:-1 tvg-id="" tvg-name="PB: Daily Post Punjab Haryana Himachal SD"  group-title="PUNJABI",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",PB: Daily Post Punjab Haryana Himachal SD
-https://ninjatv.host/star/ninjatv.m3u8?id=355552.ts
-#EXTINF:-1 tvg-id="" tvg-name="IN: Khabarain Abhi Tak SD"  group-title="INDIAN NEWS",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",IN: Khabarain Abhi Tak SD
-https://ninjatv.host/star/ninjatv.m3u8?id=355554.ts
-#EXTINF:-1 tvg-id="" tvg-name="PB: Living India News SD"  group-title="PUNJABI",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",PB: Living India News SD
-https://ninjatv.host/star/ninjatv.m3u8?id=355555.ts
 #EXTINF:-1 tvg-id="" tvg-name="IN: Manoranjan Grand SD"  group-title="INDIAN SD",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",IN: Manoranjan Grand SD
 https://ninjatv.host/star/ninjatv.m3u8?id=355556.ts
 #EXTINF:-1 tvg-id="" tvg-name="IN: News18 Bihar Jharkhand SD"  group-title="INDIAN NEWS",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",IN: News18 Bihar Jharkhand SD
@@ -52,8 +46,6 @@ https://ninjatv.host/star/ninjatv.m3u8?id=355557.ts
 https://ninjatv.host/star/ninjatv.m3u8?id=355558.ts
 #EXTINF:-1 tvg-id="rajnewskannada.in" tvg-name="KAN: Raj News Kannada SD"  group-title="KANNADA",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",KAN: Raj News Kannada SD
 https://ninjatv.host/star/ninjatv.m3u8?id=355559.ts
-#EXTINF:-1 tvg-id="svbc2.in" tvg-name="TM: SVBC 2 SD"  group-title="TAMIL",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",TM: SVBC 2 SD
-https://ninjatv.host/star/ninjatv.m3u8?id=355560.ts
 #EXTINF:-1 tvg-id="" tvg-name="IN: Zee Bharat SD"  group-title="INDIAN NEWS",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",IN: Zee Bharat SD
 https://ninjatv.host/star/ninjatv.m3u8?id=355562.ts
 #EXTINF:-1 tvg-id="otv.in" tvg-name="ORI: OTV SD"  group-title="Oriya",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",ORI: OTV SD
@@ -73,14 +65,10 @@ https://ninjatv.host/star/ninjatv.m3u8?id=108882.ts
 https://ninjatv.host/star/ninjatv.m3u8?id=108881.ts
 #EXTINF:-1 tvg-id="" tvg-name="Tata Play Fitness"  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Fitness
 https://ninjatv.host/star/ninjatv.m3u8?id=108880.ts
-#EXTINF:-1 tvg-id="" tvg-name=" Toons + Punjabi "  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg", Toons + Punjabi 
-https://ninjatv.host/star/ninjatv.m3u8?id=108873.ts
 #EXTINF:-1 tvg-id="" tvg-name="Tata Play Cooking"  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Cooking
 https://ninjatv.host/star/ninjatv.m3u8?id=3748.ts
 #EXTINF:-1 tvg-id="" tvg-name="Tata Play Ibaadat "  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Ibaadat 
 https://ninjatv.host/star/ninjatv.m3u8?id=3749.ts
-#EXTINF:-1 tvg-id="" tvg-name="Tata Play Punjab De Rang  "  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Punjab De Rang  
-https://ninjatv.host/star/ninjatv.m3u8?id=7724.ts
 #EXTINF:-1 tvg-id="" tvg-name="Tata Play Beauty"  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Beauty
 https://ninjatv.host/star/ninjatv.m3u8?id=3745.ts
 #EXTINF:-1 tvg-id="" tvg-name="Tata Play Javed Akhtar"  group-title="INDIAN ACTIVE",tvg-logo="https://i.ibb.co/4s1mpsd/1000023378.jpg",Tata Play Javed Akhtar
