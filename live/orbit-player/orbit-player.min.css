@@ -1,0 +1,200 @@
+.orbit-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background: #000;
+    overflow: hidden;
+    --orbit-primary: #ff0000;
+    --orbit-secondary: #ffffff;
+    --orbit-background: rgba(0,0,0,0.8);
+}
+
+.orbit-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.orbit-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Controls */
+.orbit-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, var(--orbit-background));
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.orbit-player:hover .orbit-controls,
+.orbit-player.touch-device .orbit-controls {
+    opacity: 1;
+}
+
+.orbit-control-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Progress bar */
+.orbit-progress-container {
+    position: relative;
+    height: 5px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.orbit-progress-played {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--orbit-primary);
+    transition: width 0.1s;
+}
+
+.orbit-progress-loaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+}
+
+/* Buttons */
+.orbit-player button {
+    background: none;
+    border: none;
+    color: var(--orbit-secondary);
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.orbit-player button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.orbit-player svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Volume control */
+.orbit-volume {
+    display: flex;
+    align-items: center;
+    width: 130px;
+}
+
+.orbit-volume-slider {
+    width: 80px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    position: relative;
+    border-radius: 2px;
+}
+
+.orbit-volume-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--orbit-secondary);
+    border-radius: 2px;
+}
+
+/* Time display */
+.orbit-time {
+    color: var(--orbit-secondary);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin: 0 15px;
+}
+
+/* Big play button */
+.orbit-big-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: var(--orbit-primary);
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.orbit-big-play-button:hover {
+    opacity: 1;
+}
+
+/* Loader */
+.orbit-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: var(--orbit-primary);
+    animation: orbit-spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes orbit-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .orbit-control-right {
+        display: none;
+    }
+    
+    .orbit-volume {
+        width: auto;
+    }
+    
+    .orbit-volume-slider {
+        display: none;
+    }
+    
+    .orbit-time {
+        font-size: 12px;
+    }
+}
+
+/* Themes */
+.orbit-player.modern-dark {
+    --orbit-primary: #ff0000;
+    --orbit-secondary: #ffffff;
+    --orbit-background: rgba(0,0,0,0.8);
+}
+
+.orbit-player.modern-light {
+    --orbit-primary: #2196f3;
+    --orbit-secondary: #000000;
+    --orbit-background: rgba(255,255,255,0.8);
+}
