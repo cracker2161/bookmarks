@@ -1,0 +1,131 @@
+.orbit-player {
+    position: relative;
+    width: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.orbit-player video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.orbit-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.orbit-player:hover .orbit-controls {
+    opacity: 1;
+}
+
+.orbit-control-left,
+.orbit-control-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.orbit-progress {
+    flex-grow: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    position: relative;
+}
+
+.orbit-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #ff0000;
+    transition: width 0.1s;
+}
+
+.orbit-buffer-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+}
+
+.orbit-player button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.orbit-player button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.orbit-player svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.orbit-volume {
+    display: flex;
+    align-items: center;
+    width: 130px;
+}
+
+.orbit-volume-slider {
+    width: 80px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    position: relative;
+}
+
+.orbit-volume-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: white;
+    width: 100%;
+}
+
+.orbit-time {
+    color: white;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* থিম: ডার্ক */
+.orbit-player.dark {
+    /* ডার্ক থিম স্টাইল */
+}
+
+/* প্লেয়ার স্টেট */
+.orbit-player.playing .play-icon {
+    display: none;
+}
+
+.orbit-player:not(.playing) .pause-icon {
+    display: none;
+}
+
+.orbit-player.muted .orbit-volume-bar {
+    width: 0 !important;
+}
