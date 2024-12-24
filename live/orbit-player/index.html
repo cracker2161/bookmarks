@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orbit Player</title>
+    <link href="orbit-player.css" rel="stylesheet">
+    <script src="orbit-player.js"></script>
+</head>
+<body>
+    <div style="max-width: 800px; margin: 40px auto;">
+        <!-- সাধারণ ভিডিও -->
+        <video src="video.mp4"></video>
+        
+        <!-- অথবা HLS স্ট্রিম -->
+        <video src="https://example.com/video.m3u8"></video>
+    </div>
+
+    <script>
+        const player = new OrbitPlayer('video', {
+            theme: 'dark',
+            autoplay: false
+        });
+    </script>
+</body>
+</html>
