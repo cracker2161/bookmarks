@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Orbit Player</title>
-    <link href="https://bookmarks-web.netlify.app/live/orbit-player/orbit-player.css" rel="stylesheet">
-    <script src="https://bookmarks-web.netlify.app/live/orbit-player/orbit-player.js"></script>
+    <title>Orbit Player Demo</title>
+    <link href="https://bookmarks-web.netlify.app/live/orbit-player/orbit-player.min.css" rel="stylesheet">
+    <script src="https://bookmarks-web.netlify.app/live/orbit-player/orbit-player.min.js"></script>
 </head>
 <body>
     <div style="max-width: 800px; margin: 40px auto;">
-        <!-- সাধারণ ভিডিও -->
-        <video src="video.mp4"></video>
-        
-        <!-- অথবা HLS স্ট্রিম -->
-        <video src="https://livemtaasia.akamaized.net/hls/live/2039224/mta6asia/playlist.m3u8"></video>
+        <video src="https://pull-cdnw.anystream.uk/live/cf46c8b0018c10009acded4c00000000/playlist.m3u8" poster="https://i.ibb.co/T2hv9LX/1000023065.webp"></video>
     </div>
 
     <script>
         const player = new OrbitPlayer('video', {
-            theme: 'dark',
-            autoplay: true
+            theme: 'modern-dark',
+            autoplay: false,
+            title: 'My Awesome Video',
+            quality: 'auto',
+            speed: 1,
+            volume: 1,
+            muted: false,
+            loop: false,
+            keyboard: true,
+            tooltips: true,
+            captions: [
+                {
+                    label: 'English',
+                    srclang: 'en',
+                    src: 'captions-en.vtt'
+                }
+            ]
         });
     </script>
 </body>
