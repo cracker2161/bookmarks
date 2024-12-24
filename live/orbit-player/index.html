@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Video Player</title>
-    <!-- Orbit Player CSS -->
+    <title>Orbit Video Player</title>
     <link rel="stylesheet" href="orbit-player.min.css">
-    <!-- Orbit Player JS -->
     <script src="orbit-player.min.js"></script>
 </head>
 <body>
-    <!-- প্লেয়ার কনটেইনার -->
     <div style="max-width: 800px; margin: 40px auto;">
-        <!-- ভিডিও এলিমেন্ট -->
         <video src="https://pull-cdnw.anystream.uk/live/cf46c8b0018c10009acded4c00000000/playlist.m3u8"></video>
-        
-        <!-- অথবা HLS স্ট্রিম -->
-        <!-- <video src="https://example.com/video.m3u8"></video> -->
     </div>
 
     <script>
-        // প্লেয়ার ইনিশিয়ালাইজ
-        const player = new OrbitPlayer('video', {
-            autoplay: false,
-            muted: false,
-            controls: true
-        });
+        const player = new OrbitPlayer('video');
     </script>
 </body>
 </html>
