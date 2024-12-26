@@ -1,31 +1,30 @@
 [
     {
-        "title": "Premium Sports Package",
-        "category": "Sports",
-        "image": "https://example.com/sports.jpg",
+        "title": "Premium Smart 4k",
+        "category": "TV Channels",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcbVJj8tA2C5k8df5Ff3XzY4A6GErmJ4mO4w&usqp=CAU",
         "updateDate": "2024-12-25",
-        "expireDate": "2025-01-25",
-        "channels": "500+ Channels",
-        "quality": "FHD/4K",
-        "url": "https://example.com/sports.m3u",
+        "expireDate": "Unknown",
+        "channels": "585+ Channels",
+        "quality": "HD/FHD",
+        "url": "https://bookmarks-web.netlify.app/live/smart_4k.m3u",
         "credits": {
-            "creator": "John Doe",
-            "updater": "Jane Smith"
+            "creator": "Rebron",
+            "updater": "Sultan Arabi"
         }
     },
     {
-        "title": "Movies & Series Collection",
-        "category": "Movies",
-        "image": "https://example.com/movies.jpg",
-        "updateDate": "2024-12-24",
-        "expireDate": "2025-01-24",
-        "channels": "1000+ Titles",
-        "quality": "4K UHD",
-        "url": "https://example.com/movies.m3u",
+        "title": "Woods http playlist",
+        "category": "Live TV",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvin5VVCqfkET5yO0evdijX0L5FFA8kf68Gg&usqp=CAU",
+        "updateDate": "2024-12-26",
+        "expireDate": "16-01-2024",
+        "channels": "295 Channels",
+        "quality": "HD",
+        "url": "https://bookmarks-web.netlify.app/live/woods_playlists.m3u",
         "credits": {
-            "creator": "Mike Johnson",
-            "updater": "Sarah Wilson"
+            "creator": "woods",
+            "updater": "Sultan Arabi"
         }
     }
 ]
-
