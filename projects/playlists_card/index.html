@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium M3U Playlist Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+
+        /* Loader Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--background-color);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 24px;
+        }
+
+        /* Desktop Menu */
+        .desktop-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .desktop-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .desktop-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--primary-color);
+            padding: 1rem;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-bar:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 100px auto 2rem;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        /* Category Pills */
+        .category-pills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .category-pill {
+            padding: 0.6rem 1.2rem;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-pill:hover,
+        .category-pill.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Playlist Grid */
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .playlist-card {
+            background: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .playlist-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .playlist-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .playlist-info {
+            padding: 1.5rem;
+        }
+
+        .playlist-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .playlist-meta {
+            display: grid;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .playlist-credits {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .credit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .credit-item i {
+            color: var(--primary-color);
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: fadeInOut 3s ease;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            10% { opacity: 1; transform: translate(-50%, 0); }
+            90% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+                margin-top: 80px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .category-pills {
+                overflow-x: auto;
+                padding-bottom: 1rem;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-play-circle"></i>
+                M3U Premium
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="desktop-menu">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-th-large"></i> Categories</a>
+                <a href="#"><i class="fas fa-star"></i> Premium</a>
+                <a href="#"><i class="fas fa-info-circle"></i> Guide</a>
+                <a href="#"><i class="fas fa-headset"></i> Support</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-th-large"></i> Categories</a>
+            <a href="#"><i class="fas fa-star"></i> Premium</a>
+            <a href="#"><i class="fas fa-info-circle"></i> Guide</a>
+            <a href="#"><i class="fas fa-headset"></i> Support</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="section-title">Premium Playlists</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search playlists...">
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills" id="categoryPills">
+            <button class="category-pill active">All</button>
+            <!-- Categories will be dynamically added here -->
+        </div>
+
+        <!-- Playlist Grid -->
+        <div class="playlist-grid" id="playlistGrid">
+            <!-- Playlists will be dynamically added here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About M3U Premium</h3>
+                <p>Your ultimate destination for premium M3U playlists. We provide high-quality, regularly updated playlists for all your streaming needs.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Premium Access</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Sports Channels</a></li>
+                    <li><a href="#">Movie Channels</a></li>
+                    <li><a href="#">TV Series</a></li>
+                    <li><a href="#">News Channels</a></li>
+                    <li><a href="#">Kids Content</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> support@m3upremium.com</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> New York, NY 10012</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            JSON_URL: 'https://bookmarks-web.netlify.app/live/playlists_card.json', // Replace with your actual JSON URL
+            DEFAULT_IMAGE: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"%3E%3Crect width="300" height="200" fill="%23f0f0f0"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="14" fill="%23666"%3ENo Image Available%3C/text%3E%3C/svg%3E'
+        };
+
+        // Global variables
+        let playlists = [];
+        let categories = new Set(['All']);
+
+        // Utility functions
+        function showLoader() {
+            document.getElementById('loader').style.display = 'flex';
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Fetch playlists from JSON
+        async function fetchPlaylists() {
+            showLoader();
+            try {
+                const response = await fetch(CONFIG.JSON_URL);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                playlists = await response.json();
+                
+                // Extract unique categories
+                playlists.forEach(playlist => {
+                    if (playlist.category) {
+                        categories.add(playlist.category);
+                    }
+                });
+                
+                // Initialize categories and playlists
+                updateCategoryPills();
+                createPlaylistCards(playlists);
+            } catch (error) {
+                console.error('Error fetching playlists:', error);
+                showToast('Failed to load playlists. Please try again later.', 'error');
+            } finally {
+                hideLoader();
+            }
+        }
+
+        // Update category pills
+        function updateCategoryPills() {
+            const categoryPills = document.getElementById('categoryPills');
+            categoryPills.innerHTML = '';
+            
+            categories.forEach(category => {
+                const pill = document.createElement('button');
+                pill.className = 'category-pill';
+                pill.textContent = category;
+                if (category === 'All') pill.classList.add('active');
+                
+                pill.addEventListener('click', () => filterPlaylists(category));
+                categoryPills.appendChild(pill);
+            });
+        }
+
+        // Create playlist cards
+        function createPlaylistCards(playlistsToShow) {
+            const playlistGrid = document.getElementById('playlistGrid');
+            playlistGrid.innerHTML = '';
+            
+            if (playlistsToShow.length === 0) {
+                playlistGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 3rem; color: var(--text-secondary);"></i>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">No playlists found</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            playlistsToShow.forEach(playlist => {
+                const card = document.createElement('div');
+                card.className = 'playlist-card';
+                
+                card.innerHTML = `
+                    <span class="playlist-category">${playlist.category}</span>
+                    <img src="${playlist.image || CONFIG.DEFAULT_IMAGE}" alt="${playlist.title}" class="playlist-image" onerror="this.src='${CONFIG.DEFAULT_IMAGE}'">
+                    <div class="playlist-info">
+                        <h3 class="playlist-title">${playlist.title}</h3>
+                        <div class="playlist-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Updated: ${playlist.updateDate}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Expires: ${playlist.expireDate}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tv"></i>
+                                <span>${playlist.channels}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-video"></i>
+                                <span>${playlist.quality}</span>
+                            </div>
+                        </div>
+                        <div class="playlist-credits">
+                            <div class="credit-item">
+                                <i class="fas fa-user"></i>
+                                <span>Created by: ${playlist.credits?.creator || 'Anonymous'}</span>
+                            </div>
+                            <div class="credit-item">
+                                <i class="fas fa-sync"></i>
+                                <span>Updated by: ${playlist.credits?.updater || 'Anonymous'}</span>
+                            </div>
+                        </div>
+                        <button class="copy-btn" onclick="copyPlaylistUrl('${playlist.url}')">
+                            <i class="fas fa-copy"></i>
+                            Copy M3U URL
+                        </button>
+                    </div>
+                `;
+                
+                playlistGrid.appendChild(card);
+            });
+        }
+
+        // Filter playlists by category
+        function filterPlaylists(category) {
+            const pills = document.querySelectorAll('.category-pill');
+            pills.forEach(pill => {
+                pill.classList.toggle('active', pill.textContent === category);
+            });
+            
+            const filtered = category === 'All' 
+                ? playlists 
+                : playlists.filter(playlist => playlist.category === category);
+            
+            createPlaylistCards(filtered);
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            let debounceTimer;
+            
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filtered = playlists.filter(playlist => 
+                        playlist.title.toLowerCase().includes(searchTerm) ||
+                        playlist.category.toLowerCase().includes(searchTerm)
+                    );
+                    createPlaylistCards(filtered);
+                }, 300);
+            });
+        }
+
+        // Copy playlist URL
+        function copyPlaylistUrl(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => showToast('Playlist URL copied successfully!'))
+                .catch(() => showToast('Failed to copy URL. Please try again.', 'error'));
+        }
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setupMobileMenu();
+            setupSearch();
+            fetchPlaylists();
+        });
+    </script>
+</body>
+</html>
