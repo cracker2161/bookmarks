@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Premium Sports Package",
+        "category": "Sports",
+        "image": "https://example.com/sports.jpg",
+        "updateDate": "2024-12-25",
+        "expireDate": "2025-01-25",
+        "channels": "500+ Channels",
+        "quality": "FHD/4K",
+        "url": "https://example.com/sports.m3u",
+        "credits": {
+            "creator": "John Doe",
+            "updater": "Jane Smith"
+        }
+    },
+    {
+        "title": "Movies & Series Collection",
+        "category": "Movies",
+        "image": "https://example.com/movies.jpg",
+        "updateDate": "2024-12-24",
+        "expireDate": "2025-01-24",
+        "channels": "1000+ Titles",
+        "quality": "4K UHD",
+        "url": "https://example.com/movies.m3u",
+        "credits": {
+            "creator": "Mike Johnson",
+            "updater": "Sarah Wilson"
+        }
+    }
+]
+
