@@ -1,0 +1,592 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="zeebanglahd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="BD: ZEE BANGLA (4K)." group-title="BANGLA",BD: ZEE BANGLA (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98881.m3u8
+#EXTINF:-1 tvg-id="colorsbanglahd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="BD: COLORS BANGLA (4K)." group-title="BANGLA",BD: COLORS BANGLA (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98882.m3u8
+#EXTINF:-1 tvg-id="jalshamovieshd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="BD: JALSHA MOVIES (4K)." group-title="BANGLA",BD: JALSHA MOVIES (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98884.m3u8
+#EXTINF:-1 tvg-id="starjalshahd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="BD: STAR JALSHA (4K)." group-title="BANGLA",BD: STAR JALSHA (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98883.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: CHANNEL I" group-title="BANGLA",BD: CHANNEL I
+http://starshare.org:8080/live/Woods1234/Woods1234/34665.m3u8
+#EXTINF:-1 tvg-id="zeebanglahd.in" tvg-logo="https://image.airtel.tv/MWTV/MWTV_LIVETVCHANNEL_770/PORTRAIT/USKY2MD6.png" tvg-name="BD: ZEE BANGLA HD" group-title="BANGLA",BD: ZEE BANGLA HD
+http://starshare.org:8080/live/Woods1234/Woods1234/435.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://2.bp.blogspot.com/-F2OnFmGiaec/VkF-kMn37wI/AAAAAAAACHU/GNdh7SToWjQ/s1600/bangla-vision.jpg" tvg-name="BD: BANGLA VISION" group-title="BANGLA",BD: BANGLA VISION
+http://starshare.org:8080/live/Woods1234/Woods1234/426.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACwCAMAAADudvHOAAAAzFBMVEUAgz/+/v7t7e3////s7Oz29vb6+vry8vLw7u/z8/P4+PgAejAAeTbU8OIAdjIAdS8AgDnV7+XF5tbN69zb7+XM4tYAfDNgq4IAfjQAfz4zkV/5//5apnzq8+4AfDrz//uw2MOKvJ9DmGme0Lbm9e6/4M8AgkUxkFyCv55tr4vg+O3x+vYki1" tvg-name="BD_NTV Bangla HD" group-title="BANGLA",BD_NTV Bangla HD
+http://starshare.org:8080/live/Woods1234/Woods1234/424.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.pinimg.com/originals/c6/63/b8/c663b8c78194a9d43844f3ec0007fc49.png" tvg-name="BD_RTV HD" group-title="BANGLA",BD_RTV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/401.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.pinimg.com/originals/84/9f/59/849f59af67ee6f8f136c4190af9c3e51.png" tvg-name="BD:Ekattor tv" group-title="BANGLA",BD:Ekattor tv
+http://starshare.org:8080/live/Woods1234/Woods1234/428.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBISFBcUEhUYFxcYGxcdGhgXFxcaHRsbGhgbGBoaFxobISwkGyApHhoaJTYlKS4wMzMzGiI5PjkyPSwyMzABCwsLEA4QHRISHjMqJCkyNDI8MjIyMjIyMjIyMjIyMjIwMjI1MjIyMjIyMjIyMjIyMjIyMjIyMDIyMjIyMjIyMv/AABEIALQBGAMBIgACEQEDEQH/x" tvg-name="BD_Somoy TV" group-title="BANGLA",BD_Somoy TV
+http://starshare.org:8080/live/Woods1234/Woods1234/422.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb8AAABxCAMAAAByWF0wAAAA+VBMVEX39/fqDhSEhoj+/v7+///////pAACChIbxDhT19fUADxGJi42en6Hr7Oxyc3WFiIomJCYFDQ93DxMTDxFJEBLygoT87u7qAAruQkb609T0j5H2rK7uS0/0lZf99vbuU1b3tLb6yMntLzTxcHP85eb3wMH1nJ7rGB3wZmj73N3yfX/sNDj6zs" tvg-name="BD_Independent TV" group-title="BANGLA",BD_Independent TV
+http://starshare.org:8080/live/Woods1234/Woods1234/423.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9f/DBC_News_logo.png" tvg-name="BD_DBC HD" group-title="BANGLA",BD_DBC HD
+http://starshare.org:8080/live/Woods1234/Woods1234/420.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/3/31/Deepto_TV_logo.png" tvg-name="BD:DEEPTO TV" group-title="BANGLA",BD:DEEPTO TV
+http://starshare.org:8080/live/Woods1234/Woods1234/1331.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: News 24 Tv" group-title="BANGLA",BD: News 24 Tv
+http://starshare.org:8080/live/Woods1234/Woods1234/3810.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Nagorik Tv HD" group-title="BANGLA",BD: Nagorik Tv HD
+http://starshare.org:8080/live/Woods1234/Woods1234/3802.m3u8
+#EXTINF:-1 tvg-id="starjalshahd.in" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/3/3c/Star_Jalsha_HD.png/revision/latest/scale-to-width-down/250?cb=20180908084350" tvg-name="BD : Star Jalsa HD" group-title="BANGLA",BD : Star Jalsa HD
+http://starshare.org:8080/live/Woods1234/Woods1234/198.m3u8
+#EXTINF:-1 tvg-id="colorsbanglahd.in" tvg-logo="https://thumbnail.imgbin.com/20/15/16/imgbin-colors-bangla-bengali-television-show-television-channel-nepalis-mMkyqFccg0kQacbaxGNmpXFFv_t.jpg" tvg-name="IN: Colors_Bengali_HD" group-title="BANGLA",IN: Colors_Bengali_HD
+http://starshare.org:8080/live/Woods1234/Woods1234/183.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="BD : SUN Bangla (4K)" group-title="BANGLA",BD : SUN Bangla (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/3753.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: ABP Ananda" group-title="BANGLA",BD: ABP Ananda
+http://starshare.org:8080/live/Woods1234/Woods1234/5436.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABZVBMVEX////9+/zcAAApc9b9/Pv///3aAAApc9f9///9+/3+/PveAAD///spctUpc9T7//8AaNIgb9YXbNTjAAAVa9Xz9fb69fT04OD00dH49/Tr7vIAZtPkWVinutokcMlBftI0d9XO2ek5edHi5+7cDxFrmN/v9PrgTEzv4+TcHBztj5D67Ozh1N" tvg-name="BD_Aakaash Aath" group-title="BANGLA",BD_Aakaash Aath
+http://starshare.org:8080/live/Woods1234/Woods1234/396.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhMUExIWFhUXGB0WFxcXGB4YHhgfGhshGR0aGBUaHSglGx0lGxsVITEhJSkrLi4uHR8zODMtNygvLisBCgoKDg0OGxAQGy0mICU1KzItLS0tMC0tLS0tMDUtLystLzUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAGMAhAMBIgACEQEDEQH/x" tvg-name="BD: TIME TV" group-title="BANGLA",BD: TIME TV
+http://starshare.org:8080/live/Woods1234/Woods1234/2882.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO8AAADTCAMAAABeFrRdAAABF1BMVEUAikT////UGB/SAAAAiEEAjETUFBzUEhrxwcLTDxjTAA8AgS8AiD/10tMzl1wAhjzVHSTTAAzXMDb22toAgzXaRkoAgCz++vrdABvsrq/utbb76uvyycrfaWzeYmXvurv88vLmjpD44uLie37gb3LdXWDrqKnjgoTXLjPzzM3pnZ/aSExqro" tvg-name="BD_BOISAKHI HD" group-title="BANGLA",BD_BOISAKHI HD
+http://starshare.org:8080/live/Woods1234/Woods1234/390.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExIWFhMVGRsbGBYWFxgfHxceGBkXGB4dGh4kHSggGB4mHxcYITMhJSkrLi4uGB8zOD8tNygtLi0BCgoKDg0OGxAQGy0lICYtLS83LS42Ly0tLS0wLS0tKy0tLS0tLS0tLS0vLS0vLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAIIBMQMBIgACEQEDEQH/x" tvg-name="BD_CHANNEL 24 HD" group-title="BANGLA",BD_CHANNEL 24 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/391.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Channel-i.svg/1200px-Channel-i.svg.png" tvg-name="BD_Channel I UK" group-title="BANGLA",BD_Channel I UK
+http://starshare.org:8080/live/Woods1234/Woods1234/392.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEX///8kQYr+//8hP4kAMIMALoIePYgVOIYbO4cAMYMRNoUKM4QAK4ETN4X5+/3v8vcAKYCLmLyYo8MtSY/n6/Lu8faSnsD19/q9xdni5u/J0OCAjrY9VZWirMlecKRre6pWaaC6wtcyTZF3hrFIXprZ3ukAJX/Q1uRGXJmyu9LHzd69xNlneK" tvg-name="BD_Channel S" group-title="BANGLA",BD_Channel S
+http://starshare.org:8080/live/Woods1234/Woods1234/393.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAABTVBMVEX////5tiocZED8/vsoKCfA1zcQnkr5tCP5rwD9/vz87MYlJST5tin5shcAAAD81ov70Xz6wVP89uT83KH7zXb/+/MgIB8gaD8aGhn82Za6urrW1davrq6ioaFfX17+9uj6vkU/Pz/19PQAWjEcYkAAVSkSEhDl5OQRXzn95boQoErHyMTPzs" tvg-name="BD_DESH TV" group-title="BANGLA",BD_DESH TV
+http://starshare.org:8080/live/Woods1234/Woods1234/394.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/ac/Mohona_Logo.JPG" tvg-name="BD_MOHONA TV" group-title="BANGLA",BD_MOHONA TV
+http://starshare.org:8080/live/Woods1234/Woods1234/397.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/e3/My_TV_Logo.png" tvg-name="BD_MY TV" group-title="BANGLA",BD_MY TV
+http://starshare.org:8080/live/Woods1234/Woods1234/398.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABmFBMVEXTGCD///+hI47tHCQtNpD0gSDQAADsAACdJI6bCYjXstDSABCXCInigIPavNb/yg2LKI+FKZCOKI+AKpB5K5B1K5CUJo/SDxlvLJHYRkppLZHea25jLZHtFh9cLpHsABLzdwBLDonn5O706vL84+TtCBX5xMX98PH01NUSIIn0ewPSAAv3sb" tvg-name="BD_AnandaTV" group-title="BANGLA",BD_AnandaTV
+http://starshare.org:8080/live/Woods1234/Woods1234/399.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/1f/News_Time_new_logo.png" tvg-name="BD_BANGLA TIMES" group-title="BANGLA",BD_BANGLA TIMES
+http://starshare.org:8080/live/Woods1234/Woods1234/402.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSExMWEhUXFRUVFRcYFxcYFhgVFRUXFhUXFRYYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy8lICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="BD_RPlusGold" group-title="BANGLA",BD_RPlusGold
+http://starshare.org:8080/live/Woods1234/Woods1234/403.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPDxEPERAQFRIPDw0QDg0NDQ8NDRAOFRIWFhURFRUYHSggGBolGxUTITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0lHyUtLS0tLS0tLS0rLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMkAyQMBIgACEQEDEQH/x" tvg-name="BD_DHOOM MUSIC" group-title="BANGLA",BD_DHOOM MUSIC
+http://starshare.org:8080/live/Woods1234/Woods1234/404.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAMAAAAt85rTAAABFFBMVEXaJR0fGhf///8AAADhJBsADwrfJR0YGhd1AADX29rN0dBsAAAdGBXlJh3YAAAcFhNVHBhQHBgNAADh4OD4+PjZHxbs6+tNHBgXEQ3ZGQ4UCwBJGxgUDQhQTUv++fnZFQctKCagnp3HxsX64+LiWlX87ez31tRyb27cMiv0xML99PPeQTuwr6" tvg-name="BD_Sangeet Bangali" group-title="BANGLA",BD_Sangeet Bangali
+http://starshare.org:8080/live/Woods1234/Woods1234/405.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBgVFBQYFBgYGhsbGhobGRsbGhsdGxwbGRobGhgbIS0kGx0qHxgYJTclKi4xNDQ0GiM6PzozPi0zNDEBCwsLEA8QHxISHzkrJCg+Mzk+NTk+NTw5PDUzMzUzMzMzMzM1MzM2MzMzMzMzNTM8MzMzMTM1MzMzMzMzMzwzM//AABEIAKIBNgMBIgACEQEDEQH/x" tvg-name="BD_Discovery_Channel_Bengali" group-title="BANGLA",BD_Discovery_Channel_Bengali
+http://starshare.org:8080/live/Woods1234/Woods1234/406.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEBUSExMWFRUVFxcVGBUYFxYYFhcXGBUWFhUXFRUYHSggGBolGxUVITEhJSkrLi4uFx80OTQtOCgtLisBCgoKDg0OGxAQGjgmICUwLS0tLS04LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALkBEAMBIgACEQEDEQH/x" tvg-name="BD_Bijoy Tv" group-title="BANGLA",BD_Bijoy Tv
+http://starshare.org:8080/live/Woods1234/Woods1234/408.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITERUSExIWFRUXFhcaGBYYFxcXFxgYFhkWGBUYGBcYHSggGBslGxUVIjEiJSkrLy4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0lICYyLS0tMC0tLS0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAN0A5AMBIgACEQEDEQH/x" tvg-name="BD_Rupashi bangla" group-title="BANGLA",BD_Rupashi bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/409.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExIVFhUXFRgYFxcXFxUdGhUXFhUXGBcXFhgaHSogGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy4lHyUvMDIvMC0tLzAtMC0vLS0tLTIvLS0tLzUtLS8tLS0tLS0vLS0tLS0tLS0tLS0tLS0tLf/AABEIAJsBRgMBIgACEQEDEQH/x" tvg-name="BD_ZEE CINMEA Bangali" group-title="BANGLA",BD_ZEE CINMEA Bangali
+http://starshare.org:8080/live/Woods1234/Woods1234/410.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PEw8NDQ8NDQ0NDQ8NDQ0NDQ8ODQ4NFhIXFxYSFhYZHykhGR4oHxYWIjQjJiosMC8xGSE1OjUuOSkuLywBCgoKDg0OFxAQGC4mHyYxLi4xLi4uLy4sLCwuLi4uLi4sLDkxLjAuLiwuNy4sLCwuLCwuLiwsLiwuLC4sLi4uLv/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="BD_Nexus TV" group-title="BANGLA",BD_Nexus TV
+http://starshare.org:8080/live/Woods1234/Woods1234/411.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/15/Sangsad_Television_Logo.jpg" tvg-name="BD_Songsad TV FHD" group-title="BANGLA",BD_Songsad TV FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/413.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEhUSEhIVFRUVFxUVFRUVFRUVFRUXFxUWFxUXFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQFy0mICUrLS0tKy0tLy8tLSstLS0tLSstLS0rLS0rKy0rLS0tKy8tLSsrLS0rLS0uLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="BD_DESHITV HD" group-title="BANGLA",BD_DESHITV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/414.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://lh3.googleusercontent.com/YQP7FBUcon-G5tN4gern0sAs9cxredbeDG7UTnSHgau39W6v9v7MToQiRE4mVM9JYzg" tvg-name="BD_Jamuna TV" group-title="BANGLA",BD_Jamuna TV
+http://starshare.org:8080/live/Woods1234/Woods1234/421.m3u8
+#EXTINF:-1 tvg-id="jalshamovieshd.in" tvg-logo="https://w7.pngwing.com/pngs/535/809/png-transparent-jalsha-movies-star-jalsha-television-show-star-india-sitarhd-purple-television-logo.png" tvg-name="BD: STAR JALSHA MOVIES FHD" group-title="BANGLA",BD: STAR JALSHA MOVIES FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/425.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAACeVBMVEX////+0AAAXiL6AAEBATX//f/9AAL///70AAABATP/0QH//f4AAAD///z/+//3AAD/7+bmAAAAACoCAi8AABv6//8AACfhAADXNjSenq//zQD///jvAADXAADdbmDXDRMbAAD60w3FzcnOAAAAACQAABcAAB5oUQDTtCPm5u/tpp7z//8AYS" tvg-name="BD: ATN NEWS HD" group-title="BANGLA",BD: ATN NEWS HD
+http://starshare.org:8080/live/Woods1234/Woods1234/427.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Boishakhi_TV_logo.svg/1200px-Boishakhi_TV_logo.svg.png" tvg-name="BD: BOISAKHI HD" group-title="BANGLA",BD: BOISAKHI HD
+http://starshare.org:8080/live/Woods1234/Woods1234/429.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABg1BMVEXwAADt7e3+/v7////xAADw8PD19fX7+/v09PT4+PjmAAD//f7tAADbAADt7e7s7u3iAAD/3d3dAADVAAD/7+7/6usiAAAeAADFNTYnAAD/3t3y7OwrAAAjAAD36+v/5OToZGXpWlwtAAD/9fU8AABHAADoNDXztLTNAAAYAAA0AABBAADIAA" tvg-name="BD: ASIAN TV" group-title="BANGLA",BD: ASIAN TV
+http://starshare.org:8080/live/Woods1234/Woods1234/430.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEBUQEhAVFhUVFRUVFxcXFREVFxUVGBUXFxUYFRUYHSggGBonHRYXJTEhJSkrLi4uGB8zODMsNygtLisBCgoKDg0OGxAQGy8lICYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKMBNgMBIgACEQEDEQH/x" tvg-name="BD: ATN BANGLA" group-title="BANGLA",BD: ATN BANGLA
+http://starshare.org:8080/live/Woods1234/Woods1234/431.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://static.wikia.nocookie.net/international-entertainment-project/images/0/0a/Duronto.jpg/revision/latest?cb=20190624161303" tvg-name="BD_Duronto TV HD" group-title="BANGLA",BD_Duronto TV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/433.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAADNCAMAAAC8cX2UAAAAw1BMVEVlLIr+/v7t7e3////s7Oz39/f6+vr9/f3y8vLx8fH4+PhjKIllLIljJ4liJ4j//P9eH4VdGoT/+v/z7vVZFYBwQY11R5NfIYXy7fWKZqHz8vWkiLZbG3/58fzs5vB3TpO6pMiVc6rUxN1oNIiGYJ+tk71sOozHtNKxmr9dIX92S5Lk2eqCXJ" tvg-name="BD_Channel 9 HD" group-title="BANGLA",BD_Channel 9 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/434.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASDxUSEBIVFRUVFRUVFhcVFRcWFxUWFxUXFhUXFhUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGyslHx8tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBLQMBIgACEQEDEQH/x" tvg-name="BD: Gazi TV HD" group-title="BANGLA",BD: Gazi TV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/767.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExAVFhUWFxAVFxgYFRcVFhcVFxUXGBcWFRUbHiggGBolGxUVITEhJSkrLi4uFx80OTQtOCgtLisBCgoKDg0OGxAQGy8lICYvKy0tLS0tLi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMcA/gMBIgACEQEDEQH/x" tvg-name="BD : BTV BD" group-title="BANGLA",BD : BTV BD
+http://starshare.org:8080/live/Woods1234/Woods1234/998.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABR1BMVEX///8NkhLxNw4AjgAAiwAAkQD+//0JlQwAjgj7//9PqVH3/fmDv3wNkw79+/3k8eN9uX7Z6dnz+fAjnC4RkBdtsW79/PZpsmQAlADyLgDtemoAiADyi3n/+v/k6ubr9vj48vDC3sI+n0G62raRy5T99P3w9PEAggDz9PY4pUH///Z/xJH0SS" tvg-name="BD: iTV" group-title="BANGLA",BD: iTV
+http://starshare.org:8080/live/Woods1234/Woods1234/999.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMNDxMODhITFhATECAWEBUQFhsUFxsWFxUWFhYaEyAdKCgsHSYlJxUVITEhJikrLi4uFx8zODMtNygtLisBCgoKDQ0OGxAPGjMlHyUzLzc4LC0rLSs3NzcwNzQsMCs1LC8vLi0tKys3Ny0uNzcrKzcrNzc3KysrKysrLSsrK//AABEIAHgAvgMBIgACEQEDEQH/x" tvg-name="BD : NRB TV" group-title="BANGLA",BD : NRB TV
+http://starshare.org:8080/live/Woods1234/Woods1234/1000.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/3/31/Deepto_TV_logo.png" tvg-name="BD: Deepto" group-title="BANGLA",BD: Deepto
+http://starshare.org:8080/live/Woods1234/Woods1234/1034.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxERERAOERASEBEQEA4RDhERDhEREQ4SFhIYFxYWGBYZHioiGRspHBQXIzMjJysuMTAwGCE2O0I7RiovMC0BCwsLDw4PGxERHC8oIicvLS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIAMgAyAMBIgACEQEDEQH/x" tvg-name="BD: TIMES24 TV FHD" group-title="BANGLA",BD: TIMES24 TV FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/1035.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/3/39/Maasranga_Television_Logo.jpg" tvg-name="BD: Maasranga TV" group-title="BANGLA",BD: Maasranga TV
+http://starshare.org:8080/live/Woods1234/Woods1234/1036.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABC1BMVEX///8CSpABSpADSpDIICcARpAASZEAR5AASI8ARI/7/f4AQo0AS5MARY7z9/r3+vzk7PQARZPt8vcAPo1Ca6SYss/e6PEAPItUg7PW4OsAPosAUpgOWZwAOIkAVJkAT5e1x9vN2ufKHyTD0uKoudE8dat9nsKNrMtIcqueudOvwthslL69zu" tvg-name="BD: DESHE BIDESHE" group-title="BANGLA",BD: DESHE BIDESHE
+http://starshare.org:8080/live/Woods1234/Woods1234/2883.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUREhIWFhUXFRcVGBUYFxcYFRoVFxgXGBUXGBgZHSggGRolHR4XITEhJSorLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGjIlHyUtLTcuLS0tKy0wKy0rNzctLS0tLS0wLS0tLi0tLS0tLS0tLS0tLS0tLS0rLS0tLS0tLf/AABEIAKgBLQMBIgACEQEDEQH/x" tvg-name="BD: TV9Bangla" group-title="BANGLA",BD: TV9Bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/2885.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: RTV Music" group-title="BANGLA",BD: RTV Music
+http://starshare.org:8080/live/Woods1234/Woods1234/3799.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: ATN Bangla uk" group-title="BANGLA",BD: ATN Bangla uk
+http://starshare.org:8080/live/Woods1234/Woods1234/3800.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: enter 10 bangla HD" group-title="BANGLA",BD: enter 10 bangla HD
+http://starshare.org:8080/live/Woods1234/Woods1234/3801.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Bangla Tv" group-title="BANGLA",BD: Bangla Tv
+http://starshare.org:8080/live/Woods1234/Woods1234/3803.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Tv9 bangla" group-title="BANGLA",BD: Tv9 bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/3804.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Gaan Bangla" group-title="BANGLA",BD: Gaan Bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/3812.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD : KHUSHBOO TV HD" group-title="BANGLA",BD : KHUSHBOO TV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/3808.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD : News 18 Bangla" group-title="BANGLA",BD : News 18 Bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/3811.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD : ETV TV" group-title="BANGLA",BD : ETV TV
+http://starshare.org:8080/live/Woods1234/Woods1234/3813.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: SA Tv" group-title="BANGLA",BD: SA Tv
+http://starshare.org:8080/live/Woods1234/Woods1234/3814.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Sristy_TV" group-title="BANGLA",BD: Sristy_TV
+http://starshare.org:8080/live/Woods1234/Woods1234/3817.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD : BTvChattogram" group-title="BANGLA",BD : BTvChattogram
+http://starshare.org:8080/live/Woods1234/Woods1234/3818.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: calcutta News" group-title="BANGLA",BD: calcutta News
+http://starshare.org:8080/live/Woods1234/Woods1234/3819.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: DD Bangla" group-title="BANGLA",IN: DD Bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/4049.m3u8
+#EXTINF:-1 tvg-id="sonyaath.in" tvg-logo="" tvg-name="IN: SONY Aath" group-title="BANGLA",IN: SONY Aath
+http://starshare.org:8080/live/Woods1234/Woods1234/4083.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: GlobalTv_HD" group-title="BANGLA",BD: GlobalTv_HD
+http://starshare.org:8080/live/Woods1234/Woods1234/4231.m3u8
+#EXTINF:-1 tvg-id="starjalshahd.in" tvg-logo="" tvg-name="BD: Star Jalsa (HD)" group-title="BANGLA",BD: Star Jalsa (HD)
+http://starshare.org:8080/live/Woods1234/Woods1234/8540.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Travelxp HD (BANGLA)" group-title="BANGLA",IN: Travelxp HD (BANGLA)
+http://starshare.org:8080/live/Woods1234/Woods1234/20622.m3u8
+#EXTINF:-1 tvg-id="starjalshahd.in" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/4/4e/Star_Jalsha_2019.png/revision/latest/scale-to-width-down/340?cb=20190224050806" tvg-name="BD: Star Jalsha (FHD)" group-title="BANGLA",BD: Star Jalsha (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23218.m3u8
+#EXTINF:-1 tvg-id="jalshamovieshd.in" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/0/04/Jalsha_Movies_HD.png/revision/latest/scale-to-width-down/340?cb=20190806073703" tvg-name="BD: JALSHA MOVIES (FHD)" group-title="BANGLA",BD: JALSHA MOVIES (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23304.m3u8
+#EXTINF:-1 tvg-id="zeebanglahd.in" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEhAQEBAQEBAREBAVEBYSEA8QDxAQGBIWFxUSFRYYHSogGBolGxMTIT0hMS4rLi4uGB8zRD8sNyotLisBCgoKDg0OGhAQGzYiICYtLTUvLS83LS8vLy8vLi0tNyswNi0tLS0wLS0vLi0tLTAtLS0tLS0tLTctLS0tLS0vLf/AABEIAMIBAwMBEQACEQEDEQH/x" tvg-name="BD: ZEE BANGLA (FHD)" group-title="BANGLA",BD: ZEE BANGLA (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23305.m3u8
+#EXTINF:-1 tvg-id="colorsbanglahd.in" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDw0NDQ8NDw0PDw8NDQ0NDw8ODQ4NFREWFhURFRUYHSggGBolGxUVIjEhJSkrLi4uFyMzODMsNygtLisBCgoKDg0OGxAQGzAlICUwNS0vLTgtLy0tLS01Ly4tLS8tLy0rLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBKwMBEQACEQEDEQH/x" tvg-name="BD: COLORS BANGLA (FHD)" group-title="BANGLA",BD: COLORS BANGLA (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23306.m3u8
+#EXTINF:-1 tvg-id="tsbanglacinema.in" tvg-logo="" tvg-name="BD: ZEE BANGLA CINEMA" group-title="BANGLA",BD: ZEE BANGLA CINEMA
+http://starshare.org:8080/live/Woods1234/Woods1234/49615.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Zee24Ghanta" group-title="BANGLA",BD: Zee24Ghanta
+http://starshare.org:8080/live/Woods1234/Woods1234/144510.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: GreenTv" group-title="BANGLA",BD: GreenTv
+http://starshare.org:8080/live/Woods1234/Woods1234/257227.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Color Bangla Cinema" group-title="BANGLA",BD: Color Bangla Cinema
+http://starshare.org:8080/live/Woods1234/Woods1234/271038.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: 24 Ghanta SD" group-title="BANGLA",BD: 24 Ghanta SD
+http://starshare.org:8080/live/Woods1234/Woods1234/355540.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="BD: Republic Bangla" group-title="BANGLA",BD: Republic Bangla
+http://starshare.org:8080/live/Woods1234/Woods1234/376278.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Sony_Yay_Hindi" group-title="KIDS",IN: Sony_Yay_Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/204.m3u8
+#EXTINF:-1 tvg-id="nick.in" tvg-logo="" tvg-name="IN:  Nick_Hindi" group-title="KIDS",IN:  Nick_Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/205.m3u8
+#EXTINF:-1 tvg-id="nickjrin.in" tvg-logo="" tvg-name="IN: Nick_Junior" group-title="KIDS",IN: Nick_Junior
+http://starshare.org:8080/live/Woods1234/Woods1234/206.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: sonic_Hindi" group-title="KIDS",IN: sonic_Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/207.m3u8
+#EXTINF:-1 tvg-id="discoverykids.in" tvg-logo="" tvg-name="IN: Discovery_Kids_1" group-title="KIDS",IN: Discovery_Kids_1
+http://starshare.org:8080/live/Woods1234/Woods1234/208.m3u8
+#EXTINF:-1 tvg-id="nickhdplus.in" tvg-logo="" tvg-name="IN: Nick+ FHD" group-title="KIDS",IN: Nick+ FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/7438.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="Kids: Hungama" group-title="KIDS",Kids: Hungama
+http://starshare.org:8080/live/Woods1234/Woods1234/18456.m3u8
+#EXTINF:-1 tvg-id="disneychannel.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: Disney Channel (4K)" group-title="KIDS",IN: Disney Channel (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/19741.m3u8
+#EXTINF:-1 tvg-id="cartoonnetworkhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: CN HD + (4K)" group-title="KIDS",IN: CN HD + (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/117177.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://lh3.googleusercontent.com/3X7b05ZLwxhP22j6HpWbfj_OKpw5sAYajyobCav-OWhMcew-nJlhQtVe9vVR7w8v3Q" tvg-name="PK: Islam Channel Urdu" group-title="ISLAMIC",PK: Islam Channel Urdu
+http://starshare.org:8080/live/Woods1234/Woods1234/92.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCxcVFhgVFxUZGRUZHR4fHRcVGR0ZIhUfGhggISAeIh4bHyghHx8nHx8dIjIjJyorLi4uHSEzPTItNigtLSsBDg4OEhASHhISHS0gHSUtLS0rLS03Ny0rLS0tLS0tLS0tLS02LS0tLSstLS0tLS0tLS01Ni0tKi0qLSoqNi0qLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK : MADANI CHANNEL" group-title="ISLAMIC",PK : MADANI CHANNEL
+http://starshare.org:8080/live/Woods1234/Woods1234/114.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCxYVFRgVFRYYGBgZGBYZHRoaGRgZGhkaHRcaGB4dGBgdHighGh0mHRcWIjIlJiorLi4uGSAzNzItNigtLS0BDg4OEg8QHRMTHS0dIR8tLS0tKy0tLS0tLSstLS0tLS0tLS0rLS0tLTctLSstNy03NyotKi0rLSoqKioqKjYtLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK : PEACE TV URDU" group-title="ISLAMIC",PK : PEACE TV URDU
+http://starshare.org:8080/live/Woods1234/Woods1234/115.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgjpcyKNwJOCfctshhAcRP3P19xeZ9IgBBcw&usqp=CAU" tvg-name="BD_IQRA BANGALI" group-title="ISLAMIC",BD_IQRA BANGALI
+http://starshare.org:8080/live/Woods1234/Woods1234/407.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.pinimg.com/originals/d6/63/47/d66347cc047d296446ac082ecd846478.png" tvg-name="PK : Makkah Live HD" group-title="ISLAMIC",PK : Makkah Live HD
+http://starshare.org:8080/live/Woods1234/Woods1234/1081.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/Karbala_tv.jpg" tvg-name="Karbala Live 1" group-title="ISLAMIC",Karbala Live 1
+http://starshare.org:8080/live/Woods1234/Woods1234/4979.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/Karbala_tv.jpg" tvg-name="Karbala Live 2" group-title="ISLAMIC",Karbala Live 2
+http://starshare.org:8080/live/Woods1234/Woods1234/4980.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/Karbala_tv.jpg" tvg-name="Karbala Live 4" group-title="ISLAMIC",Karbala Live 4
+http://starshare.org:8080/live/Woods1234/Woods1234/4982.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/Karbala_tv.jpg" tvg-name="Karbala Live 5" group-title="ISLAMIC",Karbala Live 5
+http://starshare.org:8080/live/Woods1234/Woods1234/4983.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/63/Karbala_tv.jpg" tvg-name="Karbala Live 6" group-title="ISLAMIC",Karbala Live 6
+http://starshare.org:8080/live/Woods1234/Woods1234/4984.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.pinimg.com/originals/d6/63/47/d66347cc047d296446ac082ecd846478.png" tvg-name="MAKKAH TV" group-title="ISLAMIC",MAKKAH TV
+http://starshare.org:8080/live/Woods1234/Woods1234/25079.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://www.logolynx.com/images/logolynx/7b/7b218f1f5bac379a2f3d83b0a048e099.jpeg" tvg-name="PK: PEACE TV (ENGLISH)" group-title="ISLAMIC",PK: PEACE TV (ENGLISH)
+http://starshare.org:8080/live/Woods1234/Woods1234/122766.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="Quran TV: مشاري راشد العفاسي أذكار الصباح" group-title="ISLAMIC",Quran TV: مشاري راشد العفاسي أذكار الصباح
+http://starshare.org:8080/live/Woods1234/Woods1234/319530.m3u8
+#EXTINF:-1 tvg-id="sonyhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: SONY (4K)." group-title="INDIA ENTERTAINMENT",IN: SONY (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98854.m3u8
+#EXTINF:-1 tvg-id="sonysabhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: SONY SAB (4K)." group-title="INDIA ENTERTAINMENT",IN: SONY SAB (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98853.m3u8
+#EXTINF:-1 tvg-id="starbharathd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR BHARAT (4K)." group-title="INDIA ENTERTAINMENT",IN: STAR BHARAT (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98855.m3u8
+#EXTINF:-1 tvg-id="sonyhd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/de/Sony_TV_new.png" tvg-name="IN: SONY (FHD)" group-title="INDIA ENTERTAINMENT",IN: SONY (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9365.m3u8
+#EXTINF:-1 tvg-id="starplushd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d7/StarPlus_Logo.png" tvg-name="IN: STAR PLUS FHD" group-title="INDIA ENTERTAINMENT",IN: STAR PLUS FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/167.m3u8
+#EXTINF:-1 tvg-id="colorshd.in" tvg-logo="https://i.ibb.co/KVxN2ZN/Colors-HD.png" tvg-name="IN: COLORS FHD" group-title="INDIA ENTERTAINMENT",IN: COLORS FHD
+http://starshare.org:8080/live/Woods1234/Woods1234/195.m3u8
+#EXTINF:-1 tvg-id="starbharathd.in" tvg-logo="https://multireach.in/wp-content/uploads/2023/04/STAR-BHARAT-HD.png" tvg-name="IN: STAR BHARAT (FHD)" group-title="INDIA ENTERTAINMENT",IN: STAR BHARAT (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9367.m3u8
+#EXTINF:-1 tvg-id="sonysabhd.in" tvg-logo="https://i.ibb.co/Ns8hynf/Sony-Sab-new.png" tvg-name="IN: SAB (FHD)" group-title="INDIA ENTERTAINMENT",IN: SAB (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9368.m3u8
+#EXTINF:-1 tvg-id="andtvhd.in" tvg-logo="https://i.ibb.co/QKh19yZ/512x512bb-1.png" tvg-name="IN: &TV (FHD)" group-title="INDIA ENTERTAINMENT",IN: &TV (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9369.m3u8
+#EXTINF:-1 tvg-id="zeetvhd.in" tvg-logo="https://image.airtel.tv/MWTV/MWTV_LIVETVCHANNEL_446/PORTRAIT/CMqUe8No.png" tvg-name="IN: ZEE TV (FHD)" group-title="INDIA ENTERTAINMENT",IN: ZEE TV (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9371.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Zee Zest HD" group-title="INDIA ENTERTAINMENT",IN: Zee Zest HD
+http://starshare.org:8080/live/Woods1234/Woods1234/380446.m3u8
+#EXTINF:-1 tvg-id="colorshdplus1.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: Colors HD +1 (4K)" group-title="INDIA ENTERTAINMENT",IN: Colors HD +1 (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/382330.m3u8
+#EXTINF:-1 tvg-id="sonymaxhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: SONY MAX (4K)." group-title="INDIA HINDI MOVIES",IN: SONY MAX (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98857.m3u8
+#EXTINF:-1 tvg-id="andpictureshd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: &PICTURE (4K)." group-title="INDIA HINDI MOVIES",IN: &PICTURE (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98856.m3u8
+#EXTINF:-1 tvg-id="stargoldhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR GOLD (4K)." group-title="INDIA HINDI MOVIES",IN: STAR GOLD (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98858.m3u8
+#EXTINF:-1 tvg-id="zeecinemaindiahd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: ZEE CINEMA (4K)." group-title="INDIA HINDI MOVIES",IN: ZEE CINEMA (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98860.m3u8
+#EXTINF:-1 tvg-id="sonymaxhd.in" tvg-logo="http://geo-iptv.com/channels_icon_api/07547230daed982fcf56f85dccfb9617.png" tvg-name="IN: SONY MAX (FHD)" group-title="INDIA HINDI MOVIES",IN: SONY MAX (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9373.m3u8
+#EXTINF:-1 tvg-id="stargoldhd.in" tvg-logo="https://q7h8x4g8.stackpathcdn.com/wp-content/uploads/2016/01/Star_Gold.png" tvg-name="IN: Star GOLD (FHD)" group-title="INDIA HINDI MOVIES",IN: Star GOLD (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9375.m3u8
+#EXTINF:-1 tvg-id="stargoldselecthd.in" tvg-logo="https://i.ibb.co/qkgW1nd/c0a0c8607691347e22942f2b86473199.png" tvg-name="IN: Star Gold SELECT (FHD)" group-title="INDIA HINDI MOVIES",IN: Star Gold SELECT (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9376.m3u8
+#EXTINF:-1 tvg-id="zeecinemaindiahd.in" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/zee-cinema-white.png" tvg-name="IN: ZEE CINEMA HD" group-title="INDIA HINDI MOVIES",IN: ZEE CINEMA HD
+http://starshare.org:8080/live/Woods1234/Woods1234/230.m3u8
+#EXTINF:-1 tvg-id="colorscineplexhd.in" tvg-logo="https://curl.pk/img/u/0bd18c374b345d10f04ddb205756c3a04671.png" tvg-name="IN: Colors Cineplex (FHD)" group-title="INDIA HINDI MOVIES",IN: Colors Cineplex (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9378.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/bm9fqc8/Colors-Cineplex-Bollywood.png" tvg-name="IN: Colors Cineplex Bollywood" group-title="INDIA HINDI MOVIES",IN: Colors Cineplex Bollywood
+http://starshare.org:8080/live/Woods1234/Woods1234/37074.m3u8
+#EXTINF:-1 tvg-id="shemaroo.in" tvg-logo="https://i.ibb.co/vZX4Yh3/miniplex-fb.png" tvg-name="IN: MINIPLEX (FHD)" group-title="INDIA HINDI MOVIES",IN: MINIPLEX (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23427.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: &XPLOR (4K)" group-title="INDIA HINDI MOVIES",IN: &XPLOR (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/4082.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://d2h-wsc-media.s3.amazonaws.com/uploads/navigation/201804/movies-active-hd-bg_041218121205.png" tvg-name="IN: MOVIES ACTIVE HD D2H" group-title="INDIA HINDI MOVIES",IN: MOVIES ACTIVE HD D2H
+http://starshare.org:8080/live/Woods1234/Woods1234/7336.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/2SJhd6X/images.png" tvg-name="IN: MBC BOLLYWOOD (FHD)" group-title="INDIA HINDI MOVIES",IN: MBC BOLLYWOOD (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/20512.m3u8
+#EXTINF:-1 tvg-id="bflixmovies.in" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxEREBIQEhMWFhUVFhYWFxUVFxcXFRkXFxcYFhUXGRUYHTQgGBolHRUXITEhJSkrOi4uGCEzODMtNygtLisBCgoKDg0OGxAQGy4mHiUrMjg3LTAwNy0tLysvKy0wLy0tLS0tLi0tLzctKy0rLS0tLS0tLS0tLTUvLS0tLTAtLf/AABEIANMA7wMBIgACEQEDEQH/x" tvg-name="IN: B FLIX" group-title="INDIA HINDI MOVIES",IN: B FLIX
+http://starshare.org:8080/live/Woods1234/Woods1234/4081.m3u8
+#EXTINF:-1 tvg-id="zeecinemahdplusone.in" tvg-logo="" tvg-name="IN: Zee Cinema HD +1" group-title="INDIA HINDI MOVIES",IN: Zee Cinema HD +1
+http://starshare.org:8080/live/Woods1234/Woods1234/380449.m3u8
+#EXTINF:-1 tvg-id="starmovieshd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR MOVIE (4K)." group-title="INDIA ENGLISH MOVIES",IN: STAR MOVIE (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98842.m3u8
+#EXTINF:-1 tvg-id="andprivehd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: &PRIVE (4K)." group-title="INDIA ENGLISH MOVIES",IN: &PRIVE (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98840.m3u8
+#EXTINF:-1 tvg-id="sonypixhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: SONY PIX (4K)." group-title="INDIA ENGLISH MOVIES",IN: SONY PIX (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98846.m3u8
+#EXTINF:-1 tvg-id="zeecafehd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: ZEE CAFE (4K)." group-title="INDIA ENGLISH MOVIES",IN: ZEE CAFE (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98848.m3u8
+#EXTINF:-1 tvg-id="colorsinfinityhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: Colors INFINITY (4K)." group-title="INDIA ENGLISH MOVIES",IN: Colors INFINITY (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98879.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: AXN (4K)." group-title="INDIA ENGLISH MOVIES",IN: AXN (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98915.m3u8
+#EXTINF:-1 tvg-id="tlchdworld.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: TLC (4K)." group-title="INDIA ENGLISH MOVIES",IN: TLC (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98878.m3u8
+#EXTINF:-1 tvg-id="starmovieshd.in" tvg-logo="https://pluspng.com/img-png/star-movies-logo-png-star-movies-hd-star-movies-png-300.png" tvg-name="IN: STAR MOVIES HD" group-title="INDIA ENGLISH MOVIES",IN: STAR MOVIES HD
+http://starshare.org:8080/live/Woods1234/Woods1234/979.m3u8
+#EXTINF:-1 tvg-id="sonypixhd.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/f/fd/Sony_Pix_HD.png/revision/latest/scale-to-width-down/340?cb=20191203075048" tvg-name="IN: SONY PIX HD" group-title="INDIA ENGLISH MOVIES",IN: SONY PIX HD
+http://starshare.org:8080/live/Woods1234/Woods1234/147.m3u8
+#EXTINF:-1 tvg-id="andprivehd.in" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/c/c0/%26priv%C3%A9_hd.jpg/revision/latest/scale-to-width-down/340?cb=20200906062328" tvg-name="IN: & PRIVE HD" group-title="INDIA ENGLISH MOVIES",IN: & PRIVE HD
+http://starshare.org:8080/live/Woods1234/Woods1234/201.m3u8
+#EXTINF:-1 tvg-id="axnhd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3b/HBO2_logo.png" tvg-name="IN: HBO 2 HD" group-title="INDIA ENGLISH MOVIES",IN: HBO 2 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/185.m3u8
+#EXTINF:-1 tvg-id="andprivehd.in" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQDxIVFhAXFxUbGBYVFhgVGBoXFRcXGBgWFhgYHSggGBolHRgZITEhJSkrLi4uGR8zODMtNygtLisBCgoKDQ0NDg0NDisZFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAMIBAwMBIgACEQEDEQH/x" tvg-name="IN: & PRIVE (FHD)" group-title="INDIA ENGLISH MOVIES",IN: & PRIVE (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9379.m3u8
+#EXTINF:-1 tvg-id="sonypixhd.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/f/fd/Sony_Pix_HD.png/revision/latest/scale-to-width-down/340?cb=20191203075048" tvg-name="IN: SONY PIX (FHD)" group-title="INDIA ENGLISH MOVIES",IN: SONY PIX (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9381.m3u8
+#EXTINF:-1 tvg-id="starmovieshd.in" tvg-logo="https://pluspng.com/img-png/star-movies-logo-png-star-movies-hd-star-movies-png-300.png" tvg-name="IN: STAR MOVIES (FHD)" group-title="INDIA ENGLISH MOVIES",IN: STAR MOVIES (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9384.m3u8
+#EXTINF:-1 tvg-id="foxlifehd.in" tvg-logo="https://i.pinimg.com/originals/9b/4f/84/9b4f843fa6f7d9ab08b2fd9fe9f9457b.png" tvg-name="IN: STAR Life (FHD)" group-title="INDIA ENGLISH MOVIES",IN: STAR Life (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9387.m3u8
+#EXTINF:-1 tvg-id="colorsinfinityhd.in" tvg-logo="https://www.tvchannelpricelist.com/wp-content/uploads/channels-logo-300/tv18-colors-infinity-hd-logo-300x300.jpg" tvg-name="IN: Colors INFINITY (FHD)" group-title="INDIA ENGLISH MOVIES",IN: Colors INFINITY (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9390.m3u8
+#EXTINF:-1 tvg-id="comedycentralhd.in" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAADACAMAAAA+71YtAAAAflBMVEX///8AAABeXl51dXWJiYnb29u4uLjp6ekgICCVlZUjIyPy8vL6+vo0NDT29vbm5uaDg4OlpaWenp6Pj4/Z2dnHx8dGRkbT09N3d3fJycm1tbWsrKyXl5dWVlYICAiLi4s8PDxlZWUXFxdQUFAsLCxCQkJtbW03NzcSEhJjY2Od99SIAAAQLE" tvg-name="IN: COMEDY-CENTRAL (FHD)" group-title="INDIA ENGLISH MOVIES",IN: COMEDY-CENTRAL (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/23429.m3u8
+#EXTINF:-1 tvg-id="comedycentralhd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/24/Comedy_central_hd-630x355.png" tvg-name="IN: COMEDY CENTRAL HD" group-title="INDIA ENGLISH MOVIES",IN: COMEDY CENTRAL HD
+http://starshare.org:8080/live/Woods1234/Woods1234/186.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Rock_Entertainment.png/1200px-Rock_Entertainment.png" tvg-name="IN: Rock Entertainment HD" group-title="INDIA ENGLISH MOVIES",IN: Rock Entertainment HD
+http://starshare.org:8080/live/Woods1234/Woods1234/152370.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT8AAACeCAMAAABzT/1mAAAA6lBMVEX+/v7t7e0iHh/scjP////s7Oz4+Pj09PT7+/vw8PD29vby8vLtcTEAAADtcTDsbisIAAAUDg/jbC323cn76duCgIHrnnkbFxj///mJh4gMAgako6Tl5eXV1NVTUVKwr7DxsZHpkWTx0bn89/Hih1rEwsP3zbb/9+vngk/fdkAXEhM9OjvMy8" tvg-name="IN: HBO Hits HD" group-title="INDIA ENGLISH MOVIES",IN: HBO Hits HD
+http://starshare.org:8080/live/Woods1234/Woods1234/152372.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://www.nicepng.com/png/detail/223-2236107_hbo-go-logo-png-hbo-3-hd.png" tvg-name="IN: HBO HD" group-title="INDIA ENGLISH MOVIES",IN: HBO HD
+http://starshare.org:8080/live/Woods1234/Woods1234/152373.m3u8
+#EXTINF:-1 tvg-id="moviesnowhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: Movies Now (4K)" group-title="INDIA ENGLISH MOVIES",IN: Movies Now (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/152387.m3u8
+#EXTINF:-1 tvg-id="moviesnow.in" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYSFRgVFhYYEhgZFRYcHBQaEhYVGBkVGBgaHRoVGhgcIS4lHB4rHxgZJjgmKy8xNTY1GiQ7QDs0Py40NTEBDAwMEA8QHxISHjUhJCQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0P//AABEIAKUBMQMBIgACEQEDEQH/x" tvg-name="IN: Movies Now SD" group-title="INDIA ENGLISH MOVIES",IN: Movies Now SD
+http://starshare.org:8080/live/Woods1234/Woods1234/152388.m3u8
+#EXTINF:-1 tvg-id="starsports1hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR SPORTS 1 (4K)." group-title="INDIA SPORTS",IN: STAR SPORTS 1 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98864.m3u8
+#EXTINF:-1 tvg-id="starsports2hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR SPORTS 2 (4K)." group-title="INDIA SPORTS",IN: STAR SPORTS 2 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98865.m3u8
+#EXTINF:-1 tvg-id="starsports1hdhindi.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR SPORTS 1 HINDI (4K)." group-title="INDIA SPORTS",IN: STAR SPORTS 1 HINDI (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98866.m3u8
+#EXTINF:-1 tvg-id="starsportsselect1hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR SPORTS SELECT 1 (4K)." group-title="INDIA SPORTS",IN: STAR SPORTS SELECT 1 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98867.m3u8
+#EXTINF:-1 tvg-id="starsportsselecthd2.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: START SPORTS SELECT 2 (4K)." group-title="INDIA SPORTS",IN: START SPORTS SELECT 2 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98868.m3u8
+#EXTINF:-1 tvg-id="sonyten1hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: TEN 1 (4K)." group-title="INDIA SPORTS",IN: TEN 1 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98861.m3u8
+#EXTINF:-1 tvg-id="sonyten2hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: TEN 2 (4K)." group-title="INDIA SPORTS",IN: TEN 2 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98862.m3u8
+#EXTINF:-1 tvg-id="sonyten3hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: TEN 3 (4K)." group-title="INDIA SPORTS",IN: TEN 3 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98863.m3u8
+#EXTINF:-1 tvg-id="sonysixhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: SONY TEN 5 (4K)." group-title="INDIA SPORTS",IN: SONY TEN 5 (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98870.m3u8
+#EXTINF:-1 tvg-id="starsportsselect1hd.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/b/b5/Star_Sports_Select_1_HD.jpg/revision/latest/scale-to-width-down/340?cb=20180806112709" tvg-name="IN: Star Sports Select 1 (FHD)" group-title="INDIA SPORTS",IN: Star Sports Select 1 (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9400.m3u8
+#EXTINF:-1 tvg-id="starsportsselecthd2.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/4/46/Sss-hd2-bronze.png/revision/latest/top-crop/width/220/height/220?cb=20170728104956" tvg-name="IN: Star Sports Select 2 (FHD)" group-title="INDIA SPORTS",IN: Star Sports Select 2 (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9401.m3u8
+#EXTINF:-1 tvg-id="sonyten1hd.in" tvg-logo="https://i.ytimg.com/vi/QOx79orcb1I/maxresdefault.jpg" tvg-name="IN: Sony Ten 1 (FHD)" group-title="INDIA SPORTS",IN: Sony Ten 1 (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9402.m3u8
+#EXTINF:-1 tvg-id="sonyten2hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: Sony Ten 2 (4K)" group-title="INDIA SPORTS",IN: Sony Ten 2 (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/9403.m3u8
+#EXTINF:-1 tvg-id="sonyten3hd.in" tvg-logo="https://tma-live.s3.ap-south-1.amazonaws.com/medias/569ccce68ead0e21236eb474/1565808608783/c9347b41649e4f9d39f547b0d9ffd902.jpg" tvg-name="IN: Sony Ten 3 (FHD)" group-title="INDIA SPORTS",IN: Sony Ten 3 (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9404.m3u8
+#EXTINF:-1 tvg-id="sonysixhd.in" tvg-logo="https://origin-staticv2.sonyliv.com/masthead_logo/SonySIXHD_Masthead_Logo.png" tvg-name="IN: SONY TEN 5 (FHD)" group-title="INDIA SPORTS",IN: SONY TEN 5 (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/17565.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: EUROSPORTS (4K)" group-title="INDIA SPORTS",IN: EUROSPORTS (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/23308.m3u8
+#EXTINF:-1 tvg-id="foxlifehd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: STAR LIFE (4K)." group-title="INDIA DOCUMENTARY",IN: STAR LIFE (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98876.m3u8
+#EXTINF:-1 tvg-id="discoveryhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: DISCOVERY (4K)." group-title="INDIA DOCUMENTARY",IN: DISCOVERY (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98872.m3u8
+#EXTINF:-1 tvg-id="animalplanethd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: ANIMAL PLANET (4K)." group-title="INDIA DOCUMENTARY",IN: ANIMAL PLANET (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98873.m3u8
+#EXTINF:-1 tvg-id="nationalgeographicchannelhd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: National GEO (4K)." group-title="INDIA DOCUMENTARY",IN: National GEO (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98874.m3u8
+#EXTINF:-1 tvg-id="historytv18hd.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: HISTORY TV (4K)." group-title="INDIA DOCUMENTARY",IN: HISTORY TV (4K).
+http://starshare.org:8080/live/Woods1234/Woods1234/98877.m3u8
+#EXTINF:-1 tvg-id="historytv18hd.in" tvg-logo="https://pluspng.com/img-png/history-hd-png-historyhd-png-352.png" tvg-name="IN: HISTORY 18 (HINDI)" group-title="INDIA DOCUMENTARY",IN: HISTORY 18 (HINDI)
+http://starshare.org:8080/live/Woods1234/Woods1234/5252.m3u8
+#EXTINF:-1 tvg-id="discoveryhd.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/9/91/Discovery_HD_World.png/revision/latest?cb=20190102093400" tvg-name="IN: DISCOVERY WORLD HD" group-title="INDIA DOCUMENTARY",IN: DISCOVERY WORLD HD
+http://starshare.org:8080/live/Woods1234/Woods1234/156.m3u8
+#EXTINF:-1 tvg-id="nationalgeographicchannelhd.in" tvg-logo="https://i.dlpng.com/static/png/6961734_preview.png" tvg-name="IN: NATIONAL GEOGRAPHIC INDIA" group-title="INDIA DOCUMENTARY",IN: NATIONAL GEOGRAPHIC INDIA
+http://starshare.org:8080/live/Woods1234/Woods1234/7342.m3u8
+#EXTINF:-1 tvg-id="nationalgeographicchannelhd.in" tvg-logo="https://i.dlpng.com/static/png/6961734_preview.png" tvg-name="IN: NATIONAL GEOGRAPHIC" group-title="INDIA DOCUMENTARY",IN: NATIONAL GEOGRAPHIC
+http://starshare.org:8080/live/Woods1234/Woods1234/7343.m3u8
+#EXTINF:-1 tvg-id="natgeowildhd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/1200px-National_Geographic_Wild_logo.svg.png" tvg-name="IN: NATGEO WILD HD" group-title="INDIA DOCUMENTARY",IN: NATGEO WILD HD
+http://starshare.org:8080/live/Woods1234/Woods1234/7344.m3u8
+#EXTINF:-1 tvg-id="travelxphd.in" tvg-logo="https://www.travelxp.tv/wp-content/uploads/2016/12/travelxp-HD.jpg" tvg-name="IN: TRAVEL XP HD (HINDI)" group-title="INDIA DOCUMENTARY",IN: TRAVEL XP HD (HINDI)
+http://starshare.org:8080/live/Woods1234/Woods1234/181.m3u8
+#EXTINF:-1 tvg-id="animalplanethd.in" tvg-logo="https://vignette.wikia.nocookie.net/tvfanon6528/images/f/f4/Animal_Planet_HD_%282018-.n.v.%29.png/revision/latest?cb=20190715173635" tvg-name="IN: ANIMAL PLANET (FHD)" group-title="INDIA DOCUMENTARY",IN: ANIMAL PLANET (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9391.m3u8
+#EXTINF:-1 tvg-id="historytv18hd.in" tvg-logo="https://pluspng.com/img-png/history-hd-png-historyhd-png-352.png" tvg-name="IN: HISTORY TV (FHD)" group-title="INDIA DOCUMENTARY",IN: HISTORY TV (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9392.m3u8
+#EXTINF:-1 tvg-id="discoveryhd.in" tvg-logo="https://vignette.wikia.nocookie.net/logopedia/images/9/91/Discovery_HD_World.png/revision/latest?cb=20190102093400" tvg-name="IN: DISCOVERY (FHD)" group-title="INDIA DOCUMENTARY",IN: DISCOVERY (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9393.m3u8
+#EXTINF:-1 tvg-id="nationalgeographicchannelhd.in" tvg-logo="https://i.dlpng.com/static/png/6961734_preview.png" tvg-name="IN: National GEO (FHD)" group-title="INDIA DOCUMENTARY",IN: National GEO (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9394.m3u8
+#EXTINF:-1 tvg-id="natgeowildhd.in" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/1200px-National_Geographic_Wild_logo.svg.png" tvg-name="IN: NAT Geo Wild (FHD)" group-title="INDIA DOCUMENTARY",IN: NAT Geo Wild (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9395.m3u8
+#EXTINF:-1 tvg-id="sonybbcearthhd.in" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTT9j-h-4CiDAqFZA2ijrp4jj8dPM10fve8GA&usqp=CAU" tvg-name="IN: Sony BBC EARTH (FHD)" group-title="INDIA DOCUMENTARY",IN: Sony BBC EARTH (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/9396.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN: INVESTIGATION DISCOVERY (4K)" group-title="INDIA DOCUMENTARY",IN: INVESTIGATION DISCOVERY (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/23790.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://png.pngtree.com/png-clipart/20201208/original/pngtree-24-hour-delivery-service-red-gradient-arrow-png-image_5518179.jpg" tvg-name="24/7 Doc: Our_Planet_&_Animal" group-title="INDIA DOCUMENTARY",24/7 Doc: Our_Planet_&_Animal
+http://starshare.org:8080/live/Woods1234/Woods1234/121317.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://w7.pngwing.com/pngs/472/359/png-transparent-customer-service-24-7-service-northborough-tree-services-patton-text-service-logo.png" tvg-name="24/7 Doc: Planet_earth_Season_1_&_2" group-title="INDIA DOCUMENTARY",24/7 Doc: Planet_earth_Season_1_&_2
+http://starshare.org:8080/live/Woods1234/Woods1234/121328.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="TravelXp HD (ENG)" group-title="INDIA DOCUMENTARY",TravelXp HD (ENG)
+http://starshare.org:8080/live/Woods1234/Woods1234/143205.m3u8
+#EXTINF:-1 tvg-id="ndtvgoodtimes.in" tvg-logo="" tvg-name="IN: GOOD TiMES" group-title="INDIA DOCUMENTARY",IN: GOOD TiMES
+http://starshare.org:8080/live/Woods1234/Woods1234/298451.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Fight_network_logo.svg/1200px-Fight_network_logo.svg.png" tvg-name="UK: Fight Network" group-title="SPORTS",UK: Fight Network
+http://starshare.org:8080/live/Woods1234/Woods1234/149.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: SPORT TV1 HD" group-title="SPORTS",PT: SPORT TV1 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/314.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: SPORT TV 2 HD" group-title="SPORTS",PT: SPORT TV 2 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/315.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: SPORT TV3 HD" group-title="SPORTS",PT: SPORT TV3 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/316.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: Sport TV 5 HD" group-title="SPORTS",PT: Sport TV 5 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/318.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: EUROSPORT 1 HD" group-title="SPORTS",PT: EUROSPORT 1 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/324.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: EUROSPORT 2 HD" group-title="SPORTS",PT: EUROSPORT 2 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/325.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: ELEVEN SPORT 1 HD" group-title="SPORTS",PT: ELEVEN SPORT 1 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/327.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="PT: ELEVEN SPORT 3 HD" group-title="SPORTS",PT: ELEVEN SPORT 3 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/329.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="NL : FOX SPORTS 1 HD" group-title="SPORTS",NL : FOX SPORTS 1 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/503.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="NL : FOX SPORTS 3 HD" group-title="SPORTS",NL : FOX SPORTS 3 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/505.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="NL : EUROSPORT 1 HD" group-title="SPORTS",NL : EUROSPORT 1 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/509.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="NL : ZIGGO SPORT VOETBAL HD" group-title="SPORTS",NL : ZIGGO SPORT VOETBAL HD
+http://starshare.org:8080/live/Woods1234/Woods1234/511.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="DE: DAZN Sport 2 HD" group-title="SPORTS",DE: DAZN Sport 2 HD
+http://starshare.org:8080/live/Woods1234/Woods1234/564.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="USA : BeIN SPORTS HD" group-title="SPORTS",USA : BeIN SPORTS HD
+http://starshare.org:8080/live/Woods1234/Woods1234/18451.m3u8
+#EXTINF:-1 tvg-id="humtv.pk" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/e4/Hum_TV_2013.png" tvg-name="PK: HUM TV (FHD)" group-title="PAKISTAN",PK: HUM TV (FHD)
+http://starshare.org:8080/live/Woods1234/Woods1234/49584.m3u8
+#EXTINF:-1 tvg-id="92news.pk" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkHCBUSEhUVEg4SFRUSEg0SEhISEg4XGRgNDQ8ODQ0PEBAOERgVDhAXEQ0NFR8VFxoaHR0dDhUgIx8bIhgdHRoBCgoKDQsNFQ4OFR0VFRUdHR0dHR0aGh0dHRodHR0dHRodGh0dHR0dHR0dGh0dHR0dHR0aGh0dHRodHR0dHRodHf/AABEIAMgAyAMBIgACEQEDEQH/x" tvg-name="PK : ARY ZINDAGI" group-title="PAKISTAN",PK : ARY ZINDAGI
+http://starshare.org:8080/live/Woods1234/Woods1234/123.m3u8
+#EXTINF:-1 tvg-id="arydigital.pk" tvg-logo="https://upload.wikimedia.org/wikipedia/en/f/f3/ARY_Digital_Logo_2.png" tvg-name="PK: ARY DIGITAL (4K)" group-title="PAKISTAN",PK: ARY DIGITAL (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/257229.m3u8
+#EXTINF:-1 tvg-id="aryfamily.uk" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxETEBUSEhIWFRUVFRUQFRUQFxYXFxcVFRUWFxUXFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0dHR8rKy0tLS0rLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLSstLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK: ARY DIGITAL (UK)" group-title="PAKISTAN",PK: ARY DIGITAL (UK)
+http://starshare.org:8080/live/Woods1234/Woods1234/125.m3u8
+#EXTINF:-1 tvg-id="geotv.pk" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkHCA0OEBAQEBIQDQ0NDw0ODQ0NDw8NDw0NDg0PDw0NDw0QERgVDhAXEQ8PFR8VFxoaHR0dDxUgIx8dIhgbHRoBCgoKDQwNFQ4OFR4bFxseGiIgHiAfHh0dIR4dHSAdHh0fHycgHSAgHR4fHx0gHR8eHx4hHR4aHR0fHx0eHR0gHf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK : GEO TV" group-title="PAKISTAN",PK : GEO TV
+http://starshare.org:8080/live/Woods1234/Woods1234/119.m3u8
+#EXTINF:-1 tvg-id="geokahani.pk" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCxUVFRgVFhUXGBgaGBYZGhcXFxcWFhgbFxcZGRcWGBkaHigiGh4mHRgaIjIkJiorLi4uJSEzNzIsNigtLSsBDg4OEhASHhMSHS0lHSUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rNSoqLi0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK: GEO KAHANI-HD" group-title="PAKISTAN",PK: GEO KAHANI-HD
+http://starshare.org:8080/live/Woods1234/Woods1234/120.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCxUXFhcVFxUYGBgYFhYXFxcYFxgXFxkYGBgZGhgYFxgdHygiGh0mHRgYIjIjJiotLi4uGiAzNzItNigtLSsBDg4OEhESHRISHS0nIiYtLS4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qNS0tLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK: BOL ENTERTAINMENT TV" group-title="PAKISTAN",PK: BOL ENTERTAINMENT TV
+http://starshare.org:8080/live/Woods1234/Woods1234/99.m3u8
+#EXTINF:-1 tvg-id="expressentertainment.pk" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkHCBUTExUQEhUPDxAWDhAPEBcQDw8SDw4WDxAQDxYWDw4QEhgVEBAXERAPFR8VFxoaHR0dDxUgIx8bIhgbHRoBCgoKDQwNFQ4OFSEcGBwiHyYgHyAhHyInICIaHR0dHyEeHyAfIiYfHSAgHR8dHR0dHiAdJR8eJR0fHR0dHh0fHf/AABEIALgBEgMBIgACEQEDEQH/x" tvg-name="PK : EXPRESS TV" group-title="PAKISTAN",PK : EXPRESS TV
+http://starshare.org:8080/live/Woods1234/Woods1234/118.m3u8
+#EXTINF:-1 tvg-id="urdu1.pk" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEX////3jyH/+PH3jxz3hwD3iQD3iw/3igj3jBX97d33jRr4mzv6vYv82bv/+/b6uH/5rG37y6P+7uP7zKn3lTD7x574oEj4m0D959X4o1D807L5qWD5rmn938f6wpL3kyhPLJtJAAAIIElEQVR4nO2c6WKzKhCGXQYhxqUxatxz/3d5XBF0tD" tvg-name="PK: URDU 1" group-title="PAKISTAN",PK: URDU 1
+http://starshare.org:8080/live/Woods1234/Woods1234/100.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://i.ibb.co/SKNtdvG/images-2-1.png" tvg-name="PK: SAB TV-HD" group-title="PAKISTAN",PK: SAB TV-HD
+http://starshare.org:8080/live/Woods1234/Woods1234/24116.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://img.favpng.com/7/25/2/pakistan-hum-tv-hum-sitaray-television-channel-png-favpng-d6aMRQiJJ4KCi9JqBf8enj21Z.jpg" tvg-name="PK: HUM SITARAY" group-title="PAKISTAN",PK: HUM SITARAY
+http://starshare.org:8080/live/Woods1234/Woods1234/20460.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCxYWFhgVFRUNGBgZGA0aGBgNDRYWGRgYIxkZJCIfGBgdHygiGigmHyIYIjIkJiorLi4uJSwzNzIsNigtLSsBDg4OEBASHRISHS0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKiotLS02LTY2Ki0tLf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK: AAJ ENTERTAINMENT" group-title="PAKISTAN",PK: AAJ ENTERTAINMENT
+http://starshare.org:8080/live/Woods1234/Woods1234/105.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAsJChYVERYXFRUVFRUXFRYXFxUVDRUVFxcYGBcYGBoZFRUVGCEdFRYfHxgXHykdHyIjJiYmFhoqLSklLSAlJSMBDAwMEA4QGhAQGiYiHSEnLSYnJSYlJi0oJS0qJiYoKiclJyslJy8mKCUvLSctJiUmJSUlJSUoJSolJScmJyUlJf/AABEIAPsAyQMBIgACEQEDEQH/x" tvg-name="PK: ATV" group-title="PAKISTAN",PK: ATV
+http://starshare.org:8080/live/Woods1234/Woods1234/116.m3u8
+#EXTINF:-1 tvg-id="tvone.pk" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/97/Unramed.png" tvg-name="PK: TV ONE" group-title="PAKISTAN",PK: TV ONE
+http://starshare.org:8080/live/Woods1234/Woods1234/117.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkHCBUSDRUQEBAQDxAPDRAPDxANDw0PEA0QDRIPDw0NDQ8PFRgVDxAXERANFR8VFxoaHR0dDhUgIx8bIhgdHRoBCgoKDQwNFQ4OFR4bGBsgHR0gIB8eHh4fHR8fHR0dHR0gHx0fHR0dHx0dHR0aHx8dHx0dHR0fHSUdHR8dHx0dHf/AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK : A PLUS" group-title="PAKISTAN",PK : A PLUS
+http://starshare.org:8080/live/Woods1234/Woods1234/126.m3u8
+#EXTINF:-1 tvg-id="92news.pk" tvg-logo="https://apna.tv/wp-content/uploads/2019/07/APNA-LOGO-NEW.png" tvg-name="PK: APNA" group-title="PAKISTAN",PK: APNA
+http://starshare.org:8080/live/Woods1234/Woods1234/869.m3u8
+#EXTINF:-1 tvg-id="ptvhome.pk" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAB4FBMVEX///+OAf9XAKVTAJ5dALF4AN5nAMGGAPX///30+fpMAZE1AG5jAbpCAYMwAGRJAI7hsz+AAOtwANB7AOT/48ItAFw6AXYAAAAiAUL/7dg9AH3/9ez//PMlAErz4PPnv00xBVrqyVju1Gb79pYACQD57YT//5/w3XUgBTj/68PHefD+/9QAAA" tvg-name="PK: PTV HOME" group-title="PAKISTAN",PK: PTV HOME
+http://starshare.org:8080/live/Woods1234/Woods1234/110.m3u8
+#EXTINF:-1 tvg-id="ptvglobal.pk" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAACAVBMVEX///8CNTEAAAACTkgCdGwCQDsCPDcCR0ICXlcCUUoGLSkCaGACVk8CZF0COjYCQz7hsz8BIyEHGBcALxz/37MAHB0ABgD///r//7f//9Tb////8LMARDn//7Dkukf/5bH///P/73T//+L/1VL//+kAIgr/5WT8+JMANTj/2qQAAAzx3G/eqj" tvg-name="PK: PTV GLOBAL" group-title="PAKISTAN",PK: PTV GLOBAL
+http://starshare.org:8080/live/Woods1234/Woods1234/109.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://image.freepik.com/free-vector/play-tv-logo_68967-34.jpg" tvg-name="PK: PLAY TV" group-title="PAKISTAN",PK: PLAY TV
+http://starshare.org:8080/live/Woods1234/Woods1234/859.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAxlBMVEUygcP29vb39/cygcLx+//19/b1+/8ufLxAgrt+r9YzfLgyfLX5+Pbv/P/39faBqsrJ4/ZJh72z0OTS6vZFgbPz/P+pyeSjyeGZvdvp9f/i9v8ygsDF3vHz+v/t/f88fLGewdZ3nr671+1Qi7xwosx+rthckb7Y8f9lm8rR6/9dl8fT5vSJrc" tvg-name="PK: HBO PAKISTAN" group-title="PAKISTAN",PK: HBO PAKISTAN
+http://starshare.org:8080/live/Woods1234/Woods1234/95.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0LCw8PEBEPEBIQEg8PEQ0QDw4ODhYODg8eFxUZGRcVFhYaHighGh0uHhcWJTIlJiorLi4uGSwzNzItNigtLSsBDg4OEhESHhMTHjIjIiY4Njc2MDUtNzU1LS8yMSstNTYtMjU3LS0rNi0uODItKzcvNS8qKjYrLSsvLyotLSotL//AABEIAOEA4QMBIgACEQEDEQH/x" tvg-name="PK: RAAVI FILMS" group-title="PAKISTAN",PK: RAAVI FILMS
+http://starshare.org:8080/live/Woods1234/Woods1234/7067.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/13/SEE_TV_logo.jpg" tvg-name="PK: SEE TV-HD" group-title="PAKISTAN",PK: SEE TV-HD
+http://starshare.org:8080/live/Woods1234/Woods1234/4057.m3u8
+#EXTINF:-1 tvg-id="hummasala.pk" tvg-logo="https://yt3.ggpht.com/a/AATXAJxoVpGct1foR5mXifBQfUwKDEOfGFQESSBYEHg5=s900-c-k-c0xffffffff-no-rj-mo" tvg-name="PK: HUM TV MASALA" group-title="PAKISTAN",PK: HUM TV MASALA
+http://starshare.org:8080/live/Woods1234/Woods1234/1919.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://p7.hiclipart.com/preview/58/527/592/pakistan-8xm-television-channel-streaming-media-non-stop.jpg" tvg-name="PK: 8XM" group-title="PAKISTAN",PK: 8XM
+http://starshare.org:8080/live/Woods1234/Woods1234/112.m3u8
+#EXTINF:-1 tvg-id="92news.pk" tvg-logo="https://upload.wikimedia.org/wikipedia/en/b/bb/ARY_Musik_logo.png" tvg-name="PK: ARY MUSIC" group-title="PAKISTAN",PK: ARY MUSIC
+http://starshare.org:8080/live/Woods1234/Woods1234/18309.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://upload.wikimedia.org/wikipedia/en/e/eb/Jalwa_TV_Logo.png" tvg-name="PK: JALWA-HD" group-title="PAKISTAN",PK: JALWA-HD
+http://starshare.org:8080/live/Woods1234/Woods1234/18311.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://lh3.googleusercontent.com/7BcNHk_TylFWQSstvC5rhq4wq8hiLnSZlps6AH9MtxrW9NkpWFVVR1mHBVjzF8VNhmpR=w412-h220-rw" tvg-name="PK: PASHTO TV" group-title="PAKISTAN",PK: PASHTO TV
+http://starshare.org:8080/live/Woods1234/Woods1234/108.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkHCBUUEhUVFBUQEBUWEBAPEA8PDxAQEA4QEBAQEBANEBEPEhgVEBAXERUOFR8VFxoaHR0dDhUgIx8bIhgbHRoBCgoKDQwNFQ4OFSAbGBsdHx8mISIiJR8eIB4fHSEhIyIiIh0gISAgIB4fIB0eICIgGx0dIB0lHyAdHx8eIh8dHf/AABEIAO0A1QMBIgACEQEDEQH/x" tvg-name="PK: PAIGAM PUSHTO" group-title="PAKISTAN",PK: PAIGAM PUSHTO
+http://starshare.org:8080/live/Woods1234/Woods1234/1846.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://yt3.ggpht.com/a/AATXAJy_C3h9vLRQEg-_75Or-aU-59XEndXkvH3JqVEp=s900-c-k-c0xffffffff-no-rj-mo" tvg-name="PK: KHYBER TV" group-title="PAKISTAN",PK: KHYBER TV
+http://starshare.org:8080/live/Woods1234/Woods1234/107.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX///8AogAAnwAAnQAAoABswmxivWIAmwBowmjf89+AyIAAowBcvVyJy4n8//zu+e6o26iQ0JAWpxZyxXLI5Mh1xHX2/vZAtECg2KDJ6smw3bCEy4S64rq847xAsECr26vW79bo9ugkqySX05dPt0/C5MLT7dPa79pXu1cwrTDj9ONKtkpBs0" tvg-name="PK: DISCOVER PAK-HD" group-title="PAKISTAN",PK: DISCOVER PAK-HD
+http://starshare.org:8080/live/Woods1234/Woods1234/19703.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://w7.pngwing.com/pngs/472/359/png-transparent-customer-service-24-7-service-northborough-tree-services-patton-text-service-logo.png" tvg-name="PK: Stage Shows 2" group-title="PAKISTAN",PK: Stage Shows 2
+http://starshare.org:8080/live/Woods1234/Woods1234/121363.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://www.lyngsat.com/logo/tv/gg/green-entertainment-pk.png" tvg-name="PK: Green Entertainment" group-title="PAKISTAN",PK: Green Entertainment
+http://starshare.org:8080/live/Woods1234/Woods1234/152808.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://www.lyngsat.com/logo/tv/mm/mun-tv-pk.png" tvg-name="PK: MUN TV HD" group-title="PAKISTAN",PK: MUN TV HD
+http://starshare.org:8080/live/Woods1234/Woods1234/152835.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://www.lyngsat.com/logo/tv/aa/aur-life-hd-pk.png" tvg-name="PK: Aur Life" group-title="PAKISTAN",PK: Aur Life
+http://starshare.org:8080/live/Woods1234/Woods1234/152836.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="http://b1gchlogos.xyz/wp-content/uploads/2023/10/Aan-TV.png" tvg-name="PK: AanTv HD" group-title="PAKISTAN",PK: AanTv HD
+http://starshare.org:8080/live/Woods1234/Woods1234/94.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="CA: Toronto 360" group-title="PAKISTAN",CA: Toronto 360
+http://starshare.org:8080/live/Woods1234/Woods1234/375307.m3u8
+#EXTINF:-1 tvg-id="mtvbeatshd.in" tvg-logo="https://i.pinimg.com/originals/4b/78/ab/4b78ab7fb06511a598b3cabd4813d1d0.png" tvg-name="IN: MTV BEATS HD" group-title="INDIA MUSIC",IN: MTV BEATS HD
+http://starshare.org:8080/live/Woods1234/Woods1234/153.m3u8
+#EXTINF:-1 tvg-id="mtvhdplus.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/MTV_HD_Plus.png" tvg-name="IN: MTV HD PLUS" group-title="INDIA MUSIC",IN: MTV HD PLUS
+http://starshare.org:8080/live/Woods1234/Woods1234/4029.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/f/f6/B4U_Plus.jpeg/revision/latest?cb=20200225090223" tvg-name="IN : B4U Plus" group-title="INDIA MUSIC",IN : B4U Plus
+http://starshare.org:8080/live/Woods1234/Woods1234/969.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Zing.png" tvg-name="IN: Zing TV" group-title="INDIA MUSIC",IN: Zing TV
+http://starshare.org:8080/live/Woods1234/Woods1234/970.m3u8
+#EXTINF:-1 tvg-id="9xm.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/9XM.png" tvg-name="IN: 9XM" group-title="INDIA MUSIC",IN: 9XM
+http://starshare.org:8080/live/Woods1234/Woods1234/7255.m3u8
+#EXTINF:-1 tvg-id="mastiii.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Mastiii.png" tvg-name="IN: Mastiii" group-title="INDIA MUSIC",IN: Mastiii
+http://starshare.org:8080/live/Woods1234/Woods1234/7256.m3u8
+#EXTINF:-1 tvg-id="b4umusic.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/B4U_Music.png" tvg-name="IN: B4U Music" group-title="INDIA MUSIC",IN: B4U Music
+http://starshare.org:8080/live/Woods1234/Woods1234/7258.m3u8
+#EXTINF:-1 tvg-id="9xjalwa.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/9X_Jalwa.png" tvg-name="IN: 9X Jalwa HD" group-title="INDIA MUSIC",IN: 9X Jalwa HD
+http://starshare.org:8080/live/Woods1234/Woods1234/9057.m3u8
+#EXTINF:-1 tvg-id="zoom.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Zoom.png" tvg-name="IN: Zoom" group-title="INDIA MUSIC",IN: Zoom
+http://starshare.org:8080/live/Woods1234/Woods1234/9488.m3u8
+#EXTINF:-1 tvg-id="mtvbeatshd.in" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/MTV_Beats_HD.png" tvg-name="IN: MTV Beats HD." group-title="INDIA MUSIC",IN: MTV Beats HD.
+http://starshare.org:8080/live/Woods1234/Woods1234/94498.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="http://ottliveeventlogo.com/wp-content/uploads/2022/11/FIFA-World-Cup-Logo.png" tvg-name="MTV FHD (HINDI)" group-title="INDIA MUSIC",MTV FHD (HINDI)
+http://starshare.org:8080/live/Woods1234/Woods1234/130045.m3u8
+#EXTINF:-1 tvg-id="b4ukadak.in" tvg-logo="" tvg-name="IN: B4U Kadak SD" group-title="INDIA MUSIC",IN: B4U Kadak SD
+http://starshare.org:8080/live/Woods1234/Woods1234/355545.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Zee Anmol" group-title="INDIAN SD",IN: Zee Anmol
+http://starshare.org:8080/live/Woods1234/Woods1234/203.m3u8
+#EXTINF:-1 tvg-id="colorsrishtey.in" tvg-logo="" tvg-name="IN : Colors Rishtey TV" group-title="INDIAN SD",IN : Colors Rishtey TV
+http://starshare.org:8080/live/Woods1234/Woods1234/241.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Food Food" group-title="INDIAN SD",IN: Food Food
+http://starshare.org:8080/live/Woods1234/Woods1234/9975.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: ZEE Bollywood" group-title="INDIAN SD",IN: ZEE Bollywood
+http://starshare.org:8080/live/Woods1234/Woods1234/966.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Zee Action" group-title="INDIAN SD",IN: Zee Action
+http://starshare.org:8080/live/Woods1234/Woods1234/967.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN : B4U Movies" group-title="INDIAN SD",IN : B4U Movies
+http://starshare.org:8080/live/Woods1234/Woods1234/968.m3u8
+#EXTINF:-1 tvg-id="utvmovies.in" tvg-logo="" tvg-name="IN: STAR GOLD ROMANCE" group-title="INDIAN SD",IN: STAR GOLD ROMANCE
+http://starshare.org:8080/live/Woods1234/Woods1234/972.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: SONY MAX 2" group-title="INDIAN SD",IN: SONY MAX 2
+http://starshare.org:8080/live/Woods1234/Woods1234/973.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: MANORANJAN TV" group-title="INDIAN SD",IN: MANORANJAN TV
+http://starshare.org:8080/live/Woods1234/Woods1234/2433.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: MANORANJAN MOVIES" group-title="INDIAN SD",IN: MANORANJAN MOVIES
+http://starshare.org:8080/live/Woods1234/Woods1234/2434.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: STAR PLUS" group-title="INDIAN SD",IN: STAR PLUS
+http://starshare.org:8080/live/Woods1234/Woods1234/3744.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN:  DD National HD" group-title="INDIAN SD",IN:  DD National HD
+http://starshare.org:8080/live/Woods1234/Woods1234/4037.m3u8
+#EXTINF:-1 tvg-id="ddbihar.in" tvg-logo="" tvg-name="IN:  DD Bihar" group-title="INDIAN SD",IN:  DD Bihar
+http://starshare.org:8080/live/Woods1234/Woods1234/4038.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: DD India" group-title="INDIAN SD",IN: DD India
+http://starshare.org:8080/live/Woods1234/Woods1234/4039.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: DD Bharati" group-title="INDIAN SD",IN: DD Bharati
+http://starshare.org:8080/live/Woods1234/Woods1234/4040.m3u8
+#EXTINF:-1 tvg-id="ddsports.in" tvg-logo="https://i.ibb.co/p4knk5y/images-4.png" tvg-name="IN:  DD Sports (4K)" group-title="INDIAN SD",IN:  DD Sports (4K)
+http://starshare.org:8080/live/Woods1234/Woods1234/4044.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN:  DD India" group-title="INDIAN SD",IN:  DD India
+http://starshare.org:8080/live/Woods1234/Woods1234/4045.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Zee Salam" group-title="INDIAN SD",IN: Zee Salam
+http://starshare.org:8080/live/Woods1234/Woods1234/4065.m3u8
+#EXTINF:-1 tvg-id="sonywah.in" tvg-logo="" tvg-name="IN: SONY WAH" group-title="INDIAN SD",IN: SONY WAH
+http://starshare.org:8080/live/Woods1234/Woods1234/4077.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: EPIC HD" group-title="INDIAN SD",IN: EPIC HD
+http://starshare.org:8080/live/Woods1234/Woods1234/4085.m3u8
+#EXTINF:-1 tvg-id="stargoldhd2.in" tvg-logo="" tvg-name="IN: Star_Gold_2" group-title="INDIAN SD",IN: Star_Gold_2
+http://starshare.org:8080/live/Woods1234/Woods1234/4324.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Discovery Science Hindi" group-title="INDIAN SD",IN: Discovery Science Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/4745.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN:  Animal_Planet_Hindi" group-title="INDIAN SD",IN:  Animal_Planet_Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/5249.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN:  Discovery_Channel_Hindi" group-title="INDIAN SD",IN:  Discovery_Channel_Hindi
+http://starshare.org:8080/live/Woods1234/Woods1234/5250.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Sony Pal" group-title="INDIAN SD",IN: Sony Pal
+http://starshare.org:8080/live/Woods1234/Woods1234/6627.m3u8
+#EXTINF:-1 tvg-id="zeeanmolcinema.in" tvg-logo="" tvg-name="IN: Zee Anmol Cinema" group-title="INDIAN SD",IN: Zee Anmol Cinema
+http://starshare.org:8080/live/Woods1234/Woods1234/7065.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/India_TV.png" tvg-name="IN: India TV" group-title="INDIAN SD",IN: India TV
+http://starshare.org:8080/live/Woods1234/Woods1234/7432.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_SANGAM.png" tvg-name="IN: Zee Hindustan" group-title="INDIAN SD",IN: Zee Hindustan
+http://starshare.org:8080/live/Woods1234/Woods1234/7720.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: SONY HD" group-title="INDIAN SD",IN: SONY HD
+http://starshare.org:8080/live/Woods1234/Woods1234/9885.m3u8
+#EXTINF:-1 tvg-id="discoveryturbo.in" tvg-logo="https://banner2.cleanpng.com/20180704/hty/kisspng-discovery-turbo-television-channel-discovery-chann-rua-gabriel-oeschler-5b3cb4edd44231.0893172215307051338694.jpg" tvg-name="IN:  Discovery Turbo" group-title="INDIAN SD",IN:  Discovery Turbo
+http://starshare.org:8080/live/Woods1234/Woods1234/23917.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="DANGAL" group-title="INDIAN SD",DANGAL
+http://starshare.org:8080/live/Woods1234/Woods1234/53107.m3u8
+#EXTINF:-1 tvg-id="starutsav.in" tvg-logo="http://stariptv.fun/logos/Star_utsav.png" tvg-name="IN: Star Utsav" group-title="INDIAN SD",IN: Star Utsav
+http://starshare.org:8080/live/Woods1234/Woods1234/158970.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: DD Urdu" group-title="INDIAN SD",IN: DD Urdu
+http://starshare.org:8080/live/Woods1234/Woods1234/257048.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Aastha SD" group-title="INDIAN SD",IN: Aastha SD
+http://starshare.org:8080/live/Woods1234/Woods1234/354291.m3u8
+#EXTINF:-1 tvg-id="(no tvg-id)" tvg-logo="" tvg-name="IN: Goldmines_SD" group-title="INDIAN SD",IN: Goldmines_SD
+http://starshare.org:8080/live/Woods1234/Woods1234/355478.m3u8
+
