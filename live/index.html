@@ -3,6 +3,7 @@
 <head>
     <title>Premium IPTV Player</title>
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
@@ -14,12 +15,15 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         .input-container {
             margin: 20px 0;
+            display: flex;
+            gap: 10px;
         }
         #streamUrl {
-            width: 100%;
+            flex: 1;
             padding: 10px;
             font-size: 16px;
             border: 2px solid #3498db;
@@ -27,11 +31,48 @@
             background: #2c3e50;
             color: white;
         }
+        .play-button {
+            padding: 10px 20px;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .play-button:hover {
+            background: #2980b9;
+        }
         .video-container {
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        /* রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            .input-container {
+                flex-direction: column;
+            }
+            .play-button {
+                width: 100%;
+            }
+            video {
+                height: 300px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            video {
+                height: 240px !important;
+            }
         }
     </style>
 </head>
@@ -39,6 +80,7 @@
     <div class="container">
         <div class="input-container">
             <input type="text" id="streamUrl" placeholder="Enter IPTV Stream URL">
+            <button class="play-button" id="playButton">Play</button>
         </div>
         <div class="video-container">
             <video
@@ -74,6 +116,7 @@
                     'durationDisplay',
                     'progressControl',
                     'playbackRateMenuButton',
+                    'pictureInPictureToggle', // PiP বাটন যোগ করা হলো
                     'fullscreenToggle'
                 ]
             }
@@ -81,6 +124,7 @@
 
         let currentSource = '';
         const streamInput = document.getElementById('streamUrl');
+        const playButton = document.getElementById('playButton');
 
         function loadStream(url) {
             if (url !== currentSource) {
@@ -101,11 +145,23 @@
             }
         }
 
-        streamInput.addEventListener('change', function() {
-            const url = this.value.trim();
+        // প্লে বাটন ক্লিক ইভেন্ট
+        playButton.addEventListener('click', function() {
+            const url = streamInput.value.trim();
             if (url) {
                 loadStream(url);
                 currentSource = url;
+            }
+        });
+
+        // ইনপুট ফিল্ড এন্টার কী ইভেন্ট
+        streamInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const url = this.value.trim();
+                if (url) {
+                    loadStream(url);
+                    currentSource = url;
+                }
             }
         });
 
