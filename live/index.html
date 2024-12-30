@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Premium IPTV Player</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <style>
         body {
@@ -16,64 +15,31 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        .input-group {
-            display: flex;
-            gap: 10px;
+        .input-container {
             margin: 20px 0;
         }
         #streamUrl {
-            flex: 1;
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             font-size: 16px;
             border: 2px solid #3498db;
             border-radius: 5px;
             background: #2c3e50;
             color: white;
         }
-        #playButton {
-            padding: 12px 25px;
-            font-size: 16px;
-            background: #3498db;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        #playButton:hover {
-            background: #2980b9;
-        }
         .video-container {
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            margin-bottom: 20px;
-        }
-        #status {
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-        .vjs-pip-button {
-            cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .input-group { flex-direction: column; }
-            #streamUrl, #playButton { width: 100%; }
-            #playButton { margin-top: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="input-group">
+        <div class="input-container">
             <input type="text" id="streamUrl" placeholder="Enter IPTV Stream URL">
-            <button id="playButton">Play</button>
         </div>
-        <div id="status"></div>
         <div class="video-container">
             <video
                 id="iptv-player"
@@ -84,7 +50,9 @@
                 height="450"
                 data-setup='{}'
             >
-                <p class="vjs-no-js">To view this video please enable JavaScript</p>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript
+                </p>
             </video>
         </div>
     </div>
@@ -106,114 +74,49 @@
                     'durationDisplay',
                     'progressControl',
                     'playbackRateMenuButton',
-                    'pictureInPictureToggle',
                     'fullscreenToggle'
                 ]
             }
         });
 
         let currentSource = '';
-        let lastCheckTime = 0;
         const streamInput = document.getElementById('streamUrl');
-        const playButton = document.getElementById('playButton');
-        const statusElement = document.getElementById('status');
-
-        async function checkStreamStatus(url) {
-            try {
-                const response = await fetch(url, { method: 'HEAD', timeout: 5000 });
-                return response.ok;
-            } catch (error) {
-                return false;
-            }
-        }
-
-        async function syncStream(url) {
-            const now = Date.now();
-            if (now - lastCheckTime < 10000) return;
-
-            const isStreamActive = await checkStreamStatus(url);
-            if (!isStreamActive) {
-                const baseUrl = url.split('?')[0];
-                const newUrl = `${baseUrl}?t=${now}`;
-                const newStreamActive = await checkStreamStatus(newUrl);
-                
-                if (newStreamActive) {
-                    loadStream(newUrl);
-                    lastCheckTime = now;
-                }
-            }
-        }
 
         function loadStream(url) {
-            if (!url) return;
-            
-            const newSource = {
-                src: url,
-                type: 'application/x-mpegURL'
-            };
+            if (url !== currentSource) {
+                const oldSource = player.currentSource();
+                const newSource = {
+                    src: url,
+                    type: 'application/x-mpegURL'
+                };
 
-            const currentTime = player.currentTime();
-            const wasPlaying = !player.paused();
-
-            player.src(newSource);
-            currentSource = url;
-
-            player.ready(() => {
-                player.currentTime(currentTime);
-                if (wasPlaying) {
-                    player.play();
-                }
-            });
+                player.src(newSource);
+                currentSource = url;
+            }
         }
 
-        function startStreamSync() {
-            if (!currentSource) return;
-            
-            setInterval(() => {
-                syncStream(currentSource);
-            }, 10000);
+        function backgroundSync() {
+            if (currentSource) {
+                loadStream(currentSource);
+            }
         }
 
-        playButton.addEventListener('click', async function() {
-            const url = streamInput.value.trim();
-            if (!url) return;
-
-            statusElement.style.display = 'block';
-            statusElement.style.backgroundColor = '#f39c12';
-            statusElement.textContent = 'Checking stream...';
-
-            const isActive = await checkStreamStatus(url);
-            if (isActive) {
+        streamInput.addEventListener('change', function() {
+            const url = this.value.trim();
+            if (url) {
                 loadStream(url);
                 currentSource = url;
-                startStreamSync();
-                statusElement.style.backgroundColor = '#27ae60';
-                statusElement.textContent = 'Stream connected successfully';
-                setTimeout(() => {
-                    statusElement.style.display = 'none';
-                }, 3000);
-            } else {
-                statusElement.style.backgroundColor = '#e74c3c';
-                statusElement.textContent = 'Stream not available';
             }
         });
 
-        streamInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                playButton.click();
-            }
-        });
+        // Background sync every 5 seconds
+        setInterval(backgroundSync, 5000);
 
+        // Error handling
         player.on('error', function() {
-            if (currentSource) {
-                syncStream(currentSource);
-            }
+            console.log('Player error occurred, attempting to reload...');
+            backgroundSync();
         });
-
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            player.addClass('vjs-mobile-device');
-        }
     </script>
 </body>
 </html>
-
