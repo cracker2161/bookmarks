@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Premium IPTV Player</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        #streamUrl {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background: #2c3e50;
+            color: white;
+        }
+        .video-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <input type="text" id="streamUrl" placeholder="Enter IPTV Stream URL">
+        </div>
+        <div class="video-container">
+            <video
+                id="iptv-player"
+                class="video-js vjs-default-skin vjs-big-play-centered"
+                controls
+                preload="auto"
+                width="100%"
+                height="450"
+                data-setup='{}'
+            >
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript
+                </p>
+            </video>
+        </div>
+    </div>
+
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script>
+        const player = videojs('iptv-player', {
+            fluid: true,
+            autoplay: true,
+            controls: true,
+            preload: 'auto',
+            playbackRates: [0.5, 1, 1.5, 2],
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'playbackRateMenuButton',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+
+        let currentSource = '';
+        const streamInput = document.getElementById('streamUrl');
+
+        function loadStream(url) {
+            if (url !== currentSource) {
+                const oldSource = player.currentSource();
+                const newSource = {
+                    src: url,
+                    type: 'application/x-mpegURL'
+                };
+
+                player.src(newSource);
+                currentSource = url;
+            }
+        }
+
+        function backgroundSync() {
+            if (currentSource) {
+                loadStream(currentSource);
+            }
+        }
+
+        streamInput.addEventListener('change', function() {
+            const url = this.value.trim();
+            if (url) {
+                loadStream(url);
+                currentSource = url;
+            }
+        });
+
+        // Background sync every 5 seconds
+        setInterval(backgroundSync, 5000);
+
+        // Error handling
+        player.on('error', function() {
+            console.log('Player error occurred, attempting to reload...');
+            backgroundSync();
+        });
+    </script>
+</body>
+</html>
