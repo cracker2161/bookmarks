@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lite TV Player - A modern streaming solution">
+    <title>Lite TV</title>
+    <script src="https://content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .player-wrapper {
+            width: 100%;
+            background: #000;
+            flex: 0 0 auto;
+            aspect-ratio: 16/9;
+        }
+
+        #jwplayerDiv {
+            width: 100%;
+            height: 100%;
+        }
+
+        .channels-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #1a1a1a;
+            border-top: 2px solid #333;
+            overflow: hidden;
+        }
+
+        .channels-header {
+            padding: 15px;
+            background: #252525;
+            border-bottom: 1px solid #333;
+        }
+
+        .channels-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .channel-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #252525;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 8px;
+        }
+
+        .channel-item:hover {
+            background: #333;
+            transform: translateX(5px);
+        }
+
+        .channel-item.active {
+            background: #3a3a3a;
+            border-left: 3px solid #2196F3;
+        }
+
+        .channel-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 4px;
+        }
+
+        .channel-info h3 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                flex-direction: row;
+            }
+
+            .player-wrapper {
+                width: 70%;
+                height: 100vh;
+                aspect-ratio: unset;
+            }
+
+            .channels-container {
+                width: 30%;
+                border-top: none;
+                border-left: 2px solid #333;
+            }
+        }
+
+        .error-message {
+            padding: 15px;
+            color: #ff4444;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="player-wrapper">
+            <div id="jwplayerDiv"></div>
+        </div>
+
+        <div class="channels-container">
+            <div class="channels-header">
+                <h2>Live Channels</h2>
+            </div>
+            <div class="channels-list" id="channelsList"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = jwplayer("jwplayerDiv").setup({
+                width: "100%",
+                height: "100%",
+                autostart: true,
+                mute: false,
+                skin: {
+                    name: "seven"
+                }
+            });
+
+            const m3uUrl = "https://raw.githubusercontent.com/rajeshtaneja/tv/refs/heads/main/vod.m3u";
+
+            fetch(m3uUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const channels = parseM3U(data);
+                    displayChannels(channels);
+                })
+                .catch(error => {
+                    console.error('Error loading playlist:', error);
+                    document.getElementById('channelsList').innerHTML = 
+                        '<div class="error-message">Error loading channels. Please try again later.</div>';
+                });
+
+            function parseM3U(content) {
+                const channels = [];
+                const lines = content.split('\n');
+                let currentChannel = {};
+
+                lines.forEach(line => {
+                    line = line.trim();
+                    if (line.startsWith('#EXTINF:')) {
+                        const info = line.split(',');
+                        const metadata = info[0].match(/tvg-logo="([^"]*)".*tvg-name="([^"]*)"/);
+                        
+                        currentChannel = {
+                            name: info[1] || 'Unknown Channel',
+                            logo: metadata ? metadata[1] : 'https://via.placeholder.com/40',
+                        };
+                    } else if (line.startsWith('http')) {
+                        currentChannel.url = line;
+                        channels.push({...currentChannel});
+                    }
+                });
+
+                return channels;
+            }
+
+            function displayChannels(channels) {
+                const channelsList = document.getElementById('channelsList');
+
+                if (channels.length === 0) {
+                    channelsList.innerHTML = '<div class="error-message">No channels available</div>';
+                    return;
+                }
+
+                channels.forEach((channel, index) => {
+                    const channelElement = document.createElement('div');
+                    channelElement.className = 'channel-item';
+                    channelElement.innerHTML = `
+                        <img src="${channel.logo}" alt="${channel.name}" class="channel-logo" onerror="this.src='https://via.placeholder.com/40'">
+                        <div class="channel-info">
+                            <h3>${channel.name}</h3>
+                        </div>
+                    `;
+                    channelElement.onclick = function() {
+                        playChannel(channel.url, this);
+                    };
+                    channelsList.appendChild(channelElement);
+
+                    if (index === 0) {
+                        playChannel(channel.url, channelElement);
+                    }
+                });
+            }
+
+            function playChannel(streamUrl, element) {
+                player.load({
+                    file: streamUrl,
+                    type: "hls"
+                });
+                player.play();
+
+                document.querySelectorAll('.channel-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                element.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
