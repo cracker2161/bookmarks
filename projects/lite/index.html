@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lite TV Player - A modern streaming solution">
+    <meta name="description" content="Lite TV Player - A modern streaming solution developed by Sultan">
+    <meta name="author" content="Sultan">
+    <meta name="keywords" content="Lite TV, streaming, live tv, video player">
     <title>Lite TV</title>
-    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+
+    <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- JW Player Scripts -->
+    <script src="https://cdn.jwplayer.com/libraries/LMGQSCih.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.4.10/hls.min.js"></script>
 
     <style>
         * {
@@ -17,8 +24,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f0f0f;
-            color: #fff;
+            background: #ffffff;
+            color: #000;
             height: 100vh;
             overflow: hidden;
         }
@@ -34,26 +41,30 @@
             background: #000;
             flex: 0 0 auto;
             aspect-ratio: 16/9;
+            position: relative;
         }
 
-        #jwplayerDiv {
-            width: 100%;
-            height: 100%;
+        #videoPlayer {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .channels-container {
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: #1a1a1a;
-            border-top: 2px solid #333;
+            background: #f5f5f5;
+            border-top: 2px solid #e0e0e0;
             overflow: hidden;
         }
 
         .channels-header {
             padding: 15px;
-            background: #252525;
-            border-bottom: 1px solid #333;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .channels-list {
@@ -66,20 +77,21 @@
             display: flex;
             align-items: center;
             padding: 12px;
-            background: #252525;
+            background: #ffffff;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
             margin-bottom: 8px;
+            border: 1px solid #e0e0e0;
         }
 
         .channel-item:hover {
-            background: #333;
+            background: #f8f8f8;
             transform: translateX(5px);
         }
 
         .channel-item.active {
-            background: #3a3a3a;
+            background: #f0f0f0;
             border-left: 3px solid #2196F3;
         }
 
@@ -88,7 +100,7 @@
             height: 40px;
             object-fit: contain;
             margin-right: 15px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.05);
             border-radius: 6px;
             padding: 4px;
         }
@@ -97,7 +109,25 @@
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 4px;
-            color: #fff;
+            color: #000;
+        }
+
+        .channel-info p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .channels-list::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .channels-list::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+
+        .channels-list::-webkit-scrollbar-thumb {
+            background: #cccccc;
+            border-radius: 5px;
         }
 
         @media (min-width: 1024px) {
@@ -114,7 +144,7 @@
             .channels-container {
                 width: 30%;
                 border-top: none;
-                border-left: 2px solid #333;
+                border-left: 2px solid #e0e0e0;
             }
         }
 
@@ -123,12 +153,19 @@
             color: #ff4444;
             text-align: center;
         }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .player-wrapper {
+                height: 40vh;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="player-wrapper">
-            <div id="jwplayerDiv"></div>
+            <div id="videoPlayer"></div>
         </div>
 
         <div class="channels-container">
@@ -141,59 +178,114 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const player = jwplayer("jwplayerDiv").setup({
+            // Initialize JW Player with advanced configuration
+            const player = jwplayer("videoPlayer").setup({
+                playlist: [{
+                    file: ""
+                }],
                 width: "100%",
                 height: "100%",
+                stretching: "uniform",
                 autostart: true,
                 mute: false,
-                skin: {
-                    name: "seven"
+                primary: "html5",
+                hlshtml: true,
+                controls: true,
+                preload: "auto",
+                androidhls: true, // Enable HLS on Android
+                playbackRateControls: true,
+                floating: {
+                    dismissible: true
+                },
+                sharing: false,
+                cast: {
+                    appid: "00000000" // Chromecast App ID if needed
+                },
+                advertising: {
+                    client: "vast"
+                },
+                // Advanced settings for better streaming
+                config: {
+                    maxBufferLength: 30,
+                    maxMaxBufferLength: 600,
+                    maxBufferSize: 60,
+                    lowLatencyMode: true,
+                    liveSyncDurationCount: 7,
+                    liveMaxLatencyDurationCount: 10,
+                    enableWorker: true
                 }
             });
 
-            const m3uUrl = "https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u";
+            // Add error handling
+            player.on('error', function(e) {
+                console.error('Player error:', e);
+                // Attempt to recover from error
+                setTimeout(() => {
+                    player.load(player.getPlaylist());
+                    player.play();
+                }, 2000);
+            });
 
-            fetch(m3uUrl)
-                .then(response => response.text())
-                .then(data => {
-                    const channels = parseM3U(data);
-                    displayChannels(channels);
-                })
-                .catch(error => {
-                    console.error('Error loading playlist:', error);
-                    document.getElementById('channelsList').innerHTML = 
-                        '<div class="error-message">Error loading channels. Please try again later.</div>';
-                });
+            // Add quality level handling
+            player.on('levels', function(e) {
+                const levels = e.levels;
+                if (levels && levels.length > 1) {
+                    // Auto quality by default
+                    player.setCurrentQuality(-1);
+                }
+            });
 
-            function parseM3U(content) {
-                const channels = [];
-                const lines = content.split('\n');
-                let currentChannel = {};
+            // Function to parse M3U playlist with error handling
+            async function parseM3U(url) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const text = await response.text();
+                    const lines = text.split('\n');
+                    const channels = [];
+                    let currentChannel = {};
 
-                lines.forEach(line => {
-                    line = line.trim();
-                    if (line.startsWith('#EXTINF:')) {
-                        const info = line.split(',');
-                        const metadata = info[0].match(/tvg-logo="([^"]*)".*tvg-name="([^"]*)"/);
-                        
-                        currentChannel = {
-                            name: info[1] || 'Unknown Channel',
-                            logo: metadata ? metadata[1] : 'https://via.placeholder.com/40',
-                        };
-                    } else if (line.startsWith('http')) {
-                        currentChannel.url = line;
-                        channels.push({...currentChannel});
-                    }
-                });
+                    lines.forEach(line => {
+                        if (line.startsWith('#EXTINF:')) {
+                            const titleMatch = line.match(/tvg-name="([^"]*)"/) || line.match(/,(.+)$/);
+                            const logoMatch = line.match(/tvg-logo="([^"]*)"/);
+                            const groupMatch = line.match(/group-title="([^"]*)"/);
+                            
+                            currentChannel = {
+                                name: titleMatch ? titleMatch[1] : 'Unknown Channel',
+                                logo: logoMatch ? logoMatch[1] : 'https://via.placeholder.com/40',
+                                category: groupMatch ? groupMatch[1] : 'Uncategorized'
+                            };
+                        } else if (line.trim() && !line.startsWith('#')) {
+                            currentChannel.url = line.trim();
+                            if (currentChannel.url) {
+                                channels.push({...currentChannel});
+                            }
+                        }
+                    });
 
-                return channels;
+                    return channels;
+                } catch (error) {
+                    console.error('Error parsing M3U:', error);
+                    return [];
+                }
             }
 
-            function displayChannels(channels) {
+            // Load and display channels with retry mechanism
+            async function loadChannels(retryCount = 3) {
+                const m3uUrl = 'https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u';
+                let channels = [];
+                
+                for (let i = 0; i < retryCount; i++) {
+                    channels = await parseM3U(m3uUrl);
+                    if (channels.length > 0) break;
+                    await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+                }
+
                 const channelsList = document.getElementById('channelsList');
 
                 if (channels.length === 0) {
-                    channelsList.innerHTML = '<div class="error-message">No channels available</div>';
+                    channelsList.innerHTML = '<div class="error-message">No channels available. Please try again later.</div>';
                     return;
                 }
 
@@ -204,6 +296,7 @@
                         <img src="${channel.logo}" alt="${channel.name}" class="channel-logo" onerror="this.src='https://via.placeholder.com/40'">
                         <div class="channel-info">
                             <h3>${channel.name}</h3>
+                            <p>${channel.category}</p>
                         </div>
                     `;
                     channelElement.onclick = function() {
@@ -217,19 +310,37 @@
                 });
             }
 
+            // Enhanced playChannel function with error handling
             function playChannel(streamUrl, element) {
-                player.load({
-                    file: streamUrl,
-                    type: "hls"
-                });
-                player.play();
+                try {
+                    player.load([{
+                        file: streamUrl,
+                        type: "application/x-mpegURL"
+                    }]);
+                    
+                    player.play();
 
-                document.querySelectorAll('.channel-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                element.classList.add('active');
+                    document.querySelectorAll('.channel-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    element.classList.add('active');
+
+                } catch (error) {
+                    console.error('Error playing channel:', error);
+                    alert('Error playing channel. Please try again.');
+                }
+            }
+
+            // Initialize with error handling
+            try {
+                loadChannels();
+            } catch (error) {
+                console.error('Error initializing player:', error);
+                document.getElementById('channelsList').innerHTML = 
+                    '<div class="error-message">Error loading channels. Please refresh the page.</div>';
             }
         });
     </script>
 </body>
 </html>
+
