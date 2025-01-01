@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Source Code Viewer Pro</title>
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #333;
+            --bg-color: #1e1e1e;
+            --text-color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .control-panel {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 1rem;
+            background: #252525;
+        }
+
+        /* Input and Button Styles */
+        .url-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.8rem;
+            border: 2px solid var(--primary-color);
+            background: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .source-container, .preview-container {
+            background: #252525;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .source-header, .preview-header {
+            background: #333;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-area {
+            padding: 1rem;
+            overflow-y: auto;
+            height: calc(100vh - 250px);
+            position: relative;
+        }
+
+        #sourceCode {
+            font-family: 'Consolas', monospace;
+            white-space: pre-wrap;
+            tab-size: 4;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Tools Panel */
+        .tools-panel {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .tool-btn {
+            padding: 0.5rem;
+            border-radius: 4px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tool-btn:hover {
+            background: #1976D2;
+        }
+
+        /* Zoom Controls */
+        .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 0.5rem;
+            border-radius: 20px;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .zoom-info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        /* Statistics Panel */
+        .stats-panel {
+            background: #333;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            border-radius: 4px;
+            background: #4CAF50;
+            color: white;
+            z-index: 1000;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .control-panel {
+                flex-direction: column;
+            }
+            
+            .url-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ultimate Source Code Viewer Pro</h1>
+            <div class="control-panel">
+                <input type="url" class="url-input" id="urlInput" placeholder="Enter website URL (e.g., https://example.com)">
+                <div class="btn-group">
+                    <button class="btn" id="viewBtn">View Source</button>
+                    <button class="btn" id="copyBtn">Copy Code</button>
+                    <button class="btn" id="downloadBtn">Download</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="source-container">
+                <div class="source-header">
+                    <span>Source Code</span>
+                    <select id="syntaxTheme">
+                        <option value="default">Default Theme</option>
+                        <option value="dark">Dark Theme</option>
+                        <option value="light">Light Theme</option>
+                    </select>
+                </div>
+                <div class="code-area">
+                    <pre id="sourceCode"></pre>
+                </div>
+            </div>
+            <div class="preview-container">
+                <div class="preview-header">
+                    <span>Live Preview</span>
+                    <button class="btn" id="refreshBtn">Refresh</button>
+                </div>
+                <iframe id="preview" style="width: 100%; height: calc(100vh - 250px); border: none;"></iframe>
+            </div>
+        </main>
+
+        <div class="tools-panel">
+            <button class="tool-btn" id="formatBtn" title="Format Code">
+                <i class="fas fa-code"></i>
+            </button>
+            <button class="tool-btn" id="searchBtn" title="Search">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="tool-btn" id="settingsBtn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+
+        <div class="zoom-controls">
+            <button class="tool-btn" id="zoomInBtn">+</button>
+            <button class="tool-btn" id="zoomOutBtn">-</button>
+            <button class="tool-btn" id="resetZoomBtn">Reset</button>
+        </div>
+
+        <div class="zoom-info" id="zoomInfo">Zoom: 100%</div>
+
+        <div class="stats-panel">
+            <span id="fileInfo">File Size: 0 KB</span>
+            <span id="lineCount">Lines: 0</span>
+            <span id="charCount">Characters: 0</span>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script>
+        class SourceCodeViewer {
+            constructor() {
+                this.currentZoom = 1;
+                this.maxZoom = 1000;
+                this.minZoom = 0.1;
+                this.init();
+            }
+
+            init() {
+                this.bindElements();
+                this.setupEventListeners();
+            }
+
+            bindElements() {
+                this.urlInput = document.getElementById('urlInput');
+                this.viewBtn = document.getElementById('viewBtn');
+                this.copyBtn = document.getElementById('copyBtn');
+                this.downloadBtn = document.getElementById('downloadBtn');
+                this.sourceCode = document.getElementById('sourceCode');
+                this.preview = document.getElementById('preview');
+                this.notification = document.getElementById('notification');
+                this.zoomInfo = document.getElementById('zoomInfo');
+            }
+
+            setupEventListeners() {
+                this.viewBtn.addEventListener('click', () => this.fetchSourceCode());
+                this.copyBtn.addEventListener('click', () => this.copySourceCode());
+                this.downloadBtn.addEventListener('click', () => this.downloadSourceCode());
+                
+                document.getElementById('zoomInBtn').addEventListener('click', () => this.zoom('in'));
+                document.getElementById('zoomOutBtn').addEventListener('click', () => this.zoom('out'));
+                document.getElementById('resetZoomBtn').addEventListener('click', () => this.zoom('reset'));
+                
+                document.getElementById('formatBtn').addEventListener('click', () => this.formatCode());
+                document.getElementById('refreshBtn').addEventListener('click', () => this.refreshPreview());
+                
+                this.urlInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.fetchSourceCode();
+                });
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.ctrlKey) {
+                        switch(e.key) {
+                            case '+':
+                                e.preventDefault();
+                                this.zoom('in');
+                                break;
+                            case '-':
+                                e.preventDefault();
+                                this.zoom('out');
+                                break;
+                            case '0':
+                                e.preventDefault();
+                                this.zoom('reset');
+                                break;
+                        }
+                    }
+                });
+            }
+
+            async fetchSourceCode() {
+                const url = this.urlInput.value.trim();
+                if (!url) {
+                    this.showNotification('Please enter a valid URL', 'error');
+                    return;
+                }
+
+                try {
+                    this.showNotification('Fetching source code...', 'info');
+                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
+                    
+                    if (!response.ok) throw new Error('Failed to fetch source code');
+                    
+                    const sourceCode = await response.text();
+                    this.displaySourceCode(sourceCode);
+                    this.updateStatistics(sourceCode);
+                    this.updatePreview(url);
+                    this.showNotification('Source code fetched successfully!', 'success');
+                } catch (error) {
+                    this.showNotification(`Error: ${error.message}`, 'error');
+                }
+            }
+
+            displaySourceCode(code) {
+                this.sourceCode.textContent = code;
+                Prism.highlightElement(this.sourceCode);
+            }
+
+            updatePreview(url) {
+                this.preview.src = url;
+            }
+
+            refreshPreview() {
+                this.preview.src = this.preview.src;
+            }
+
+            copySourceCode() {
+                const code = this.sourceCode.textContent;
+                navigator.clipboard.writeText(code)
+                    .then(() => this.showNotification('Code copied to clipboard!', 'success'))
+                    .catch(() => this.showNotification('Failed to copy code', 'error'));
+            }
+
+            downloadSourceCode() {
+                const code = this.sourceCode.textContent;
+                const blob = new Blob([code], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'source-code.txt';
+                a.click();
+                URL.revokeObjectURL(url);
+                this.showNotification('Download started!', 'success');
+            }
+
+            formatCode() {
+                try {
+                    const code = this.sourceCode.textContent;
+                    const formatted = this.prettifyCode(code);
+                    this.displaySourceCode(formatted);
+                    this.showNotification('Code formatted successfully!', 'success');
+                } catch (error) {
+                    this.showNotification('Error formatting code', 'error');
+                }
+            }
+
+            prettifyCode(code) {
+                let formatted = '';
+                let indent = 0;
+                const lines = code.split('\n');
+                
+                lines.forEach(line => {
+                    line = line.trim();
+                    if (line.match(/<\/.+>/)) {
+                        indent--;
+                    }
+                    formatted += '    '.repeat(Math.max(0, indent)) + line + '\n';
+                    if (line.match(/<[^/].+>/) && !line.match(/<.+\/>/)) {
+                        indent++;
+                    }
+                });
+                
+                return formatted;
+            }
+
+            zoom(action) {
+                const prevZoom = this.currentZoom;
+                
+                switch(action) {
+                    case 'in':
+                        this.currentZoom = Math.min(this.maxZoom, this.currentZoom * 1.2);
+                        break;
+                    case 'out':
+                        this.currentZoom = Math.max(this.minZoom, this.currentZoom / 1.2);
+                        break;
+                    case 'reset':
+                        this.currentZoom = 1;
+                        break;
+                }
+
+                if (prevZoom !== this.currentZoom) {
+                    this.sourceCode.style.transform = `scale(${this.currentZoom})`;
+                    this.zoomInfo.textContent = `Zoom: ${Math.round(this.currentZoom * 100)}%`;
+                }
+            }
+
+            updateStatistics(code) {
+                const lines = code.split('\n').length;
+                const chars = code.length;
+                const size = Math.round(new Blob([code]).size / 1024);
+
+                document.getElementById('fileInfo').textContent = `File Size: ${size} KB`;
+                document.getElementById('lineCount').textContent = `Lines: ${lines}`;
+                document.getElementById('charCount').textContent = `Characters: ${chars}`;
+            }
+
+            showNotification(message, type = 'info') {
+                const colors = {
+                    success: '#4CAF50',
+                    error: '#f44336',
+                    info: '#2196F3'
+                };
+
+                this.notification.style.background = colors[type];
+                this.notification.textContent = message;
+                this.notification.style.display = 'block';
+
+                setTimeout(() => {
+                    this.notification.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Initialize when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            new SourceCodeViewer();
+        });
+    </script>
+</body>
+</html>
