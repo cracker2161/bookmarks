@@ -1,0 +1,49 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/T%20Sports%20HD.jpg" group-title="Sports", T Sports HD
+https://kala-bilay.netlify.app/NeonXByte/Sports/TsportsHD.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/GaziTv.jpg" group-title="Sports", Gazi Tv
+https://kala-bilay.netlify.app/NeonXByte/Sports/GaziTv.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Willow.jpg" group-title="Sports", Willow
+https://kala-bilay.netlify.app/NeonXByte/Sports/Willow.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/StarSports1.jpg" group-title="Sports", Star Sports 1
+https://kala-bilay.netlify.app/NeonXByte/Sports/StarSports1.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/StarSportsSel1.jpg" group-title="Sports", Star Sports Select 1
+https://kala-bilay.netlify.app/NeonXByte/Sports/StarSportsSel1.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Star_Sports_Select_2.png" group-title="Sports", Star Sports Select 2
+https://kala-bilay.netlify.app/NeonXByte/Sports/StarSportsSel2.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/DD-Sports.jpg" group-title="Sports", DD Sports
+https://kala-bilay.netlify.app/NeonXByte/Sports/DD-Sports.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Sports18_1_HD.png" group-title="Sports", Sports 18 one
+https://kala-bilay.netlify.app/NeonXByte/Sports/Sports18_1.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Sports18_2.jpg" group-title="Sports", Sports 18 two
+https://kala-bilay.netlify.app/NeonXByte/Sports/Sports18_2.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Sports18_3.jpg" group-title="Sports", Sports 18 three
+https://kala-bilay.netlify.app/NeonXByte/Sports/Sports18_3.m3u8
+
+#EXTINF:-1 tvg-logo="https://kala-bilay.vercel.app/logo/Sports18_khel.jpg" group-title="Sports", Sports 18 khel
+https://kala-bilay.netlify.app/NeonXByte/Sports/Sports18_Khel.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/MbTpnwO.png" group-title="Sports", SONY TEN 1 HD
+http://starshare.live:8080/live/rvdgdf7647564/bvchgfd235454/154.ts
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/LJGok7x.png" group-title="Sports", SONY TEN 2 HD
+http://starshare.live:8080/live/rvdgdf7647564/bvchgfd235454/31314.ts
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/TWNbDTu.png" group-title="Sports", SONY TEN 3 HD
+http://starshare.live:8080/live/rvdgdf7647564/bvchgfd235454/146.ts
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/TqTashc.png" group-title="Sports", SONY TEN 4 FHD
+http://starshare.live:8080/live/rvdgdf7647564/bvchgfd235454/29469.ts
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/YEH5jdY.png" group-title="Sports", SONY TEN 5 FHD
+http://starshare.live:8080/live/rvdgdf7647564/bvchgfd235454/176.ts
