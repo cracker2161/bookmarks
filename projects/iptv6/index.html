@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV | Credit by Sultan | Oriby-code</title>
+    <meta name="author" content="Oriby-code">
+    <meta name="copyright" content="Oriby-code 2025">
+    <meta name="description" content="Protected by Oriby-code">
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Oriby-code Protection CSS Start */
+        body::before {
+            content: "Protected by Oriby-code";
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 9999;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* Oriby-code Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            background: #16213e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1c3a72;
+            border-radius: 3px;
+        }
+
+        /* Oriby-code Selection Protection */
+        ::selection {
+            background: #e94560;
+            color: #fff;
+        }
+
+        /* Oriby-code Main Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        #container {
+            width: 100%;
+            max-width: 1280px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(22, 33, 62, 0.95);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border-radius: 0 0 10px 10px;
+        }
+
+        #video-section {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            background: #000;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+            outline: none;
+        }
+
+        .category-wrapper {
+            position: relative;
+            padding: 8px;
+            background: linear-gradient(to right, #1c3a72, #2a4a8a);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .category-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        #category-select {
+            width: 100%;
+            padding: 12px 40px 12px 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            background: linear-gradient(to right, #52634a, #637c58);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #category-select:focus {
+            background: linear-gradient(to right, #637c58, #52634a);
+            box-shadow: 0 2px 8px rgba(233, 69, 96, 0.3);
+        }
+
+        #category-select:focus + .category-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        #channel-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            padding: 15px;
+            background: #16213e;
+            height: calc(100vh - calc(100vw * 9/16) - 65px);
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        .channel-card {
+            position: relative;
+            background: linear-gradient(145deg, #1c3a72, #2a4a8a);
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            z-index: 1;
+        }
+
+        .channel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .channel-card:hover::before {
+            left: 100%;
+        }
+
+        .channel-card img {
+            width: 100px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .channel-card:active {
+            transform: scale(0.95);
+            background: linear-gradient(145deg, #2a4a8a, #1c3a72);
+        }
+
+        .playing {
+            background: linear-gradient(145deg, #e94560, #c23648);
+            border: 2px solid #ffffff;
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(233, 69, 96, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(233, 69, 96, 0);
+            }
+        }
+
+        .playing img {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4b5c;
+            font-size: 14px;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 300px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,75,92,0.3);
+            box-shadow: 0 0 15px rgba(255,75,92,0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(22, 33, 62, 0.8);
+            z-index: 1000;
+        }
+
+        .loading::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ffffff;
+            border-top-color: #e94560;
+            border-radius: 50%;
+            animation: oribyLoading 1s linear infinite;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            #channel-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 8px;
+                padding: 10px;
+            }
+            
+            .channel-card {
+                padding: 6px;
+            }
+
+            .channel-card img {
+                width: 90px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #channel-container {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 6px;
+                padding: 8px;
+            }
+
+            .channel-card img {
+                width: 85px;
+                height: 65px;
+            }
+
+            .category-wrapper {
+                padding: 6px;
+            }
+
+            #category-select {
+                padding: 12px 36px 12px 10px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            #channel-container {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+            }
+            
+            .channel-card img {
+                width: 75px;
+                height: 60px;
+            }
+        }
+
+        /* Protection Features */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        @keyframes oribyLoading {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="video-section">
+            <video id="video" class="video-js vjs-default-skin" controls preload="auto">
+                <source id="video-source" src="" type="application/x-mpegURL">
+                Your browser does not support the video tag.
+            </video>
+            <div id="error-message" class="error-message" style="display: none;">
+                The channel is currently unavailable. Please contact the developer.
+            </div>
+        </div>
+        <div class="category-wrapper">
+            <select id="category-select">
+                <option value="bangladesh">Bangladesh</option>
+                <option value="islamic">Islamic</option>
+                <option value="news">News</option>
+                <option value="sports">Sports</option>
+                <option value="others">Others</option>
+            </select>
+            <i class="fas fa-chevron-down category-icon"></i>
+        </div>
+        <div id="channel-container"></div>
+    </div>
+
+    <script>
+        // Protection System
+        (function(){
+            const oribyProtection = {
+                init: function() {
+                    this.preventInspect();
+                    this.preventCopy();
+                    this.addWatermark();
+                    this.preventRightClick();
+                },
+                preventInspect: function() {
+                    document.addEventListener('keydown', function(e) {
+                        if (e.ctrlKey && 
+                            (e.keyCode === 67 || 
+                             e.keyCode === 86 || 
+                             e.keyCode === 85 || 
+                             e.keyCode === 117 ||
+                             e.keyCode === 123)) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+                },
+                preventCopy: function() {
+                    ['copy', 'cut', 'paste', 'select', 'selectstart'].forEach(function(event) {
+                        document.addEventListener(event, function(e) {
+                            e.preventDefault();
+                            return false;
+                        });
+                    });
+                },
+                preventRightClick: function() {
+                    document.addEventListener('contextmenu', function(e) {
+                        e.preventDefault();
+                        return false;
+                    });
+                },
+                addWatermark: function() {
+                    console.log('%cProtected by Oriby-code', 'color: red; font-size: 20px; font-weight: bold;');
+                }
+            };
+            oribyProtection.init();
+        })();
+
+        // Main Application Code
+        const video = document.getElementById('video');
+        const videoSource = document.getElementById('video-source');
+        const errorMessage = document.getElementById('error-message');
+        const categorySelect = document.getElementById('category-select');
+        const channelContainer = document.getElementById('channel-container');
+
+        const m3uUrls = {
+            bangladesh: "https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u",
+            islamic: "https://raw.githubusercontent.com/sultanarabi161/Youtube-playlist/main/bd.m3u",
+            news: "https://raw.githubusercontent.com/sultanarabi161/bd-playlist/main/all-category.m3u",
+            sports: "https://gist.githubusercontent.com/shobhitsharma/b13b9e0a72f3e88db88d4991d0a29fdf/raw/7d95bf13463c313ecdb090ad6d05851e834cce7b/test-iptv.m3u",
+            others: "https://gist.githubusercontent.com/shobhitsharma/b13b9e0a72f3e88db88d4991d0a29fdf/raw/7d95bf13463c313ecdb090ad6d05851e834cce7b/test-iptv.m3u"
+        };
+
+        async function fetchChannels(url) {
+            try {
+                const loadingElement = document.createElement('div');
+                loadingElement.className = 'loading';
+                channelContainer.innerHTML = '';
+                channelContainer.appendChild(loadingElement);
+
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Network response was not ok");
+                const text = await response.text();
+                
+                if (text.trim().length === 0) {
+                    throw new Error("Empty response");
+                }
+                
+                errorMessage.style.display = 'none';
+                channelContainer.removeChild(loadingElement);
+                parseM3U(text);
+            } catch (error) {
+                console.error('Fetch error:', error);
+                errorMessage.style.display = 'block';
+                const loadingElement = channelContainer.querySelector('.loading');
+                if (loadingElement) {
+                    channelContainer.removeChild(loadingElement);
+                }
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+                videoSource.src = '';
+                video.load();
+            }
+        }
+
+        function parseM3U(data) {
+            const lines = data.split("\n");
+            const channels = [];
+            let currentChannel = {};
+
+            lines.forEach(line => {
+                line = line.trim();
+                if (line.startsWith("#EXTINF")) {
+                    const info = line.match(/#EXTINF:-1.*,(.*)/);
+                    if (info) {
+                        currentChannel.name = info[1];
+                    }
+                    const logo = line.match(/tvg-logo="(.*?)"/);
+                    if (logo) {
+                        currentChannel.logo = logo[1];
+                    }
+                } else if (line && !line.startsWith("#")) {
+                    currentChannel.url = line;
+                    if (currentChannel.url && currentChannel.name) {
+                        channels.push({...currentChannel});
+                    }
+                    currentChannel = {};
+                }
+            });
+
+            if (channels.length > 0) {
+                errorMessage.style.display = 'none';
+                renderChannels(channels);
+            } else {
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function renderChannels(channels) {
+            channelContainer.innerHTML = '';
+            
+            channels.forEach((channel, index) => {
+                const card = document.createElement('div');
+                card.className = 'channel-card';
+                card.dataset.url = channel.url;
+                card.innerHTML = `<img src="${channel.logo || 'default-logo.png'}" alt="${channel.name}" onerror="this.src='default-logo.png'">`;
+                card.style.transitionDelay = `${index * 0.1}s`;
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                
+                card.addEventListener('click', () => {
+                    errorMessage.style.display = 'none';
+                    videoSource.src = channel.url;
+                    video.load();
+                    video.play().catch(error => {
+                        console.error('Playback error:', error);
+                        errorMessage.style.display = 'block';
+                        setTimeout(() => {
+                            errorMessage.style.display = 'none';
+                        }, 3000);
+                    });
+
+                    const allCards = document.querySelectorAll('.channel-card');
+                    allCards.forEach(card => card.classList.remove('playing'));
+                    card.classList.add('playing');
+                });
+                
+                channelContainer.appendChild(card);
+            });
+        }
+
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            const urlToFetch = m3uUrls[selectedCategory] || m3uUrls.bangladesh;
+            errorMessage.style.display = 'none';
+            fetchChannels(urlToFetch);
+        });
+
+        // Touch Event Optimization
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Error Handling
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.log('Oriby-code Error:', msg);
+            return false;
+        };
+
+        // Initial load
+        fetchChannels(m3uUrls.bangladesh);
+    </script>
+</body>
+</html>
+
