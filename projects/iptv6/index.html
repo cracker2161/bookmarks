@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV | Credit by Sultan</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            width: 100%;
+            max-width: 1280px;
+            display: flex;
+            flex-direction: column;
+            background: #16213e;
+            overflow: hidden;
+        }
+
+        #video-section {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            background: #000;
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .category-wrapper {
+            position: relative;
+            padding: 8px;
+            background: #1c3a72;
+        }
+
+        .category-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+            font-size: 18px;
+        }
+
+        #category-select {
+            width: 100%;
+            padding: 12px 40px 12px 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            background: #52634a;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #category-select:focus {
+            background-color: #637c58;
+        }
+
+        #channel-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 8px;
+            padding: 8px;
+            background: #16213e;
+            height: calc(100vh - calc(100vw * 9/16) - 65px);
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        #channel-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #channel-container::-webkit-scrollbar-track {
+            background: #16213e;
+        }
+
+        #channel-container::-webkit-scrollbar-thumb {
+            background: #1c3a72;
+            border-radius: 3px;
+        }
+
+        .channel-card {
+            background: #1c3a72;
+            border-radius: 8px;
+            padding: 6px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation; /* Optimize for touch */
+        }
+
+        .channel-card img {
+            width: 100px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+        }
+
+        .channel-card:active {
+            transform: scale(0.95);
+            background: #2a4a8a;
+        }
+
+        .playing {
+            background: #e94560;
+            border: 2px solid #ffffff;
+            opacity: 1;
+        }
+
+        .playing img {
+            opacity: 0.9;
+        }
+
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4b5c;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            #category-select {
+                padding: 14px 40px 14px 12px; /* Increased touch target */
+                font-size: 16px;
+            }
+
+            #channel-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 6px;
+                padding: 6px;
+            }
+
+            .channel-card {
+                padding: 4px;
+            }
+
+            .channel-card img {
+                width: 90px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-wrapper {
+                padding: 6px;
+            }
+
+            #category-select {
+                padding: 12px 36px 12px 10px;
+                font-size: 15px;
+            }
+
+            #channel-container {
+                grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+                gap: 5px;
+                padding: 5px;
+            }
+
+            .channel-card img {
+                width: 85px;
+                height: 65px;
+            }
+
+            .category-icon {
+                right: 16px;
+                font-size: 16px;
+            }
+        }
+
+        /* Prevent text selection */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="video-section">
+        <video id="video" class="video-js vjs-default-skin" controls preload="auto">
+            <source id="video-source" src="" type="application/x-mpegURL">
+            Your browser does not support the video tag.
+        </video>
+        <div id="error-message" class="error-message" style="display: none;">
+            The channel is currently unavailable. Please contact the developer.
+        </div>
+    </div>
+    <div class="category-wrapper">
+        <select id="category-select">
+            <option value="bangladesh">Bangladesh</option>
+            <option value="islamic">Islamic</option>
+            <option value="news">News</option>
+            <option value="sports">Sports</option>
+            <option value="others">Others</option>
+        </select>
+        <i class="fas fa-chevron-down category-icon"></i>
+    </div>
+    <div id="channel-container"></div>
+</div>
+
+<script>
+    const video = document.getElementById('video');
+    const videoSource = document.getElementById('video-source');
+    const errorMessage = document.getElementById('error-message');
+    const categorySelect = document.getElementById('category-select');
+    const channelContainer = document.getElementById('channel-container');
+
+    const m3uUrls = {
+        bangladesh: "https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u",
+        islamic: "https://raw.githubusercontent.com/sultanarabi161/Youtube-playlist/main/bd.m3u",
+        news: "https://raw.githubusercontent.com/sultanarabi161/bd-playlist/main/all-category.m3u",
+        sports: "https://gist.githubusercontent.com/shobhitsharma/b13b9e0a72f3e88db88d4991d0a29fdf/raw/7d95bf13463c313ecdb090ad6d05851e834cce7b/test-iptv.m3u",
+        others: "https://gist.githubusercontent.com/shobhitsharma/b13b9e0a72f3e88db88d4991d0a29fdf/raw/7d95bf13463c313ecdb090ad6d05851e834cce7b/test-iptv.m3u"
+    };
+
+    async function fetchChannels(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Network response was not ok");
+            const text = await response.text();
+            parseM3U(text);
+        } catch (error) {
+            errorMessage.style.display = 'block';
+            videoSource.src = '';
+            video.load();
+        }
+    }
+
+    function parseM3U(data) {
+        const lines = data.split("\n");
+        const channels = [];
+        let currentChannel = {};
+
+        lines.forEach(line => {
+            line = line.trim();
+            if (line.startsWith("#EXTINF")) {
+                const info = line.match(/#EXTINF:-1.*,(.*)/);
+                if (info) {
+                    currentChannel.name = info[1];
+                }
+                const logo = line.match(/tvg-logo="(.*?)"/);
+                if (logo) {
+                    currentChannel.logo = logo[1];
+                }
+            } else if (line && !line.startsWith("#")) {
+                currentChannel.url = line;
+                channels.push(currentChannel);
+                currentChannel = {};
+            }
+        });
+
+        renderChannels(channels);
+    }
+
+    function renderChannels(channels) {
+        channelContainer.innerHTML = '';
+        errorMessage.style.display = 'none';
+
+        channels.forEach((channel, index) => {
+            const card = document.createElement('div');
+            card.className = 'channel-card';
+            card.dataset.url = channel.url;
+            card.innerHTML = `<img src="${channel.logo || 'default-logo.png'}" alt="${channel.name}">`;
+            card.style.transitionDelay = `${index * 0.1}s`;
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            
+            card.addEventListener('click', () => {
+                videoSource.src = channel.url;
+                video.load();
+                video.play();
+
+                const allCards = document.querySelectorAll('.channel-card');
+                allCards.forEach(card => card.classList.remove('playing'));
+                card.classList.add('playing');
+            });
+            
+            channelContainer.appendChild(card);
+        });
+    }
+
+    categorySelect.addEventListener('change', () => {
+        const selectedCategory = categorySelect.value;
+        const urlToFetch = m3uUrls[selectedCategory] || m3uUrls.bangladesh;
+        fetchChannels(urlToFetch);
+    });
+
+    // Initial load
+    fetchChannels(m3uUrls.bangladesh);
+</script>
+</body>
+</html>
+
