@@ -25,7 +25,6 @@
             opacity: 0.7;
         }
 
-        /* Oriby-code Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             background: #16213e;
@@ -36,13 +35,11 @@
             border-radius: 3px;
         }
 
-        /* Oriby-code Selection Protection */
         ::selection {
             background: #e94560;
             color: #fff;
         }
 
-        /* Oriby-code Main Styles */
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -128,8 +125,8 @@
 
         #channel-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
             padding: 15px;
             background: #16213e;
             height: calc(100vh - calc(100vw * 9/16) - 65px);
@@ -137,80 +134,59 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             position: relative;
+            align-items: start;
+            grid-auto-rows: minmax(min-content, max-content);
         }
 
         .channel-card {
             position: relative;
             background: linear-gradient(145deg, #1c3a72, #2a4a8a);
             border-radius: 8px;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
-            height: fit-content;
-            z-index: 1;
-        }
-
-        .channel-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .channel-card:hover::before {
-            left: 100%;
+            aspect-ratio: 1/1;
+            box-sizing: border-box;
         }
 
         .channel-card img {
-            width: 100px;
-            height: 80px;
+            width: 100%;
+            height: 70%;
             border-radius: 4px;
             object-fit: cover;
             transition: transform 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 8px;
         }
 
-        .channel-card:active {
-            transform: scale(0.95);
-            background: linear-gradient(145deg, #2a4a8a, #1c3a72);
+        .channel-name {
+            font-size: 12px;
+            color: white;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 4px;
+            margin-top: auto;
         }
 
-        .playing {
+        .channel-card.playing {
             background: linear-gradient(145deg, #e94560, #c23648);
             border: 2px solid #ffffff;
-            opacity: 1;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(233, 69, 96, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(233, 69, 96, 0);
-            }
-        }
-
-        .playing img {
-            opacity: 0.9;
-            transform: scale(1.05);
+            0% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(233, 69, 96, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0); }
         }
 
         .error-message {
@@ -227,10 +203,7 @@
             width: 80%;
             max-width: 300px;
             z-index: 1000;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,75,92,0.3);
-            box-shadow: 0 0 15px rgba(255,75,92,0.2);
-            backdrop-filter: blur(4px);
+            display: none;
         }
 
         .loading {
@@ -238,100 +211,44 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(22, 33, 62, 0.8);
-            z-index: 1000;
-        }
-
-        .loading::after {
-            content: '';
             width: 40px;
             height: 40px;
             border: 4px solid #ffffff;
             border-top-color: #e94560;
             border-radius: 50%;
-            animation: oribyLoading 1s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
-        /* Mobile Optimizations */
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             #channel-container {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 8px;
-                padding: 10px;
-            }
-            
-            .channel-card {
-                padding: 6px;
-            }
-
-            .channel-card img {
-                width: 90px;
-                height: 70px;
+                gap: 10px;
             }
         }
 
         @media (max-width: 480px) {
             #channel-container {
-                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-                gap: 6px;
-                padding: 8px;
-            }
-
-            .channel-card img {
-                width: 85px;
-                height: 65px;
-            }
-
-            .category-wrapper {
-                padding: 6px;
-            }
-
-            #category-select {
-                padding: 12px 36px 12px 10px;
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 320px) {
-            #channel-container {
                 grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                gap: 8px;
             }
-            
-            .channel-card img {
-                width: 75px;
-                height: 60px;
+            .channel-name {
+                font-size: 11px;
             }
-        }
-
-        /* Protection Features */
-        * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        @keyframes oribyLoading {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="video-section">
-            <video id="video" class="video-js vjs-default-skin" controls preload="auto">
+            <video id="video" class="video-js vjs-default-skin" controls preload="auto" playsinline>
                 <source id="video-source" src="" type="application/x-mpegURL">
                 Your browser does not support the video tag.
             </video>
-            <div id="error-message" class="error-message" style="display: none;">
-                The channel is currently unavailable. Please contact the developer.
-            </div>
+            <div id="error-message" class="error-message"></div>
         </div>
         <div class="category-wrapper">
             <select id="category-select">
@@ -349,45 +266,24 @@
     <script>
         // Protection System
         (function(){
-            const oribyProtection = {
-                init: function() {
-                    this.preventInspect();
-                    this.preventCopy();
-                    this.addWatermark();
-                    this.preventRightClick();
-                },
-                preventInspect: function() {
-                    document.addEventListener('keydown', function(e) {
-                        if (e.ctrlKey && 
-                            (e.keyCode === 67 || 
-                             e.keyCode === 86 || 
-                             e.keyCode === 85 || 
-                             e.keyCode === 117 ||
-                             e.keyCode === 123)) {
-                            e.preventDefault();
-                            return false;
-                        }
-                    });
-                },
-                preventCopy: function() {
-                    ['copy', 'cut', 'paste', 'select', 'selectstart'].forEach(function(event) {
-                        document.addEventListener(event, function(e) {
-                            e.preventDefault();
-                            return false;
-                        });
-                    });
-                },
-                preventRightClick: function() {
-                    document.addEventListener('contextmenu', function(e) {
-                        e.preventDefault();
-                        return false;
-                    });
-                },
-                addWatermark: function() {
-                    console.log('%cProtected by Oriby-code', 'color: red; font-size: 20px; font-weight: bold;');
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117 || e.keyCode === 123)) {
+                    e.preventDefault();
+                    return false;
                 }
-            };
-            oribyProtection.init();
+            });
+
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            ['copy', 'cut', 'paste', 'select', 'selectstart'].forEach(function(event) {
+                document.addEventListener(event, function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
         })();
 
         // Main Application Code
@@ -396,6 +292,7 @@
         const errorMessage = document.getElementById('error-message');
         const categorySelect = document.getElementById('category-select');
         const channelContainer = document.getElementById('channel-container');
+        let currentPlayingCard = null;
 
         const m3uUrls = {
             bangladesh: "https://raw.githubusercontent.com/johirryhan087/iptv_playlists/refs/heads/main/https_playlist.m3u",
@@ -407,11 +304,7 @@
 
         async function fetchChannels(url) {
             try {
-                const loadingElement = document.createElement('div');
-                loadingElement.className = 'loading';
-                channelContainer.innerHTML = '';
-                channelContainer.appendChild(loadingElement);
-
+                channelContainer.innerHTML = '<div class="loading"></div>';
                 const response = await fetch(url);
                 if (!response.ok) throw new Error("Network response was not ok");
                 const text = await response.text();
@@ -420,22 +313,19 @@
                     throw new Error("Empty response");
                 }
                 
-                errorMessage.style.display = 'none';
-                channelContainer.removeChild(loadingElement);
                 parseM3U(text);
             } catch (error) {
                 console.error('Fetch error:', error);
-                errorMessage.style.display = 'block';
-                const loadingElement = channelContainer.querySelector('.loading');
-                if (loadingElement) {
-                    channelContainer.removeChild(loadingElement);
-                }
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
-                videoSource.src = '';
-                video.load();
+                showError("Failed to load channels. Please try again.");
             }
+        }
+
+        function showError(message, duration = 3000) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, duration);
         }
 
         function parseM3U(data) {
@@ -464,72 +354,74 @@
             });
 
             if (channels.length > 0) {
-                errorMessage.style.display = 'none';
                 renderChannels(channels);
             } else {
-                errorMessage.style.display = 'block';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
+                showError("No channels found");
             }
         }
 
         function renderChannels(channels) {
             channelContainer.innerHTML = '';
             
-            channels.forEach((channel, index) => {
+            channels.forEach(channel => {
                 const card = document.createElement('div');
                 card.className = 'channel-card';
-                card.dataset.url = channel.url;
-                card.innerHTML = `<img src="${channel.logo || 'default-logo.png'}" alt="${channel.name}" onerror="this.src='default-logo.png'">`;
-                card.style.transitionDelay = `${index * 0.1}s`;
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
                 
-                card.addEventListener('click', () => {
-                    errorMessage.style.display = 'none';
+                card.innerHTML = `
+                    <img src="${channel.logo || 'https://via.placeholder.com/150'}" 
+                         alt="${channel.name}" 
+                         onerror="this.src='https://via.placeholder.com/150'">
+                    <div class="channel-name">${channel.name}</div>
+                `;
+                
+                card.addEventListener('click', function() {
+                    if (currentPlayingCard) {
+                        currentPlayingCard.classList.remove('playing');
+                    }
+                    
+                    video.pause();
                     videoSource.src = channel.url;
                     video.load();
-                    video.play().catch(error => {
-                        console.error('Playback error:', error);
-                        errorMessage.style.display = 'block';
-                        setTimeout(() => {
-                            errorMessage.style.display = 'none';
-                        }, 3000);
-                    });
 
-                    const allCards = document.querySelectorAll('.channel-card');
-                    allCards.forEach(card => card.classList.remove('playing'));
-                    card.classList.add('playing');
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            this.classList.add('playing');
+                            currentPlayingCard = this;
+                            errorMessage.style.display = 'none';
+                        }).catch(error => {
+                            console.error('Playback error:', error);
+                            showError(`Cannot play ${channel.name}. Please try another channel.`);
+                        });
+                    }
                 });
                 
                 channelContainer.appendChild(card);
             });
         }
 
-        categorySelect.addEventListener('change', () => {
-            const selectedCategory = categorySelect.value;
-            const urlToFetch = m3uUrls[selectedCategory] || m3uUrls.bangladesh;
-            errorMessage.style.display = 'none';
-            fetchChannels(urlToFetch);
+        video.addEventListener('error', function() {
+            if (currentPlayingCard) {
+                currentPlayingCard.classList.remove('playing');
+                currentPlayingCard = null;
+            }
+            showError("Video playback error. Please try another channel.");
         });
 
-        // Touch Event Optimization
-        document.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault();
+        categorySelect.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            if (currentPlayingCard) {
+                currentPlayingCard.classList.remove('playing');
+                currentPlayingCard = null;
             }
-        }, { passive: false });
-
-        // Error Handling
-        window.onerror = function(msg, url, lineNo, columnNo, error) {
-            console.log('Oriby-code Error:', msg);
-            return false;
-        };
+            video.pause();
+            videoSource.src = '';
+            video.load();
+            fetchChannels(m3uUrls[selectedCategory]);
+        });
 
         // Initial load
         fetchChannels(m3uUrls.bangladesh);
     </script>
 </body>
 </html>
-
