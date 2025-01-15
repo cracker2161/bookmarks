@@ -3,234 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endless stream player</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>সরাসরি সম্প্রচার</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12"></script>
     <style>
-        .player-container {
-            max-width: 100%;
-            margin: 0 auto;
-            position: relative;
-            background: #000;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        #videoElement {
+
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .player-container {
             width: 100%;
-            height: auto;
+            max-width: 1280px;
+            background: #000;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .aspect-ratio-box {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+        }
+
+        #videoPlayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .status {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="player-container">
-        <video id="videoElement" controls></video>
+        <div class="aspect-ratio-box">
+            <video id="videoPlayer" controls playsinline></video>
+            <div class="status" id="status">Loading...</div>
+        </div>
     </div>
 
     <script>
-        class ContinuousStreamPlayer {
+        class StreamPlayer {
             constructor() {
-                this.videoElement = document.getElementById('videoElement');
+                this.videoElement = document.getElementById('videoPlayer');
+                this.statusElement = document.getElementById('status');
+                this.hls = null;
                 this.streamUrl = 'http://mega4k.one:8080/live/12309/12309/92418.m3u8';
-                this.hlsPlayers = [];
-                this.activePlayerIndex = 0;
-                this.preloadThreshold = 30; // seconds before switching
-                this.lastKnownTime = 0;
-                this.isFirstLoad = true;
-
-                this.initializePlayer();
+                this.initialize();
             }
 
-            initializePlayer() {
-                if (!Hls.isSupported()) {
-                    console.error('HLS not supported');
-                    return;
+            initialize() {
+                if (Hls.isSupported()) {
+                    this.setupHls();
+                } else if (this.videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+                    this.setupNativeHls();
+                } else {
+                    this.showStatus('Your browser does not support HLS playback');
                 }
-
-                // Create initial HLS instance
-                this.createNewHlsInstance();
-                
-                // Start the continuous playback system
-                this.startContinuousPlayback();
             }
 
-            createNewHlsInstance() {
-                const hls = new Hls({
+            setupHls() {
+                this.hls = new Hls({
                     debug: false,
                     enableWorker: true,
                     lowLatencyMode: true,
                     backBufferLength: 90,
                     maxBufferSize: 0,
                     maxBufferLength: 30,
-                    maxMaxBufferLength: 600,
-                    maxLiveSyncPlaybackRate: 1.5,
-                    liveSyncDurationCount: 3,
-                    liveMaxLatencyDurationCount: 10,
                     manifestLoadingTimeOut: 20000,
-                    manifestLoadingMaxRetry: 4,
-                    manifestLoadingRetryDelay: 1000,
+                    manifestLoadingMaxRetry: 6,
                     levelLoadingTimeOut: 20000,
-                    levelLoadingMaxRetry: 4,
-                    levelLoadingRetryDelay: 1000,
+                    levelLoadingMaxRetry: 6,
                     fragLoadingTimeOut: 20000,
-                    fragLoadingMaxRetry: 4,
-                    fragLoadingRetryDelay: 1000,
-                    startLevel: -1,
-                    defaultAudioCodec: 'mp4a.40.2'
+                    fragLoadingMaxRetry: 6,
+                    startFragPrefetch: true
                 });
 
-                // Add to players array
-                this.hlsPlayers.push(hls);
-                return hls;
-            }
+                this.hls.loadSource(this.streamUrl);
+                this.hls.attachMedia(this.videoElement);
 
-            startContinuousPlayback() {
-                const initialHls = this.hlsPlayers[0];
-                
-                initialHls.loadSource(this.streamUrl);
-                initialHls.attachMedia(this.videoElement);
-
-                initialHls.on(Hls.Events.MANIFEST_PARSED, () => {
-                    if (this.isFirstLoad) {
-                        this.videoElement.play().catch(console.error);
-                        this.isFirstLoad = false;
-                        this.setupStreamMonitoring();
-                    }
+                this.hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+                    this.showStatus('Starting stream...');
                 });
 
-                this.setupErrorHandling(initialHls);
-                this.setupStreamHealthCheck();
-            }
-
-            setupStreamMonitoring() {
-                // Monitor playback and prepare next stream
-                setInterval(() => {
-                    if (!this.videoElement.paused) {
-                        const currentTime = this.videoElement.currentTime;
-                        const bufferedEnd = this.getBufferedEnd();
-                        
-                        // If we're approaching the end of the buffer
-                        if (bufferedEnd - currentTime < this.preloadThreshold) {
-                            this.prepareNextStream();
+                this.hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    this.hideStatus();
+                    this.videoElement.play().catch(error => {
+                        if (error.name === 'NotAllowedError') {
+                            this.videoElement.muted = true;
+                            this.videoElement.play();
                         }
-                    }
-                }, 1000);
-
-                // Monitor for stalls
-                let lastTime = 0;
-                let stallCount = 0;
-                
-                setInterval(() => {
-                    if (!this.videoElement.paused) {
-                        if (this.videoElement.currentTime === lastTime) {
-                            stallCount++;
-                            if (stallCount >= 3) { // 3 seconds of stall
-                                this.handleStall();
-                                stallCount = 0;
-                            }
-                        } else {
-                            stallCount = 0;
-                        }
-                        lastTime = this.videoElement.currentTime;
-                    }
-                }, 1000);
-            }
-
-            setupStreamHealthCheck() {
-                setInterval(() => {
-                    if (!this.videoElement.paused) {
-                        const buffered = this.videoElement.buffered;
-                        if (buffered.length > 0) {
-                            const currentTime = this.videoElement.currentTime;
-                            const bufferEnd = buffered.end(buffered.length - 1);
-                            const bufferHealth = bufferEnd - currentTime;
-
-                            if (bufferHealth < 5) { // Less than 5 seconds of buffer
-                                this.prepareNextStream(true); // Force prepare
-                            }
-                        }
-                    }
-                }, 2000);
-            }
-
-            prepareNextStream(force = false) {
-                const currentHls = this.hlsPlayers[this.activePlayerIndex];
-                if (!currentHls || force) {
-                    const nextIndex = (this.activePlayerIndex + 1) % 2;
-                    
-                    // Create new HLS instance if needed
-                    if (!this.hlsPlayers[nextIndex]) {
-                        this.createNewHlsInstance();
-                    }
-
-                    const nextHls = this.hlsPlayers[nextIndex];
-                    nextHls.loadSource(this.streamUrl);
-                    
-                    // Prepare the switch
-                    this.lastKnownTime = this.videoElement.currentTime;
-                    
-                    nextHls.once(Hls.Events.MANIFEST_PARSED, () => {
-                        this.switchToNextStream(nextIndex);
                     });
+                });
 
-                    this.setupErrorHandling(nextHls);
-                }
-            }
-
-            switchToNextStream(nextIndex) {
-                const currentHls = this.hlsPlayers[this.activePlayerIndex];
-                const nextHls = this.hlsPlayers[nextIndex];
-
-                // Detach current stream
-                if (currentHls) {
-                    currentHls.detachMedia();
-                }
-
-                // Attach new stream
-                nextHls.attachMedia(this.videoElement);
-                this.videoElement.currentTime = this.lastKnownTime;
-                
-                // Update active index
-                this.activePlayerIndex = nextIndex;
-
-                // Clean up old stream
-                if (currentHls) {
-                    currentHls.destroy();
-                    this.hlsPlayers[this.activePlayerIndex] = null;
-                }
-
-                // Ensure playback continues
-                this.videoElement.play().catch(console.error);
-            }
-
-            handleStall() {
-                this.prepareNextStream(true);
-            }
-
-            setupErrorHandling(hls) {
-                hls.on(Hls.Events.ERROR, (event, data) => {
+                this.hls.on(Hls.Events.ERROR, (event, data) => {
                     if (data.fatal) {
-                        switch (data.type) {
+                        switch(data.type) {
                             case Hls.ErrorTypes.NETWORK_ERROR:
-                                hls.startLoad();
+                                this.showStatus('Network error, retrying...');
+                                this.hls.startLoad();
                                 break;
                             case Hls.ErrorTypes.MEDIA_ERROR:
-                                hls.recoverMediaError();
+                                this.showStatus('Media error, recovering...');
+                                this.hls.recoverMediaError();
                                 break;
                             default:
-                                this.prepareNextStream(true);
+                                this.showStatus('Stream error, restarting...');
+                                this.initialize();
                                 break;
                         }
                     }
                 });
             }
 
-            getBufferedEnd() {
-                const buffered = this.videoElement.buffered;
-                return buffered.length ? buffered.end(buffered.length - 1) : 0;
+            setupNativeHls() {
+                this.videoElement.src = this.streamUrl;
+                this.videoElement.addEventListener('loadstart', () => {
+                    this.showStatus('Starting stream...');
+                });
+                this.videoElement.addEventListener('canplay', () => {
+                    this.hideStatus();
+                });
+                this.videoElement.addEventListener('error', () => {
+                    this.showStatus('Stream error, please refresh');
+                });
+            }
+
+            showStatus(message) {
+                this.statusElement.textContent = message;
+                this.statusElement.style.display = 'block';
+            }
+
+            hideStatus() {
+                this.statusElement.style.display = 'none';
             }
         }
 
         // Initialize player when document is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            const player = new ContinuousStreamPlayer();
+            window.player = new StreamPlayer();
         });
     </script>
 </body>
 </html>
+
+
