@@ -3,391 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল্টিমেট স্ট্রিম প্লেয়ার</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12"></script>
+    <title>Endless stream player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            overflow: hidden;
-        }
-
         .player-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
             background: #000;
         }
-
-        #mainPlayer {
+        #videoElement {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        #backupPlayer {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .debug-overlay {
-            display: none;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.8);
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 12px;
-            z-index: 1000;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="player-container">
-        <video id="mainPlayer" controls playsinline></video>
-        <video id="backupPlayer" playsinline></video>
-        <div class="debug-overlay" id="debugOverlay"></div>
+        <video id="videoElement" controls></video>
     </div>
 
     <script>
-        class UltimateStreamPlayer {
+        class ContinuousStreamPlayer {
             constructor() {
-                // Core elements
-                this.mainPlayer = document.getElementById('mainPlayer');
-                this.backupPlayer = document.getElementById('backupPlayer');
-                this.debugOverlay = document.getElementById('debugOverlay');
+                this.videoElement = document.getElementById('videoElement');
+                this.streamUrl = 'http://suprino.xyz/live/PMF3J9X/BV7HG8H/510219.m3u8';
+                this.hlsPlayers = [];
+                this.activePlayerIndex = 0;
+                this.preloadThreshold = 30; // seconds before switching
+                this.lastKnownTime = 0;
+                this.isFirstLoad = true;
 
-                // Stream configuration
-                this.streamUrl = 'http://mega4k.one:8080/live/12309/12309/92413.m3u8';
-                this.mainHls = null;
-                this.backupHls = null;
-                this.streamStartTime = Date.now();
-                this.lastPlaybackTime = 0;
-                this.stallCount = 0;
-                this.recoveryAttempts = 0;
-                this.maxRecoveryAttempts = 5;
-                this.isRecovering = false;
-                this.streamHealth = 100;
-                this.bufferHealth = 100;
-
-                // Advanced configuration
-                this.config = {
-                    initialBufferLength: 30,
-                    maxBufferLength: 60,
-                    maxBufferSize: 300 * 1000 * 1000, // 300MB
-                    streamRecoveryInterval: 45000, // 45 seconds
-                    healthCheckInterval: 1000, // 1 second
-                    stallThreshold: 3, // 3 seconds
-                    minBufferHealthThreshold: 30, // 30%
-                    debugMode: false
-                };
-
-                // Initialize system
-                this.initialize();
+                this.initializePlayer();
             }
 
-            initialize() {
+            initializePlayer() {
                 if (!Hls.isSupported()) {
                     console.error('HLS not supported');
                     return;
                 }
 
-                this.initializeMainStream();
-                this.setupEventListeners();
-                this.startHealthMonitoring();
-                this.initializeStreamRecovery();
+                // Create initial HLS instance
+                this.createNewHlsInstance();
+                
+                // Start the continuous playback system
+                this.startContinuousPlayback();
             }
 
-            createHlsInstance() {
-                return new Hls({
+            createNewHlsInstance() {
+                const hls = new Hls({
                     debug: false,
                     enableWorker: true,
                     lowLatencyMode: true,
                     backBufferLength: 90,
-                    maxBufferSize: this.config.maxBufferSize,
-                    maxBufferLength: this.config.maxBufferLength,
-                    maxMaxBufferLength: this.config.maxBufferLength * 2,
-                    startLevel: -1,
-                    manifestLoadingTimeOut: 20000,
-                    manifestLoadingMaxRetry: 6,
-                    manifestLoadingRetryDelay: 1000,
-                    levelLoadingTimeOut: 20000,
-                    levelLoadingMaxRetry: 6,
-                    levelLoadingRetryDelay: 1000,
-                    fragLoadingTimeOut: 20000,
-                    fragLoadingMaxRetry: 6,
-                    fragLoadingRetryDelay: 1000,
-                    startFragPrefetch: true,
-                    testBandwidth: true,
-                    progressive: true,
-                    lowLatencyMode: true,
-                    maxAudioFramesDrift: 1,
-                    forceKeyFrameOnDiscontinuity: true,
-                    abrEwmaFastLive: 3,
-                    abrEwmaSlowLive: 9,
-                    abrEwmaDefaultEstimate: 500000,
-                    maxStarvationDelay: 4,
-                    maxLoadingDelay: 4,
-                    minAutoBitrate: 0,
-                    emeEnabled: true,
-                    stretchShortVideoTrack: true,
-                    maxBufferHole: 0.5,
-                    highBufferWatchdogPeriod: 2,
-                    nudgeOffset: 0.2,
-                    nudgeMaxRetry: 5,
-                    maxFragLookUpTolerance: 0.25,
+                    maxBufferSize: 0,
+                    maxBufferLength: 30,
+                    maxMaxBufferLength: 600,
+                    maxLiveSyncPlaybackRate: 1.5,
                     liveSyncDurationCount: 3,
                     liveMaxLatencyDurationCount: 10,
-                    liveDurationInfinity: true,
-                    enableDateRangeMetadataCues: true,
-                    enableEmsgMetadataCues: true,
-                    enableID3MetadataCues: true,
-                    enableWebVTT: true,
-                    enableIMSC1: true,
-                    enableCEA708Captions: true,
-                    captionsTextTrack1Label: 'English',
-                    captionsTextTrack1LanguageCode: 'en',
-                    maxPlaylistRetries: -1,
+                    manifestLoadingTimeOut: 20000,
+                    manifestLoadingMaxRetry: 4,
+                    manifestLoadingRetryDelay: 1000,
+                    levelLoadingTimeOut: 20000,
+                    levelLoadingMaxRetry: 4,
+                    levelLoadingRetryDelay: 1000,
+                    fragLoadingTimeOut: 20000,
+                    fragLoadingMaxRetry: 4,
+                    fragLoadingRetryDelay: 1000,
+                    startLevel: -1,
+                    defaultAudioCodec: 'mp4a.40.2'
                 });
+
+                // Add to players array
+                this.hlsPlayers.push(hls);
+                return hls;
             }
 
-            initializeMainStream() {
-                if (this.mainHls) {
-                    this.mainHls.destroy();
+            startContinuousPlayback() {
+                const initialHls = this.hlsPlayers[0];
+                
+                initialHls.loadSource(this.streamUrl);
+                initialHls.attachMedia(this.videoElement);
+
+                initialHls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    if (this.isFirstLoad) {
+                        this.videoElement.play().catch(console.error);
+                        this.isFirstLoad = false;
+                        this.setupStreamMonitoring();
+                    }
+                });
+
+                this.setupErrorHandling(initialHls);
+                this.setupStreamHealthCheck();
+            }
+
+            setupStreamMonitoring() {
+                // Monitor playback and prepare next stream
+                setInterval(() => {
+                    if (!this.videoElement.paused) {
+                        const currentTime = this.videoElement.currentTime;
+                        const bufferedEnd = this.getBufferedEnd();
+                        
+                        // If we're approaching the end of the buffer
+                        if (bufferedEnd - currentTime < this.preloadThreshold) {
+                            this.prepareNextStream();
+                        }
+                    }
+                }, 1000);
+
+                // Monitor for stalls
+                let lastTime = 0;
+                let stallCount = 0;
+                
+                setInterval(() => {
+                    if (!this.videoElement.paused) {
+                        if (this.videoElement.currentTime === lastTime) {
+                            stallCount++;
+                            if (stallCount >= 3) { // 3 seconds of stall
+                                this.handleStall();
+                                stallCount = 0;
+                            }
+                        } else {
+                            stallCount = 0;
+                        }
+                        lastTime = this.videoElement.currentTime;
+                    }
+                }, 1000);
+            }
+
+            setupStreamHealthCheck() {
+                setInterval(() => {
+                    if (!this.videoElement.paused) {
+                        const buffered = this.videoElement.buffered;
+                        if (buffered.length > 0) {
+                            const currentTime = this.videoElement.currentTime;
+                            const bufferEnd = buffered.end(buffered.length - 1);
+                            const bufferHealth = bufferEnd - currentTime;
+
+                            if (bufferHealth < 5) { // Less than 5 seconds of buffer
+                                this.prepareNextStream(true); // Force prepare
+                            }
+                        }
+                    }
+                }, 2000);
+            }
+
+            prepareNextStream(force = false) {
+                const currentHls = this.hlsPlayers[this.activePlayerIndex];
+                if (!currentHls || force) {
+                    const nextIndex = (this.activePlayerIndex + 1) % 2;
+                    
+                    // Create new HLS instance if needed
+                    if (!this.hlsPlayers[nextIndex]) {
+                        this.createNewHlsInstance();
+                    }
+
+                    const nextHls = this.hlsPlayers[nextIndex];
+                    nextHls.loadSource(this.streamUrl);
+                    
+                    // Prepare the switch
+                    this.lastKnownTime = this.videoElement.currentTime;
+                    
+                    nextHls.once(Hls.Events.MANIFEST_PARSED, () => {
+                        this.switchToNextStream(nextIndex);
+                    });
+
+                    this.setupErrorHandling(nextHls);
+                }
+            }
+
+            switchToNextStream(nextIndex) {
+                const currentHls = this.hlsPlayers[this.activePlayerIndex];
+                const nextHls = this.hlsPlayers[nextIndex];
+
+                // Detach current stream
+                if (currentHls) {
+                    currentHls.detachMedia();
                 }
 
-                this.mainHls = this.createHlsInstance();
-                this.setupHlsEvents(this.mainHls, this.mainPlayer);
-                this.mainHls.loadSource(this.streamUrl);
-                this.mainHls.attachMedia(this.mainPlayer);
+                // Attach new stream
+                nextHls.attachMedia(this.videoElement);
+                this.videoElement.currentTime = this.lastKnownTime;
+                
+                // Update active index
+                this.activePlayerIndex = nextIndex;
+
+                // Clean up old stream
+                if (currentHls) {
+                    currentHls.destroy();
+                    this.hlsPlayers[this.activePlayerIndex] = null;
+                }
+
+                // Ensure playback continues
+                this.videoElement.play().catch(console.error);
             }
 
-            setupHlsEvents(hls, videoElement) {
-                hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-                    this.log('Media attached');
-                });
+            handleStall() {
+                this.prepareNextStream(true);
+            }
 
-                hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
-                    this.log(`Manifest parsed, found ${data.levels.length} quality levels`);
-                    videoElement.play().catch(this.handlePlayError.bind(this));
-                });
-
+            setupErrorHandling(hls) {
                 hls.on(Hls.Events.ERROR, (event, data) => {
                     if (data.fatal) {
-                        this.handleFatalError(data, hls);
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                hls.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                this.prepareNextStream(true);
+                                break;
+                        }
                     }
                 });
-
-                hls.on(Hls.Events.BUFFER_APPENDING, () => {
-                    this.updateBufferHealth();
-                });
-
-                hls.on(Hls.Events.FRAG_LOADED, () => {
-                    this.streamHealth = Math.min(100, this.streamHealth + 5);
-                });
-
-                hls.on(Hls.Events.FRAG_LOAD_ERROR, () => {
-                    this.streamHealth = Math.max(0, this.streamHealth - 20);
-                });
             }
 
-            setupEventListeners() {
-                this.mainPlayer.addEventListener('playing', () => {
-                    this.log('Playback started');
-                    this.stallCount = 0;
-                });
-
-                this.mainPlayer.addEventListener('waiting', () => {
-                    this.handlePlaybackStall();
-                });
-
-                this.mainPlayer.addEventListener('timeupdate', () => {
-                    this.handleTimeUpdate();
-                });
-
-                this.mainPlayer.addEventListener('error', (e) => {
-                    this.handlePlaybackError(e);
-                });
-            }
-
-            startHealthMonitoring() {
-                setInterval(() => {
-                    this.monitorStreamHealth();
-                }, this.config.healthCheckInterval);
-            }
-
-            initializeStreamRecovery() {
-                setInterval(() => {
-                    if (!this.isRecovering && this.streamHealth < this.config.minBufferHealthThreshold) {
-                        this.performStreamRecovery();
-                    }
-                }, this.config.streamRecoveryInterval);
-            }
-
-            monitorStreamHealth() {
-                const currentTime = this.mainPlayer.currentTime;
-                if (currentTime === this.lastPlaybackTime && !this.mainPlayer.paused) {
-                    this.stallCount++;
-                    if (this.stallCount >= this.config.stallThreshold) {
-                        this.handlePlaybackStall();
-                    }
-                } else {
-                    this.stallCount = 0;
-                }
-                this.lastPlaybackTime = currentTime;
-
-                this.updateDebugInfo();
-            }
-
-            updateBufferHealth() {
-                const buffered = this.mainPlayer.buffered;
-                if (buffered.length > 0) {
-                    const currentTime = this.mainPlayer.currentTime;
-                    const bufferEnd = buffered.end(buffered.length - 1);
-                    const bufferSize = bufferEnd - currentTime;
-                    this.bufferHealth = Math.min(100, (bufferSize / this.config.maxBufferLength) * 100);
-                }
-            }
-
-            async performStreamRecovery() {
-                if (this.recoveryAttempts >= this.maxRecoveryAttempts) {
-                    this.log('Max recovery attempts reached');
-                    return;
-                }
-
-                this.isRecovering = true;
-                this.recoveryAttempts++;
-
-                this.log('Performing stream recovery');
-
-                // Store current time
-                const currentTime = this.mainPlayer.currentTime;
-
-                // Initialize backup stream
-                if (!this.backupHls) {
-                    this.backupHls = this.createHlsInstance();
-                    this.setupHlsEvents(this.backupHls, this.backupPlayer);
-                }
-
-                try {
-                    // Load backup stream
-                    await new Promise((resolve, reject) => {
-                        this.backupHls.once(Hls.Events.MANIFEST_PARSED, resolve);
-                        this.backupHls.once(Hls.Events.ERROR, reject);
-                        this.backupHls.loadSource(this.streamUrl);
-                        this.backupHls.attachMedia(this.backupPlayer);
-                    });
-
-                    // Switch to backup player
-                    this.backupPlayer.currentTime = currentTime;
-                    await this.backupPlayer.play();
-                    
-                    // Hide main player, show backup
-                    this.mainPlayer.style.display = 'none';
-                    this.backupPlayer.style.display = 'block';
-
-                    // Reinitialize main stream
-                    this.initializeMainStream();
-
-                    // Wait for main stream to be ready
-                    await new Promise((resolve) => {
-                        this.mainHls.once(Hls.Events.MANIFEST_PARSED, resolve);
-                    });
-
-                    // Switch back to main player
-                    this.mainPlayer.currentTime = this.backupPlayer.currentTime;
-                    await this.mainPlayer.play();
-                    
-                    // Hide backup, show main
-                    this.backupPlayer.style.display = 'none';
-                    this.mainPlayer.style.display = 'block';
-
-                    this.streamHealth = 100;
-                    this.recoveryAttempts = 0;
-
-                } catch (error) {
-                    this.log('Recovery failed:', error);
-                    this.streamHealth = Math.max(0, this.streamHealth - 10);
-                }
-
-                this.isRecovering = false;
-            }
-
-            handleFatalError(data, hls) {
-                this.log(`Fatal error: ${data.type}`);
-                
-                switch(data.type) {
-                    case Hls.ErrorTypes.NETWORK_ERROR:
-                        hls.startLoad();
-                        break;
-                    case Hls.ErrorTypes.MEDIA_ERROR:
-                        hls.recoverMediaError();
-                        break;
-                    default:
-                        this.performStreamRecovery();
-                        break;
-                }
-            }
-
-            handlePlaybackStall() {
-                this.log('Playback stalled');
-                this.streamHealth = Math.max(0, this.streamHealth - 10);
-                if (!this.isRecovering && this.streamHealth < 50) {
-                    this.performStreamRecovery();
-                }
-            }
-
-            handlePlaybackError(error) {
-                this.log('Playback error:', error);
-                this.performStreamRecovery();
-            }
-
-            handlePlayError(error) {
-                this.log('Play error:', error);
-                this.performStreamRecovery();
-            }
-
-            handleTimeUpdate() {
-                this.updateBufferHealth();
-                if (this.bufferHealth < this.config.minBufferHealthThreshold && !this.isRecovering) {
-                    this.performStreamRecovery();
-                }
-            }
-
-            log(...args) {
-                if (this.config.debugMode) {
-                    console.log('[StreamPlayer]', ...args);
-                }
-            }
-
-            updateDebugInfo() {
-                if (this.config.debugMode) {
-                    this.debugOverlay.style.display = 'block';
-                    this.debugOverlay.innerHTML = `
-                        Stream Health: ${this.streamHealth}%<br>
-                        Buffer Health: ${this.bufferHealth}%<br>
-                        Recovery Attempts: ${this.recoveryAttempts}<br>
-                        Uptime: ${Math.floor((Date.now() - this.streamStartTime) / 1000)}s
-                    `;
-                }
+            getBufferedEnd() {
+                const buffered = this.videoElement.buffered;
+                return buffered.length ? buffered.end(buffered.length - 1) : 0;
             }
         }
 
         // Initialize player when document is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            window.player = new UltimateStreamPlayer();
+            const player = new ContinuousStreamPlayer();
         });
     </script>
 </body>
 </html>
+
