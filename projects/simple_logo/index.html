@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Logo Creator</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="editor-panel">
+            <div class="input-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" placeholder="Enter company name">
+            </div>
+
+            <div class="input-group">
+                <label for="slogan">Slogan</label>
+                <input type="text" id="slogan" placeholder="Enter slogan">
+            </div>
+
+            <div class="input-group">
+                <label for="primaryColor">Color</label>
+                <input type="color" id="primaryColor" value="#2563eb">
+            </div>
+
+            <div class="input-group">
+                <label for="fontSize">Font Size</label>
+                <input type="range" id="fontSize" min="20" max="80" value="40">
+            </div>
+
+            <button id="downloadBtn" class="btn primary">Download Logo</button>
+        </div>
+
+        <div class="preview-panel">
+            <div id="logoPreview" class="logo-preview">
+                <div class="logo-text">
+                    <div class="company-name">Your Company</div>
+                    <div class="company-slogan">Your Slogan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
