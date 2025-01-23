@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Creator - Playlists Collection Hub</title>
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --bg-color: #f5f6fa;
+            --text-color: #2c3e50;
+            --border-color: #dcdde1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .description {
+            color: #666;
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        button {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .copy-btn {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .clear-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .output-container {
+            margin-top: 2rem;
+            background: #2c3e50;
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        #output {
+            color: #ecf0f1;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #27ae60;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            top: -30px;
+            right: 10px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem auto;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>JSON Creator - Playlists Collection Hub</h1>
+            <p class="description">
+                Create and manage your playlist collections easily with this JSON generator. 
+                Perfect for IPTV playlists, media collections, and streaming content organization.
+            </p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input type="text" id="title" placeholder="Enter playlist title">
+                </div>
+
+                <div class="form-group">
+                    <label>Category:</label>
+                    <input type="text" id="category" value="Live TV">
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="text" id="image" value="https://i.ibb.co.com/ssQNGh9/1000027006.webp">
+                </div>
+
+                <div class="form-group">
+                    <label>Update Date:</label>
+                    <input type="date" id="updateDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Expire Date:</label>
+                    <input type="text" id="expireDate" placeholder="Unknown or specific date">
+                </div>
+
+                <div class="form-group">
+                    <label>Channels:</label>
+                    <input type="text" id="channels" placeholder="e.g., 1200+ Channels">
+                </div>
+
+                <div class="form-group">
+                    <label>Quality:</label>
+                    <input type="text" id="quality" value="HD/FHD -http Supported All Players">
+                </div>
+
+                <div class="form-group">
+                    <label>Playlist URL:</label>
+                    <input type="text" id="url" placeholder="Enter m3u playlist URL">
+                </div>
+
+                <div class="form-group">
+                    <label>Creator:</label>
+                    <input type="text" id="creator" placeholder="Enter creator name">
+                </div>
+
+                <div class="form-group">
+                    <label>Updater:</label>
+                    <input type="text" id="updater" value="Sultan Arabi">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="generate-btn" onclick="generateJSON()">Generate JSON</button>
+                <button class="copy-btn" onclick="copyToClipboard()">Copy JSON</button>
+                <button class="clear-btn" onclick="clearForm()">Clear Form</button>
+            </div>
+
+            <div class="output-container">
+                <div class="tooltip" id="copyTooltip">Copied!</div>
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateJSON() {
+            const currentDate = new Date().toISOString().split('T')[0];
+            const data = {
+                title: document.getElementById('title').value || "Untitled",
+                category: document.getElementById('category').value || "Live TV",
+                image: document.getElementById('image').value,
+                updateDate: document.getElementById('updateDate').value || currentDate,
+                expireDate: document.getElementById('expireDate').value || "Unknown",
+                channels: document.getElementById('channels').value || "Unknown",
+                quality: document.getElementById('quality').value,
+                url: document.getElementById('url').value,
+                credits: {
+                    creator: document.getElementById('creator').value || "Unknown",
+                    updater: document.getElementById('updater').value
+                }
+            };
+
+            document.getElementById('output').textContent = JSON.stringify([data], null, 4);
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('output');
+            const tooltip = document.getElementById('copyTooltip');
+            
+            if (output.textContent) {
+                navigator.clipboard.writeText(output.textContent)
+                    .then(() => {
+                        tooltip.style.display = 'block';
+                        setTimeout(() => {
+                            tooltip.style.display = 'none';
+                        }, 2000);
+                    });
+            }
+        }
+
+        function clearForm() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.id === 'category') {
+                    input.value = 'Live TV';
+                } else if (input.id === 'image') {
+                    input.value = 'https://i.ibb.co.com/ssQNGh9/1000027006.webp';
+                } else if (input.id === 'quality') {
+                    input.value = 'HD/FHD -http Supported All Players';
+                } else if (input.id === 'updater') {
+                    input.value = 'Sultan Arabi';
+                } else {
+                    input.value = '';
+                }
+            });
+            document.getElementById('output').textContent = '';
+        }
+
+        // Set current date as default for update date
+        document.getElementById('updateDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>
+
