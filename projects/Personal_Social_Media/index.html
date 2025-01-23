@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 50px 0;
+        }
+
+        .profile-container {
+            text-align: center;
+            max-width: 1200px;
+            width: 95%;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #333;
+            border: 4px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            margin: 30px 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .social-link::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .social-link:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-btn.active {
+            background: #333;
+            color: white;
+        }
+
+        footer {
+            margin-top: 50px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="logo" id="profileLogo"></div>
+        <h1 class="name" id="profileName"></h1>
+        <p class="title" id="profileTitle"></p>
+        <hr>
+        <div class="category-filters" id="categoryFilters"></div>
+        <div class="social-icons" id="socialIcons"></div>
+        <footer>
+            &copy; 2025 <span id="footerName"></span>. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const JSON_URL = 'https://raw.githubusercontent.com/sultanarabi161/Live-Note/refs/heads/main/personal-social-links.json';
+
+        async function loadSocialData() {
+            try {
+                const response = await fetch(JSON_URL);
+                const data = await response.json();
+                
+                // Set profile information
+                document.getElementById('profileLogo').textContent = data.profile.logo_text;
+                document.getElementById('profileName').textContent = data.profile.name;
+                document.getElementById('profileTitle').textContent = data.profile.title;
+                document.getElementById('footerName').textContent = data.profile.name;
+
+                // Get unique categories
+                const categories = [...new Set(data.social_media.map(item => item.category))];
+                
+                // Create category filters
+                const categoryFiltersHTML = categories.map(category => 
+                    `<button class="category-btn" data-category="${category}">${category}</button>`
+                ).join('');
+                document.getElementById('categoryFilters').innerHTML = 
+                    `<button class="category-btn active" data-category="all">All</button>${categoryFiltersHTML}`;
+
+                // Create social icons
+                renderSocialIcons(data.social_media);
+
+                // Add event listeners to category buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        const category = e.target.dataset.category;
+                        const filteredLinks = category === 'all' 
+                            ? data.social_media 
+                            : data.social_media.filter(item => item.category === category);
+                        renderSocialIcons(filteredLinks);
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading social data:', error);
+            }
+        }
+
+        function renderSocialIcons(links) {
+            const socialIconsHTML = links.map(item => `
+                <a href="${item.url}" 
+                   target="_blank" 
+                   class="social-link" 
+                   data-tooltip="${item.platform}"
+                   style="background-color: ${item.color}">
+                    <i class="fab fa-${item.icon}"></i>
+                </a>
+            `).join('');
+            document.getElementById('socialIcons').innerHTML = socialIconsHTML;
+        }
+
+        // Load data when page loads
+        window.addEventListener('DOMContentLoaded', loadSocialData);
+    </script>
+</body>
+</html>
+
