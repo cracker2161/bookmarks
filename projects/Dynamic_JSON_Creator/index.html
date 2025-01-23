@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JSON Creator</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --border-color: #bdc3c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f5f6fa;
+            color: var(--dark-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .main-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .controls {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .add-btn {
+            background: var(--secondary-color);
+        }
+
+        .generate-btn {
+            background: var(--primary-color);
+        }
+
+        .copy-btn {
+            background: var(--dark-color);
+        }
+
+        .clear-btn {
+            background: var(--danger-color);
+        }
+
+        .dynamic-fields {
+            margin-bottom: 2rem;
+        }
+
+        .field-group {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .remove-field {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: var(--danger-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .field-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .field-input {
+            flex: 1;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .output-container {
+            background: var(--dark-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        #output {
+            color: var(--light-color);
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .tooltip {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .field-row {
+                flex-direction: column;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Dynamic JSON Creator</h1>
+            <p>Create custom JSON structures with unlimited fields and nested objects</p>
+        </div>
+
+        <div class="main-content">
+            <div class="controls">
+                <button class="add-btn" onclick="addField()">Add New Field</button>
+                <button class="generate-btn" onclick="generateJSON()">Generate JSON</button>
+                <button class="copy-btn" onclick="copyToClipboard()">Copy JSON</button>
+                <button class="clear-btn" onclick="clearAll()">Clear All</button>
+            </div>
+
+            <div id="dynamicFields" class="dynamic-fields"></div>
+
+            <div class="output-container">
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="copyTooltip">JSON Copied!</div>
+
+    <script>
+        let fieldCounter = 0;
+
+        function addField() {
+            const fieldsContainer = document.getElementById('dynamicFields');
+            const fieldGroup = document.createElement('div');
+            fieldGroup.className = 'field-group';
+            fieldGroup.id = `field-${fieldCounter}`;
+
+            fieldGroup.innerHTML = `
+                <div class="remove-field" onclick="removeField(${fieldCounter})">×</div>
+                <div class="field-row">
+                    <div class="field-input">
+                        <input type="text" placeholder="Key name" id="key-${fieldCounter}">
+                    </div>
+                    <div class="field-input">
+                        <select id="type-${fieldCounter}" onchange="handleTypeChange(${fieldCounter})">
+                            <option value="string">String</option>
+                            <option value="number">Number</option>
+                            <option value="boolean">Boolean</option>
+                            <option value="array">Array</option>
+                            <option value="object">Object</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-input" id="value-container-${fieldCounter}">
+                        <input type="text" placeholder="Value" id="value-${fieldCounter}">
+                    </div>
+                </div>
+            `;
+
+            fieldsContainer.appendChild(fieldGroup);
+            fieldCounter++;
+        }
+
+        function handleTypeChange(id) {
+            const type = document.getElementById(`type-${id}`).value;
+            const valueContainer = document.getElementById(`value-container-${id}`);
+            
+            switch(type) {
+                case 'boolean':
+                    valueContainer.innerHTML = `
+                        <select id="value-${id}">
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select>
+                    `;
+                    break;
+                case 'array':
+                    valueContainer.innerHTML = `
+                        <input type="text" placeholder="Enter comma-separated values" id="value-${id}">
+                    `;
+                    break;
+                case 'object':
+                    valueContainer.innerHTML = `
+                        <input type="text" placeholder='Enter as {"key": "value"}' id="value-${id}">
+                    `;
+                    break;
+                default:
+                    valueContainer.innerHTML = `
+                        <input type="text" placeholder="Value" id="value-${id}">
+                    `;
+            }
+        }
+
+        function removeField(id) {
+            document.getElementById(`field-${id}`).remove();
+        }
+
+        function generateJSON() {
+            const result = {};
+            
+            for(let i = 0; i < fieldCounter; i++) {
+                const fieldElement = document.getElementById(`field-${i}`);
+                if (!fieldElement) continue;
+
+                const key = document.getElementById(`key-${i}`).value;
+                const type = document.getElementById(`type-${i}`).value;
+                const valueElement = document.getElementById(`value-${i}`);
+                
+                if (!key) continue;
+
+                let value = valueElement.value;
+
+                switch(type) {
+                    case 'number':
+                        value = Number(value);
+                        break;
+                    case 'boolean':
+                        value = value === 'true';
+                        break;
+                    case 'array':
+                        try {
+                            value = value.split(',').map(item => item.trim());
+                        } catch(e) {
+                            value = [];
+                        }
+                        break;
+                    case 'object':
+                        try {
+                            value = JSON.parse(value);
+                        } catch(e) {
+                            value = {};
+                        }
+                        break;
+                }
+
+                result[key] = value;
+            }
+
+            document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('output');
+            const tooltip = document.getElementById('copyTooltip');
+            
+            if (output.textContent) {
+                navigator.clipboard.writeText(output.textContent)
+                    .then(() => {
+                        tooltip.style.display = 'block';
+                        setTimeout(() => {
+                            tooltip.style.display = 'none';
+                        }, 2000);
+                    });
+            }
+        }
+
+        function clearAll() {
+            document.getElementById('dynamicFields').innerHTML = '';
+            document.getElementById('output').textContent = '';
+            fieldCounter = 0;
+        }
+
+        // Add first field by default
+        addField();
+    </script>
+</body>
+</html>
+
