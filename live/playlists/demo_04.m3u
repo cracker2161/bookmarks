@@ -1,0 +1,549 @@
+#EXTM3U x Playlist by @yuvraj824
+#EXTINF:-1 group-title="Kids",CN
+http://opplextv.cyou:8080/live/saleem/saleem/3.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7972.jpg" group-title="Music",UK: MTV HITS HD
+http://45.148.145.57/mtvhits/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7967.jpg" group-title="Music",4 MUSIC HD
+http://45.148.145.57/UK_MTVBase/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10819.jpg" group-title="Music",UK: MTV LIVE HD
+http://45.148.145.57/mtvlive/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10820.jpg" group-title="Music",UK: MTV MUSIC_FHD
+http://45.148.145.57/UK_MTVMUSIC/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10821.jpg" group-title="Music",UK: MTC CLASIC 80s 90s
+http://45.148.145.57/IN_CLASSIC/index.m3u8
+#EXTINF:-1 group-title="SPORTS",T Sports
+https://live.tsports.com/live-01/master_144.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7994.jpg" group-title="Pak Entertainment",24/7 PAK DRAMA ALIF
+http://45.148.145.57/alif247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9858.jpg" group-title="Pak Entertainment",24/7 PAK DRAMA RAQSE BISMIL
+http://45.148.145.57/rb247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/4507.jpg" group-title="Pak Entertainment",PEACE TV ENGLISH HD
+http://45.148.145.57/IN_PeaceTVEng/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24551.jpg" group-title="Pak Entertainment",KHUDA OR MUHABBAT HD
+http://45.148.145.57/km/index.m3u8
+#EXTINF:-1 tvg-id="pk_aryqtv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5344.jpg" group-title="Pak Entertainment",ARY QTV HD
+http://45.148.145.57/PAK_ARYqTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24578.jpg" group-title="Pak Entertainment",CHEEK 24/7
+http://45.148.145.57/Cheekh/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/1603.jpg" group-title="Pak Entertainment",ISLAM CHANNEL HD
+http://45.148.145.57/IslamCha/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7817.jpg" group-title="Pak Entertainment",PEACE TV URDU HD
+http://45.148.145.57/PeaceTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7816.jpg" group-title="Pak Entertainment",24/7 PAK DRAMA DEEWAR
+http://45.148.145.57/deewar247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11464.jpg" group-title="Pak Entertainment",Green entertainment HD
+http://45.148.145.57/PK_GREENTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6763.jpg" group-title="Pak Entertainment",QURAN_ENG_AUDIO_TRANSLATION
+http://45.148.145.57/quran1_247/index.m3u8
+#EXTINF:-1 tvg-id="pk_humtv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10452.jpg" group-title="Pak Entertainment",HUM TV _4K (S)
+http://45.148.145.57/PAK_HUMTVS/index.m3u8
+#EXTINF:-1 tvg-id="pk_humtv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7617.jpg" group-title="Pak Entertainment",HUM TV PASHTO _HD
+http://45.148.145.57/PK_HUMPashto/index.m3u8
+#EXTINF:-1 tvg-id="uka_humeurope.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6945.jpg" group-title="Pak Entertainment",HUM WORLD TV HD
+http://45.148.145.57/PAK_HUMWORLD/index.m3u8
+#EXTINF:-1 tvg-id="pk_humtv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2782.jpg" group-title="Pak Entertainment",HUM TV EUROPE HD
+http://45.148.145.57/UK_humTV/index.m3u8
+#EXTINF:-1 tvg-id="pk_humsitaray.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7399.jpg" group-title="Pak Entertainment",HUM SITARY FHD
+http://45.148.145.57/PAK_HumStar/index.m3u8
+#EXTINF:-1 tvg-id="pk_humsitaray.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7400.jpg" group-title="Pak Entertainment",HUM SITARY WORLD HD
+http://45.148.145.57/PAK_HumStar/index.m3u8
+#EXTINF:-1 tvg-id="uka_geotv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24555.jpg" group-title="Pak Entertainment",GEO TV PAK _HD (G)
+http://45.148.145.57/PAK_GEOTVG/index.m3u8
+#EXTINF:-1 tvg-id="pk_geotv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24554.jpg" group-title="Pak Entertainment",GEO TV  PAK_HD (S)
+http://45.148.145.57/PAK_GEOTVS/index.m3u8
+#EXTINF:-1 tvg-id="uka_geotv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6673.jpg" group-title="Pak Entertainment",GEO TV UK FHD 2
+http://45.148.145.57/PAK_GeoTUK/index.m3u8
+#EXTINF:-1 tvg-id="uka_geotv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6674.jpg" group-title="Pak Entertainment",GEO TV UK HD
+http://45.148.145.57/PAK_GeoTUK/index.m3u8
+#EXTINF:-1 tvg-id="pk_geokahani.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24557.jpg" group-title="Pak Entertainment",GEO KAHANI _HD
+http://45.148.145.57/PAK_GEOKAHANI/index.m3u8
+#EXTINF:-1 tvg-id="pk_humtv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7799.jpg" group-title="Pak Entertainment",HUM TV 4K (G)
+http://45.148.145.57/PAK_HUMTVG/index.m3u8
+#EXTINF:-1 tvg-id="pk_geokahani.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24556.jpg" group-title="Pak Entertainment",GEO KAHANI_ HD
+http://45.148.145.57/PAK_GEOKAHANI/index.m3u8
+#EXTINF:-1 tvg-id="pk_arydigital.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5341.jpg" group-title="Pak Entertainment",ARY DIGITAL_ 4k  (S)
+http://45.148.145.57/PAK_ARYTVS/index.m3u8
+#EXTINF:-1 tvg-id="pk_arydigital.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/4348.jpg" group-title="Pak Entertainment",ARY DIGITAL _HD UK
+http://45.148.145.57/ARYDigital_G/index.m3u8
+#EXTINF:-1 tvg-id="pk_arydigital.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24558.jpg" group-title="Pak Entertainment",ARY DIGITAL _4K
+http://45.148.145.57/PAK_ARYTVG/index.m3u8
+#EXTINF:-1 tvg-id="pk_aryzindagi.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24559.jpg" group-title="Pak Entertainment",ARY ZINDIGI_HD
+http://45.148.145.57/PAK_Aryzindage/index.m3u8
+#EXTINF:-1 tvg-id="pk_arymusik.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24561.jpg" group-title="Pak Entertainment",ARY MUSIC _HD
+http://45.148.145.57/PAK_C/index.m3u8
+#EXTINF:-1 tvg-id="pk_ptvhome.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24563.jpg" group-title="Pak Entertainment",PTV HOME _HD
+http://45.148.145.57/PAK_PTVHOME/index.m3u8
+#EXTINF:-1 tvg-id="pk_urdu1.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24564.jpg" group-title="Pak Entertainment",URDU 1 HD
+http://45.148.145.57/PAK_urdu1/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24565.jpg" group-title="Pak Entertainment",ATV _HD
+http://45.148.145.57/PAK_ATV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9994.jpg" group-title="Pak Entertainment",QURAN_URDU_AUDIO_TRANSLATION
+http://45.148.145.57/quran247/index.m3u8
+#EXTINF:-1 tvg-id="pk_expressentertainment.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24572.jpg" group-title="Pak Entertainment",EXPRESS ENTERTAINMENT
+http://45.148.145.57/PAK_expressEnter/index.m3u8
+#EXTINF:-1 tvg-id="pk_tvone.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/1611.jpg" group-title="Pak Entertainment",TV ONE_HD
+http://45.148.145.57/PAK_TVONET/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24571.jpg" group-title="Pak Entertainment",BOL ENTERTAINMENT_ UHD
+http://45.148.145.57/PAK_Bol_Enter_PK/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24567.jpg" group-title="Pak Entertainment",KAY 2 _HD
+http://45.148.145.57/PAK_KAY2/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7815.jpg" group-title="Pak Entertainment",***24/7 PAK HIT DRAMA AULAAD***
+http://45.148.145.57/AUL247/index.m3u8
+#EXTINF:-1 tvg-id="pk_hummasalatv.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7803.jpg" group-title="Pak Entertainment",HUM MASALA TV_HD
+http://45.148.145.57/PAK_HumMasala/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24540.jpg" group-title="Pak Entertainment",Khyber Middle East_HD
+http://45.148.145.57/PK_KhyberMiddleEast/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/1989.jpg" group-title="Pak Entertainment",A PLUS_HD
+http://45.148.145.57/PK_APLUSTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24569.jpg" group-title="Pak Entertainment",KHYBER TV _HD
+http://45.148.145.57/PAK_KHYBERTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/4784.jpg" group-title="Pak Entertainment",PAIGHAM TV HD
+http://45.148.145.57/PK_PigamTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8018.jpg" group-title="Pak Entertainment",24/7 STAGE DRAMA
+http://45.148.145.57/sdrama247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/1610.jpg" group-title="Pak Entertainment",WASEEB TV_ HD
+http://45.148.145.57/PAK_W/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24570.jpg" group-title="Pak Entertainment",KTN ENTERTAINMENT HD
+http://45.148.145.57/PAK_KTN/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11074.jpg" group-title="Pak Entertainment",SINDH TV HD
+http://45.148.145.57/PAK_SINDHT/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10310.jpg" group-title="Pak Entertainment",ISL_Islam Imam Hussain 1_ FHD
+http://45.148.145.57/ISL_IslamImamHussain1/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24566.jpg" group-title="Pak Entertainment",KASHISH_HD
+http://45.148.145.57/PAK_KASHISH/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10311.jpg" group-title="Pak Entertainment",ISL_Islam Imam Hussain 2_ FHD
+http://45.148.145.57/ISL_IslamImamHussain2/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11073.jpg" group-title="Pak Entertainment",KTN ENTERTAINMENT _ HD
+http://45.148.145.57/PAK_KTN/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10304.jpg" group-title="Pak Entertainment",Karbala Live 1 HD
+http://45.148.145.57/KarbalaLive1/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/4506.jpg" group-title="Pak Entertainment",PEACE TV URDU
+http://45.148.145.57/PeaceTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10305.jpg" group-title="Pak Entertainment",ISL_Islam Hadi 1 TV HD
+http://45.148.145.57/AR_HADI1/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10306.jpg" group-title="Pak Entertainment",ISL_Islam Hadi 2 TV HD
+http://45.148.145.57/AR_HADI2/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10307.jpg" group-title="Pak Entertainment",ISL_ISlam Hadi 3 TV HD
+http://45.148.145.57/AR_HADI3/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10309.jpg" group-title="Pak Entertainment",DUA TV HD
+http://45.148.145.57/US_QaimTHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24568.jpg" group-title="Pak Entertainment",KASHISH HD
+http://45.148.145.57/PAK_KASHISH/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10312.jpg" group-title="Pak Entertainment",ISL_Islam Imam Hussain 3 _FHD
+http://45.148.145.57/ISL_IslamImamHussain3/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11423.jpg" group-title="Pak Entertainment",PRIME CANADA TV_4K
+http://45.148.145.57/PB_PrimeCanadatv/index.m3u8
+#EXTINF:-1 tvg-id="in_starsports1hindi.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24405.jpg" group-title="CRICKET",STAR SPORTS 1 HD (ENGLISH)
+http://45.148.145.57/S_Eng/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10444.jpg" group-title="CRICKET",TEN SPORTS FHD
+http://45.148.145.57/Pak_tenSP/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24362.jpg" group-title="CRICKET",STAR SPORTS CRICKET  1_HD
+http://45.148.145.57/S1ENG_Global/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11216.jpg" group-title="CRICKET",A_SPORTS HD
+http://45.148.145.57/AS_PK/index.m3u8
+#EXTINF:-1 tvg-id="in_starsports1hindi.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11126.jpg" group-title="CRICKET",_STAR SPORTS HINDI_HD_
+http://45.148.145.57/In_Hin/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24342.jpg" group-title="CRICKET",ASTRO CRICKET HD
+http://45.148.145.57/Cr_AS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6933.jpg" group-title="CRICKET",T SPORTS FHD
+http://45.148.145.57/Gazi_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11437.jpg" group-title="CRICKET",CRICLIFE_1 4K
+http://45.148.145.57/IN_CR1/index.m3u8
+#EXTINF:-1 tvg-id="uka_skysportscricket.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10967.jpg" group-title="CRICKET",SKY_SPORTS_CRICKET_HD
+http://45.148.145.57/team_Cc/index.m3u8
+#EXTINF:-1 tvg-id="pk_ptvsports.pk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11337.jpg" group-title="CRICKET",PTV_SPORTS_HD
+http://45.148.145.57/ptvS/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportcricket.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10646.jpg" group-title="CRICKET",SUPER SPORTS CRICKET HD
+http://45.148.145.57/AF_S_CR/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10645.jpg" group-title="CRICKET",SPORTS 18 _1_4K
+http://45.148.145.57/IN_S28/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2310.jpg" group-title="CRICKET",WILLOW CRICKET 4K
+http://45.148.145.57/Wi_Cr/index.m3u8
+#EXTINF:-1 tvg-id="in_starsportsselect1.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10662.jpg" group-title="CRICKET",STAR SPORTS SELECT 1_HD
+http://45.148.145.57/SS1_IND/index.m3u8
+#EXTINF:-1 tvg-id="in_starsportsselect2.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6973.jpg" group-title="CRICKET",STAR SPORTS SELECT 2 _4K
+http://45.148.145.57/IND_SL2/index.m3u8
+#EXTINF:-1 tvg-id="in_starsportsselecthd2.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7370.jpg" group-title="CRICKET",STAR SPORTS SELECT 2 HD
+http://45.148.145.57/AF_S2/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10959.jpg" group-title="CRICKET",STAR SPORTS 3 HD
+http://45.148.145.57/IN_ST3_HD/index.m3u8
+#EXTINF:-1 tvg-id="in_sonyten3.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6906.jpg" group-title="CRICKET",IN: SONY TEN 3_ 4K
+http://45.148.145.57/tenso3/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2400.jpg" group-title="CRICKET",GEO SUPER FHD
+http://45.148.145.57/tan16450/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24659.jpg" group-title="CRICKET",SPORTS 18 _2_4K
+http://45.148.145.57/IN_S28/index.m3u8
+#EXTINF:-1 tvg-id="in_starsports2.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7610.jpg" group-title="CRICKET",STAR SPORTS 2 ENG 4K
+http://45.148.145.57/IN_2ST/index.m3u8
+#EXTINF:-1 tvg-id="in_sonysix.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/113.jpg" group-title="CRICKET",IN: SONY TEN 5_4K
+http://45.148.145.57/S_Ten5/index.m3u8
+#EXTINF:-1 tvg-id="in_sonyten1.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6474.jpg" group-title="CRICKET",IN: SONY TEN 1_ 4K
+http://45.148.145.57/SPTEN1HD/index.m3u8
+#EXTINF:-1 tvg-id="in_sonyten2.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6058.jpg" group-title="CRICKET",IN: SONY TEN 2 _4K
+http://45.148.145.57/IN_SNT2/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9693.jpg" group-title="CRICKET",STAR SPORTS TAMIL HD
+http://45.148.145.57/dd_s_t/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10741.jpg" group-title="CRICKET",T SPORTS HD
+http://45.148.145.57/Gazi_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10432.jpg" group-title="CRICKET",TNT CRICKET HD
+http://45.148.145.57/IN_TN4/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportlaliga.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10745.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport La Liga_4K
+http://45.148.145.57/AF_SUP1/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportlaliga.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6682.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport La Liga _HD
+http://45.148.145.57/AF_SUP1/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportcricket.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9855.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Cricket_ 4K
+http://45.148.145.57/AF_S_CR/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportcricket.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7723.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Cricket _HD
+http://45.148.145.57/SF_Crick/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportpremierleague.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6694.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Premier League _FHD
+http://45.148.145.57/AF_SuP3/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportpremierleague.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6696.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Premier League _HD
+http://45.148.145.57/AF_SuP3/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportpsl.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6697.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport PSL _HD
+http://45.148.145.57/AF_PSL/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportgrandstand.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6698.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport GrandStand _FHD
+http://45.148.145.57/AF_S_G/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportgrandstand.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11220.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport GrandStand _HD
+http://45.148.145.57/AF_S_G/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportrugby.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6702.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Rugby _4K
+http://45.148.145.57/Nano_SP_Rug/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportaction.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6704.jpg" group-title="VIP SUPER SPORTS",AF: Super Sports Action_UHD
+http://45.148.145.57/AF_S_ACTIMER/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportaction.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6705.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Action _FHD
+http://45.148.145.57/supSpoAction/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportfootball.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6706.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Football_4K
+http://45.148.145.57/AF_S_FOOTIMER/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportfootball.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10280.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Football _FHD
+http://45.148.145.57/AF_S_FOOTIMER/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportgolf.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6708.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Golf_4K
+http://45.148.145.57/IN_GS/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportgolf.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6709.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Golf _FHD
+http://45.148.145.57/IN_GS/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportvariety1.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6711.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Variety 1 FHD
+http://45.148.145.57/AF_S_V1/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportvariety1.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6712.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Variety 1 HD
+http://45.148.145.57/AF_S_V1/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportvariety2.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11212.jpg" group-title="VIP SUPER SPORTS",AF: SuperSports Variety 2 _HD
+http://45.148.145.57/AF_SV2TIM/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportvariety2.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10279.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Varierty 2_ FHD
+http://45.148.145.57/AF_SV2TIM/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportvariety3.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10749.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Variety 3 FHD
+http://45.148.145.57/AF_SV3/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportrugby.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6703.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport Rugby _UHD
+http://45.148.145.57/AF_S_R_G/index.m3u8
+#EXTINF:-1 tvg-id="sf_supersportpsl.za" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7845.jpg" group-title="VIP SUPER SPORTS",AF: SuperSport PSL _FHD
+http://45.148.145.57/AF_PSL/index.m3u8
+#EXTINF:-1 tvg-id="in_zeebangla.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24601.jpg" group-title="BANGLA",IN: ZEE BANGLA_4K  (S)
+http://45.148.145.57/IN_ZEBS/index.m3u8
+#EXTINF:-1 tvg-id="in_zeebangla.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24602.jpg" group-title="BANGLA",IN: ZEE BANGLA 4K (G)
+http://45.148.145.57/IN_ZEBG/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11433.jpg" group-title="BANGLA",IN: STAR  JAlSHA BANLA _HD  (G) (BACK UP)
+http://45.148.145.57/IN_STARJ/index.m3u8
+#EXTINF:-1 tvg-id="in_starjalsha.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24600.jpg" group-title="BANGLA",IN: STAR JALSHA BANGLA 4K (S)
+http://45.148.145.57/IN_JALSHAS/index.m3u8
+#EXTINF:-1 tvg-id="in_colorsbangla.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10932.jpg" group-title="BANGLA",IN: COLORS BANGLA  _4K   (S)
+http://45.148.145.57/IN_ColorsBengali/index.m3u8
+#EXTINF:-1 tvg-id="in_zeebanglacinema.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24605.jpg" group-title="BANGLA",IN: ZEE BANGLA CINEMA_ 4K
+http://45.148.145.57/IN_ZEBC/index.m3u8
+#EXTINF:-1 tvg-id="in_colorsbangla.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10933.jpg" group-title="BANGLA",IN: COLORS BANGLA _4K   (S)
+http://45.148.145.57/IN_ColorsBengali/index.m3u8
+#EXTINF:-1 tvg-id="in_jalshamovies.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24606.jpg" group-title="BANGLA",IN: STAR JALSHA MOVIES _4k
+http://45.148.145.57/IN_JALSHAMOVIES/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24607.jpg" group-title="BANGLA",IN: STAR JALSHA MOVIES _HD
+http://45.148.145.57/IN_JALSHAMOVIES/index.m3u8
+#EXTINF:-1 tvg-id="in_	zbanglacinema.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24604.jpg" group-title="BANGLA",IN: ZEE BANGLA CINEMA_ HD
+http://45.148.145.57/IN_ZEBC/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24616.jpg" group-title="BANGLA",BD_SANGEET MUSIC_HD
+http://45.148.145.57/IN_SangeetBangali/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6917.jpg" group-title="BANGLA",SONY 8 BANGLA HD
+http://45.148.145.57/BD_SONY8/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/3388.jpg" group-title="BANGLA",PEACE TV BANGLA HD
+http://45.148.145.57/24BanglaFort/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6922.jpg" group-title="BANGLA",DBC NEWS HD
+http://45.148.145.57/DB_DBCNEWS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8422.jpg" group-title="BANGLA",ATN BANGLA HD (Bangla Time)
+http://45.148.145.57/atn_bangla_uk/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7385.jpg" group-title="BANGLA",BD_ETV  18 NEWS FHD
+http://45.148.145.57/IN_Bag_ETV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5687.jpg" group-title="BANGLA",ATN BANGLA NEWS HD
+http://45.148.145.57/BD_ATNNEWS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2771.jpg" group-title="BANGLA",ATN BANGLA  HD
+http://45.148.145.57/atn_bangla_uk/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6913.jpg" group-title="BANGLA",BD: CHANNEL 9 _HD
+http://45.148.145.57/BanglaChannel9/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10903.jpg" group-title="BANGLA",BD_BOISAKHI HD
+http://45.148.145.57//BD_BOISAKHI/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6919.jpg" group-title="BANGLA",BD_Ghazi TV HD
+http://45.148.145.57/Gazi_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24657.jpg" group-title="BANGLA",BD:  Btv -chittagong_HD
+http://45.148.145.57/BD_VIJOYTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10793.jpg" group-title="BANGLA",NTV BANGLA HD
+http://45.148.145.57/Bangla_NTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8413.jpg" group-title="BANGLA",BD_NTV _FHD (Bangla Time)
+http://45.148.145.57/Bangla_NTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8385.jpg" group-title="BANGLA",BD:ASIAN TV HD
+http://45.148.145.57/BD_ASIANTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8384.jpg" group-title="BANGLA",BD:DEEPTO TV HD
+http://45.148.145.57/BD_DEEPTOTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8414.jpg" group-title="BANGLA",BD_CHANNEL I FHD_ (Bangla Time)
+http://45.148.145.57/BD_CHANNELI/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8389.jpg" group-title="BANGLA",BD:RTV HD
+http://45.148.145.57/BAN_RTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8392.jpg" group-title="BANGLA",BD:MY TV HD
+http://45.148.145.57/BD_MYTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8390.jpg" group-title="BANGLA",BD:MOHONA TV HD
+http://45.148.145.57/BD:MOHONATV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8393.jpg" group-title="BANGLA",BD:Ekattor tv HD
+http://45.148.145.57/BD_Ekattortv/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8395.jpg" group-title="BANGLA",BD:Jamuna tv HD
+http://45.148.145.57/BD_Jamunatv/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8397.jpg" group-title="BANGLA",BD:Gaan Bangla _HD
+http://45.148.145.57/BD_GaanBangla/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8399.jpg" group-title="BANGLA",BD:BTV BD HD
+http://45.148.145.57/BD_BTVBD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8400.jpg" group-title="BANGLA",BD:Somoy news HD
+http://45.148.145.57/BD_SOMOYNEWSTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8424.jpg" group-title="BANGLA",BD:NEWS 24 HD
+http://45.148.145.57/BD_CHANNEL24/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8396.jpg" group-title="BANGLA",BD:CHANNEL 24 HD
+http://45.148.145.57/BD_CHANNEL24/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11013.jpg" group-title="BANGLA",BD: SOMOY NEWS TV HD
+http://45.148.145.57/BD_SOMOYNEWSTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24609.jpg" group-title="BANGLA NEWS",IN: REPUBLIC BANGLA  NEWS_HD
+http://45.148.145.57/IN_REPUBLICBANLAHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24614.jpg" group-title="BANGLA NEWS",IN: CALCUTTA NEWS _HD
+http://45.148.145.57/IN_calcuttaNews/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24617.jpg" group-title="BANGLA NEWS",IN: REPUBLIC BANGLA  NEWS _HD
+http://45.148.145.57/IN_REPUBLICBANLAHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24618.jpg" group-title="BANGLA NEWS",IN: CALCUTTA NEWS_HD
+http://45.148.145.57/IN_calcuttaNews/index.m3u8
+#EXTINF:-1 tvg-id="in_24ghante.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24615.jpg" group-title="BANGLA NEWS",IN: ZEE 24 GHANTA NEWS_ HD
+http://45.148.145.57/IN_Zee24Ghanta/index.m3u8
+#EXTINF:-1 tvg-id="in_abpananda.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5686.jpg" group-title="BANGLA NEWS",ABP ANANDA HD
+http://45.148.145.57/IN_ABPANANDO/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24660.jpg" group-title="BANGLA NEWS",IN: TV9 Bangla_HD
+http://45.148.145.57/IN_TV9B/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24613.jpg" group-title="BANGLA NEWS",IN: NEWS 18 BANGLA _HD
+http://45.148.145.57/IN_NEWS18BANGLA/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11432.jpg" group-title="INDIAN  ENTERAINMENT",24/7: BIG BOSS 18_LIVE
+http://45.148.145.57/bte324/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11361.jpg" group-title="INDIAN  ENTERAINMENT",24/7: VIEWERS CHOICE * {Pathaan}*
+http://45.148.145.57/bte124/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10633.jpg" group-title="INDIAN  ENTERAINMENT",24/7:Taarak Mehta Ka Ooltah Chashmah
+http://45.148.145.57/tarVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24637.jpg" group-title="INDIAN  ENTERAINMENT",24/7: The Kapil Sharma Show # S04 (83EPI)
+http://45.148.145.57/kapal4/24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11435.jpg" group-title="INDIAN  ENTERAINMENT",24/7:The Kapil Sharma Show # S02
+http://45.148.145.57/thshVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10970.jpg" group-title="INDIAN  ENTERAINMENT",24/7: The Kapil Sharma Show  # S03
+http://45.148.145.57/kapVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="in_zeetvhdplus1.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10578.jpg" group-title="INDIAN  ENTERAINMENT",IN: ZEE TV _4K  INDIA (S)
+http://45.148.145.57/IS_ZE/index.m3u8
+#EXTINF:-1 tvg-id="in_zeetvhdplus1.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10834.jpg" group-title="INDIAN  ENTERAINMENT",IN: ZEE TV _HD INDIA (S)
+http://45.148.145.57/IS_ZE/index.m3u8
+#EXTINF:-1 tvg-id="in_colorshd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24576.jpg" group-title="INDIAN  ENTERAINMENT",IN: COLORS _ HD  (G)
+http://45.148.145.57/IN_CTVS/index.m3u8
+#EXTINF:-1 tvg-id="uka_colors.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7423.jpg" group-title="INDIAN  ENTERAINMENT",IN: COLORS _HD_ UK
+http://45.148.145.57/uk_colortvIND/index.m3u8
+#EXTINF:-1 tvg-id="in_sony.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24574.jpg" group-title="INDIAN  ENTERAINMENT",IND: SONY TV _ 4K (S)
+http://45.148.145.57/IN_STVS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9981.jpg" group-title="INDIAN  ENTERAINMENT",IN: COLORS RISHTEY TV_HD_UK
+http://45.148.145.57/uk_RISHTEYTV/index.m3u8
+#EXTINF:-1 tvg-id="in_sony.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24573.jpg" group-title="INDIAN  ENTERAINMENT",IN: SONY TV _HD (G)
+http://45.148.145.57/IN_STVG/index.m3u8
+#EXTINF:-1 tvg-id="uka_sonytv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7874.jpg" group-title="INDIAN  ENTERAINMENT",IN: SONY TV _FHD UK
+http://45.148.145.57/IN_SONYUK/index.m3u8
+#EXTINF:-1 tvg-id="in_sonysab.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10557.jpg" group-title="INDIAN  ENTERAINMENT",IN: SONY SAB _4k (S)
+http://45.148.145.57/IN_SBTVS/index.m3u8
+#EXTINF:-1 tvg-id="in_sonypal.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10892.jpg" group-title="INDIAN  ENTERAINMENT",IN: SONY PAL _HD
+http://45.148.145.57/IND_SONYPALHd/index.m3u8
+#EXTINF:-1 tvg-id="in_starplus.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24610.jpg" group-title="INDIAN  ENTERAINMENT",IN: STAR PLUS_4K (S)
+http://45.148.145.57/IN_STS/index.m3u8
+#EXTINF:-1 tvg-id="in_starplus.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8159.jpg" group-title="INDIAN  ENTERAINMENT",IN: STAR PLUS_HD (G)
+http://45.148.145.57/IN_STARPLUHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11414.jpg" group-title="INDIAN  ENTERAINMENT",24/7: VIEWERS CHOICE  *( Shehzada)*
+http://45.148.145.57/bte224/7/index.m3u8
+#EXTINF:-1 tvg-id="in_andtvhd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24583.jpg" group-title="INDIAN  ENTERAINMENT",IN: &TV _4K (S)
+http://45.148.145.57/IN_And/index.m3u8
+#EXTINF:-1 tvg-id="uka_zeetv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7561.jpg" group-title="INDIAN  ENTERAINMENT",IN: ZEE TV UK _HD
+http://45.148.145.57/IN_ZEEUKFHDuk/index.m3u8
+#EXTINF:-1 tvg-id="in_andtvhd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24584.jpg" group-title="INDIAN  ENTERAINMENT",IN: &TV_HD (S)
+http://45.148.145.57/IN_And/index.m3u8
+#EXTINF:-1 tvg-id="uka_starplus.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9248.jpg" group-title="INDIAN  ENTERAINMENT",IN: STAR PLUS UK
+http://45.148.145.57/IN_starPlusUK_G/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24582.jpg" group-title="INDIAN  ENTERAINMENT",IN: &TV UK_4K
+http://45.148.145.57/IN_And/index.m3u8
+#EXTINF:-1 tvg-id="in_starbharathd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24589.jpg" group-title="INDIAN  ENTERAINMENT",IN: STAR UTSAV HD
+http://45.148.145.57/IN_UTS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24656.jpg" group-title="INDIAN  ENTERAINMENT",IN: DANGAL TV_HD
+http://45.148.145.57/IN_Dangal/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24639.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Vishal Mishra Super  Hits _HD
+http://45.148.145.57/vishalVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10576.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Badshah Super hits Songs HD
+http://45.148.145.57/bad247/index.m3u8
+#EXTINF:-1 tvg-id="uka_sonytv.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11185.jpg" group-title="INDIAN  ENTERAINMENT",SONY TV UK HD (BACK UP)
+http://45.148.145.57/IN_SONYUK/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10942.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Guru Randhawa Hits SONGS HD
+http://45.148.145.57/rndhVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10544.jpg" group-title="INDIAN  ENTERAINMENT",24/7 : T SERIES SUPER HITS SONG 4K
+http://45.148.145.57/TSER247/index.m3u8
+#EXTINF:-1 tvg-id="in_colorshd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24575.jpg" group-title="INDIAN  ENTERAINMENT",IN: COLORS _4K (S)
+http://45.148.145.57/IN_CTVS/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10724.jpg" group-title="INDIAN  ENTERAINMENT",24/7:Hindi hits songs 1990/2000
+http://45.148.145.57/bbso1vod24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10548.jpg" group-title="INDIAN  ENTERAINMENT",24/7: ZEE MUSIC PARTY / SONGS
+http://45.148.145.57/zp1247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10941.jpg" group-title="INDIAN  ENTERAINMENT",24/7: TIPS  ROMANTIC SONGS HD
+http://45.148.145.57/tipsVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10929.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Gaane Sune  Ansune VOL 1 HD
+http://45.148.145.57/sne1VOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10943.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Desi Factory Songs HD
+http://45.148.145.57/desiVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10701.jpg" group-title="INDIAN  ENTERAINMENT",24/7:Nadeem Shravan 51 Hits
+http://45.148.145.57/hso1247/index.m3u8
+#EXTINF:-1 tvg-id="in_sonysab.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24577.jpg" group-title="INDIAN  ENTERAINMENT",IN: SONY SAB _HD (G)
+http://45.148.145.57/IN_SABG/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9856.jpg" group-title="INDIAN  ENTERAINMENT",24/7 OLD IS GOLD MUSIC _FHD
+http://45.148.145.57/oigvod247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11065.jpg" group-title="INDIAN  ENTERAINMENT",24/7:  ZEE MUSIC LYRICAL SONHG HITS
+http://45.148.145.57/zecVOD24/7/index.m3u8
+#EXTINF:-1 tvg-id="in_mtv.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24587.jpg" group-title="INDIAN  ENTERAINMENT",IN: MTV BEATS _HD
+http://45.148.145.57/IN_MB/index.m3u8
+#EXTINF:-1 tvg-id="in_mtv.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24586.jpg" group-title="INDIAN  ENTERAINMENT",IN: MTV BEATS _ 4K
+http://45.148.145.57/IN_MB/index.m3u8
+#EXTINF:-1 tvg-id="in_mtv.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24588.jpg" group-title="INDIAN  ENTERAINMENT",IN: MTV INDIA  HD
+http://45.148.145.57/IN_MT/index.m3u8
+#EXTINF:-1 tvg-id="in_b4umusic.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5423.jpg" group-title="INDIAN  ENTERAINMENT",IN: B4U MUSIC_HD
+http://45.148.145.57/IN_bC/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24581.jpg" group-title="INDIAN  ENTERAINMENT",IN: MASTII MUSIC HD
+http://45.148.145.57/IN_ASTIMUSIC/index.m3u8
+#EXTINF:-1 tvg-id="uka_zing.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5429.jpg" group-title="INDIAN  ENTERAINMENT",IN: ZING_ HD
+http://45.148.145.57/IND_ZINGMUSICHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24638.jpg" group-title="INDIAN  ENTERAINMENT",24/7: T SERIES HITS (2024)_HD
+http://45.148.145.57/TSER247/index.m3u8
+#EXTINF:-1 tvg-id="in_zeeetcbollywood.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5426.jpg" group-title="INDIAN  ENTERAINMENT",IN: MUSIC INDIA HD
+http://45.148.145.57/IN_MusicIndia/index.m3u8
+#EXTINF:-1 tvg-id="in_starbharathd.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24585.jpg" group-title="INDIAN  ENTERAINMENT",IN: STAR BHARAT_4K
+http://45.148.145.57/IN_Stb/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11068.jpg" group-title="INDIAN  ENTERAINMENT",IN: 9X_JALWA _HD
+http://45.148.145.57/IN_9XJALWA/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7731.jpg" group-title="INDIAN  ENTERAINMENT",IN : 9X_TASHAN _HD
+http://45.148.145.57/IND_9xTashanHd/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5430.jpg" group-title="INDIAN  ENTERAINMENT",IN: 9X M_HD
+http://45.148.145.57/IN_9xmFHd/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10931.jpg" group-title="INDIAN  ENTERAINMENT",24/7: Gaane Sune Ansune VOL 2 HD
+http://45.148.145.57/sne247/index.m3u8
+#EXTINF:-1 tvg-id="in_musicindia.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24580.jpg" group-title="INDIAN  ENTERAINMENT",IN: BALLE BALLE HD
+http://45.148.145.57/IN_PUN_BALE/index.m3u8
+#EXTINF:-1 tvg-id="in_zoom.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/5424.jpg" group-title="INDIAN  ENTERAINMENT",IN: ZOOM INDIA _HD
+http://45.148.145.57/IND_ZoomHd/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6043.jpg" group-title="Indian religions",IN: SHALOMTV_HD
+http://45.148.145.57/IN_Shalomtv/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9498.jpg" group-title="Indian religions",IN: Hare Krsna Pravachan _HD  ( Spiritual )
+http://45.148.145.57/IN_DISHTVBHAKTIACTIVE/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9636.jpg" group-title="Indian religions",IN: Krishna Vaani _HD
+http://45.148.145.57/IND_SadhnaTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10794.jpg" group-title="Indian religions",IN: Hare_Krsna_Pravachan _HD
+http://45.148.145.57/IND_HareTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10575.jpg" group-title="Indian religions",IN: Satsang TV _HD
+http://45.148.145.57/IN_SatsangTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9638.jpg" group-title="Indian religions",IN: VEDIC TV_HD
+http://45.148.145.57/IND_VedicHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7742.jpg" group-title="Indian religions",IN: Ishwar Bhakti TV_ HD
+http://45.148.145.57/IN_DISHTVBHAKTIACTIVE/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/9497.jpg" group-title="Indian religions",IN: AASTHA BHAJAN_HD
+http://45.148.145.57/IN_Asthabhajan/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8122.jpg" group-title="Indian religions",IN: Peace_of_Mind HD
+http://45.148.145.57/IND_PeaceOfMind/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7739.jpg" group-title="Indian religions",IN: AASTHA_BHAJAN_TV_HD
+http://45.148.145.57/IN_Asthabhajan/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7738.jpg" group-title="Indian religions",IN: DIVYA_TV_HD
+http://45.148.145.57/IN_Divya_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7745.jpg" group-title="Indian religions",IN:  Shri Babulnaath Temple Mumbai _HD
+http://45.148.145.57/IN_Arihant_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8123.jpg" group-title="Indian religions",IN: Sanskar_HD
+http://45.148.145.57/IN_Sanskar/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11116.jpg" group-title="Indian religions",IN: Jinvani TV HD
+http://45.148.145.57/IND_JinvaniTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7741.jpg" group-title="Indian religions",IN: mh1Shardha_HD
+http://45.148.145.57/mh1_Shraddha/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7737.jpg" group-title="Indian religions",IN: AASTHA_TV_HD
+http://45.148.145.57/IND_Aashtha/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11213.jpg" group-title="Indian religions",IN: Ishwar TV _HD
+http://45.148.145.57/IND_Paras/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11110.jpg" group-title="Indian religions",IN: TBN HD (ENGLISH)
+http://45.148.145.57/IND_Tbn/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11109.jpg" group-title="Indian religions",IN: God TV  HD (ENGLISH)
+http://45.148.145.57/IND_GodTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8448.jpg" group-title="INDIAN KIDS",IN: BABY RHYMES HINDI_HD
+http://45.148.145.57/rhymes1_247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8076.jpg" group-title="INDIAN KIDS",IN: Baby Rhymes HD ENGLISH
+http://45.148.145.57/rhymes247/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7614.jpg" group-title="INDIAN KIDS",IN: SONIC_HINDI HD
+http://45.148.145.57/IND_sonic_Hindi/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/1656.jpg" group-title="INDIAN KIDS",IN:SONY YAY! HD HINDI
+http://45.148.145.57/IND_SonyYaYKids/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11385.jpg" group-title="INDIAN KIDS",IN: DISNEY CHANNEL HINDI HD
+http://45.148.145.57/IN_DISH/index.m3u8
+#EXTINF:-1 tvg-id="in_discoverykids.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7460.jpg" group-title="INDIAN KIDS",IN:Discovery KIDS HD HINDI
+http://45.148.145.57/IN_DiscoveryKids/index.m3u8
+#EXTINF:-1 tvg-id="in_pogo.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2098.jpg" group-title="INDIAN KIDS",IN : POGO TV HD
+http://45.148.145.57/IND_POGO/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7613.jpg" group-title="INDIAN KIDS",IND: Hungama TV HD
+http://45.148.145.57/IN__KG/index.m3u8
+#EXTINF:-1 tvg-id="in_nick.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11050.jpg" group-title="INDIAN KIDS",IN:NICK_ NITE HD (ENG)
+http://45.148.145.57/UK_NICKELODEON/index.m3u8
+#EXTINF:-1 tvg-id="in_nickjr.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6267.jpg" group-title="INDIAN KIDS",IN: Nick Jr Too ENGLISH
+http://45.148.145.57/jav91/index.m3u8
+#EXTINF:-1 tvg-id="in_nick.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10437.jpg" group-title="INDIAN KIDS",IN:  Nick_Hindi HD
+http://45.148.145.57/IN_NICKHD/index.m3u8
+#EXTINF:-1 tvg-id="uka_nicktoons.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/8562.jpg" group-title="INDIAN KIDS",IN:NickToons ENGLISH_FHD
+http://45.148.145.57/US_TEENNICKHD/index.m3u8
+#EXTINF:-1 tvg-id="uka_nickjunior.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2094.jpg" group-title="INDIAN KIDS",IN: NICK JR ENGLISH
+http://45.148.145.57/E_NickJr/index.m3u8
+#EXTINF:-1 tvg-id="uka_disneyjunior.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2096.jpg" group-title="INDIAN KIDS",IN: Disney Junior ENGLISH HD
+http://45.148.145.57/UK_DISNEYJUNIORHD/index.m3u8
+#EXTINF:-1 tvg-id="in_cartoonnetwork.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/6268.jpg" group-title="INDIAN KIDS",IN:Cartoon Network ENGLISH HD
+http://45.148.145.57/IN_CaTOON/index.m3u8
+#EXTINF:-1 tvg-id="in_natgeo.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10599.jpg" group-title="IND DOCU & INT FASHION TV",IN: NAT GEO _HD (S)
+http://45.148.145.57/IND_NationalGeoHD/index.m3u8
+#EXTINF:-1 tvg-id="in_animalplanet.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10602.jpg" group-title="IND DOCU & INT FASHION TV",IN: ANIMAL PLANET WORLD FHD (S)
+http://45.148.145.57/IN_ANIMALHD/index.m3u8
+#EXTINF:-1 tvg-id="in_travelxp.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10603.jpg" group-title="IND DOCU & INT FASHION TV",IN: TRAVEL XP FHD
+http://45.148.145.57/IN_TRAVELXP/index.m3u8
+#EXTINF:-1 tvg-id="in_sonybbcearth.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10601.jpg" group-title="IND DOCU & INT FASHION TV",IN: SONY BBC EARTH _4K
+http://45.148.145.57/IN_SONYBBCHD/index.m3u8
+#EXTINF:-1 tvg-id="in_tlc.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7443.jpg" group-title="IND DOCU & INT FASHION TV",IN: TLC INDIA _4K
+http://45.148.145.57/IND_TLCHIND/index.m3u8
+#EXTINF:-1 tvg-id="in_epic.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2703.jpg" group-title="IND DOCU & INT FASHION TV",IN: EPIC TV INDIA 4K
+http://45.148.145.57/IN_EPIC/index.m3u8
+#EXTINF:-1 tvg-id="in_discovery.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7442.jpg" group-title="IND DOCU & INT FASHION TV",IN: DISCOVERY _4K (G)
+http://45.148.145.57/IN_DiscoveryFhd/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11444.jpg" group-title="IND DOCU & INT FASHION TV",IN_FASHION_TV 4K_ (INDIA)
+http://45.148.145.57/FR_FASHION_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11443.jpg" group-title="IND DOCU & INT FASHION TV",PT:  FASHION TV HD
+http://45.148.145.57/PT_FASHIONTV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11446.jpg" group-title="IND DOCU & INT FASHION TV",PINK FASHION_ HD
+http://45.148.145.57/FR_FASHION_TV/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11447.jpg" group-title="IND DOCU & INT FASHION TV",Nl: Fashion TV 4K
+http://45.148.145.57/TR_FASHIONTVFHD/index.m3u8
+#EXTINF:-1 tvg-id="in_natgeo.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10600.jpg" group-title="IND DOCU & INT FASHION TV",IN: NAT GEO _4K (S)
+http://45.148.145.57/IND_NationalGeoHD/index.m3u8
+#EXTINF:-1 tvg-id="in_historytv18.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/2998.jpg" group-title="IND DOCU & INT FASHION TV",IN: HISTORY HD
+http://45.148.145.57/IND_HistoryFHD/index.m3u8
+#EXTINF:-1 tvg-id="in_foodfood.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/10456.jpg" group-title="INDIAN & INT FOODZ",IN: FOOD FOOD INDIA _HD (S)
+http://45.148.145.57/IN_FOODFOOD/index.m3u8
+#EXTINF:-1 tvg-id="uka_foodnetwork.uk" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24597.jpg" group-title="INDIAN & INT FOODZ",FOOD NETWORK HD ENGLISH
+http://45.148.145.57/IN_GOOD/index.m3u8
+#EXTINF:-1 tvg-id="us_foodnetwork.us" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11133.jpg" group-title="INDIAN & INT FOODZ",FOOD NETWORK _4K (USA)
+http://45.148.145.57/IN_GOOD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11135.jpg" group-title="INDIAN & INT FOODZ",TASTE MADE _4K (USA)
+http://45.148.145.57/US_TASTE/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11132.jpg" group-title="INDIAN & INT FOODZ",SBS Food_4k  (Australia)
+http://45.148.145.57/AUSBSFood/index.m3u8
+#EXTINF:-1 tvg-id="us_cookingchannel.us" tvg-logo="http://cooltv4u.xyz/misc/logos/320/11134.jpg" group-title="INDIAN & INT FOODZ",COOKING CHANEL_ 4K (USA)
+http://45.148.145.57/US_COOKINGCHANELHD/index.m3u8
+#EXTINF:-1 tvg-id="in_ndtvgoodtimes.in" tvg-logo="http://cooltv4u.xyz/misc/logos/320/7621.jpg" group-title="INDIAN & INT FOODZ",IN: NDTV GOOD TIMES HD
+http://45.148.145.57/IN_NDTVGoodTHD/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="http://cooltv4u.xyz/misc/logos/320/24636.jpg" group-title="INDIAN & INT FOODZ",Food Network (UK)
+http://45.148.145.57/IN_FD/index.m3u8
