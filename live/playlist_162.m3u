@@ -347,3 +347,201 @@ https://amg01553-blueantmediaasi-zoomoonz-samsungnz-rdufn.amagi.tv/playlist/amg0
 https://livetranscode.com/Minimax/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/PBS_Kids_logo_%282022%29.svg/1200px-PBS_Kids_logo_%282022%29.svg.png" group-title="Kids", PBS Kids
 https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/playlist.m3u8?DVR
+
+
+### Extra channels added in 25/01/25
+
+
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/6538_cupa.jpg", LIVE-Sports
+http://103.151.60.204/t-sports-tv5.hoichoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/89691_gtv.png", G-TV
+http://103.151.60.204/gtv-sports-tv5.hoichoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/54797_TSports 21668953490.png", T-Sports
+http://103.151.60.204/t-sports-tv5.hoichoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/40086_PTV.jpg", PTV
+http://103.151.60.204/ptv-tv5.hoichhoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/2520_dvctv.png", DBC
+http://103.151.60.204/DBC-tv5.hoichoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/10892_enterr10.jpg", Enter10
+http://14.4.4.42:8080/1402/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/94027_64209d2e-8a4c-4056-bb24-836ce9f7922d.jpg", TNT Sports 2
+http://103.151.60.204/TNT-Sports-2/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/93457_Ary-digital.png", ARY DIGITAL
+http://103.151.60.204/ary-Digital/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/9379_ZEEBANGL.JPG", Zee Bangla
+http://103.151.60.204/Zee-Bangla/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/32460_Star Jalsha1664976894.png", Star Jalsha
+http://103.151.60.204/Star-Jolsha-HD/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/29302_somoy-tv.png", Somoy-News
+http://103.151.60.204/SoMoy-tv/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/62748_jamunatv.png", Jamuna
+http://103.151.60.204/Jamuna-tv/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/66094_tv-channel-icons-children-cartoon-network-png-icon.jpg", Cartoon Network
+http://103.151.60.204/bbc-carton/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/83397_kisspng-zee-bangla-cinema-logo-zee-cinema-bengali-language-5c3a11e38637c1.7959353315473095395498.jpg", Zee Bangla Cinema
+http://14.4.4.10/1401/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/56524_STARPLUS.JPG", Star Plus
+http://103.151.60.204/star-plus/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/65612_COLORSBA.JPG", Colors Bangla HD
+http://103.151.60.204/Colors-bangla/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/23902_STARGOLD.JPG", Star Gold
+http://103.151.60.204/star-gold/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/36447_ZEECINEM.JPG", Zee Cinema
+http://103.151.60.204/zee-cenama/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/70913_SONY_AAT.PNG", Sony Aath
+http://103.151.60.204/sony-att/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/60058_Colors TV HD1664974042.png", Colors
+http://103.151.60.204/Colors-HD/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/29446_Zee Tv1664974411.png", ZEE
+http://103.151.60.204/zee-tv-hd/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/33421_NAGORIK.JPG", Nagorik
+http://103.151.60.204/Nagorik-tv5.hoichoi24.com/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/57280_JALSHA_M.JPG", Jalsha Movies
+http://103.151.60.204/Jolsha-Movies/index.m3u8
+
+
+--- https source--
+
+
+#EXTINF:-1 tvg-logo="https://appstv.bdixbd.net/images/81188_ATNTV.PNG", ATN-Bangla
+https://cdn.hoichoi24.com/ATNBangla/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/asiantvHD.png", Asian TV HD
+https://cdn.hoichoi24.com/asiantvHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BTVChattagram.png", BTV Chattagram
+https://cdn.hoichoi24.com/BTVChattagram/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BTVNational.png", BTV National
+https://cdn.hoichoi24.com/BTVNational/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BTVNEWS.png", BTV News
+https://cdn.hoichoi24.com/BTVNEWS/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BijoyTV.png", Bijoy TV
+https://cdn.hoichoi24.com/BijoyTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BoishakhiTV.png", Boishakhi TV
+https://cdn.hoichoi24.com/BoishakhiTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/RtvHD.png", Rtv HD
+https://cdn.hoichoi24.com/RtvHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/SATVHD.png", SA TV HD
+https://cdn.hoichoi24.com/SATVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/SANGSADTVHD.png", Sangsad TV HD
+https://cdn.hoichoi24.com/SANGSADTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/ATNBangla.png", ATN Bangla
+https://cdn.hoichoi24.com/ATNBangla/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BanglaTVHD.png", Bangla TV HD
+https://cdn.hoichoi24.com/BanglaTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/BanglaVision.png", Bangla Vision
+https://cdn.hoichoi24.com/BanglaVision/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/ChannelIHD.png", Channel i HD
+https://cdn.hoichoi24.com/ChannelIHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/EkattorTVHD.png", Ekattor TV HD
+https://cdn.hoichoi24.com/EkattorTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/NTV.png", NTV
+https://cdn.hoichoi24.com/NTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/News24HD.png", News 24 HD
+https://cdn.hoichoi24.com/News24HD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/DBCNEWS.png", DBC News
+https://cdn.hoichoi24.com/DBCNEWS/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/NAGORIKTVHD.png", Nagorik TV HD
+https://cdn.hoichoi24.com/NAGORIKTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/ATNNews.png", ATN News
+https://cdn.hoichoi24.com/ATNNews/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/AnandaTV.png", Ananda TV
+https://cdn.hoichoi24.com/AnandaTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/DeshTV.png", Desh TV
+https://cdn.hoichoi24.com/DeshTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/EkusheyTV.png", Ekushey TV
+https://cdn.hoichoi24.com/EkusheyTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/JamunaTelevision.png", Jamuna Television
+https://cdn.hoichoi24.com/JamunaTelevision/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/MohonaTV.png", Mohona TV
+https://cdn.hoichoi24.com/MohonaTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/MYTVHD.png", My TV HD
+https://cdn.hoichoi24.com/MYTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/ChannelS.png", Channel S
+https://cdn.hoichoi24.com/ChannelS/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/Betarctg.png", Betar CTG
+https://cdn.hoichoi24.com/Betarctg/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/HomeService.png", Home Service
+https://cdn.hoichoi24.com/HomeService/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/ExternalService.png", External Service
+https://cdn.hoichoi24.com/ExternalService/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/TrafficService.png", Traffic Service
+https://cdn.hoichoi24.com/TrafficService/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/CommercialService.png", Commercial Service
+https://cdn.hoichoi24.com/CommercialService/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/TSports.png", T Sports
+https://cdn.hoichoi24.com/TSports/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/NEXUSTVENC1.png", Nexus TV ENC1
+https://cdn.hoichoi24.com/NEXUSTVENC1/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/Channel24HD.png", Channel 24 HD
+https://cdn.hoichoi24.com/Channel24HD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/EKHONTV.png", Ekhon TV
+https://cdn.hoichoi24.com/EKHONTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/GLOBALTVHD.png", Global TV HD
+https://cdn.hoichoi24.com/GLOBALTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/MadaniTV.png", Madani TV
+https://cdn.hoichoi24.com/MadaniTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/SOMOYTVHD.png", Somoy TV HD
+https://cdn.hoichoi24.com/SOMOYTVHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://cdn.hoichoi24.com/images/CHANNELNINEBD.png", Channel Nine BD
+https://cdn.hoichoi24.com/CHANNELNINEBD/video.m3u8
