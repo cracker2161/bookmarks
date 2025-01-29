@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Music v1.5</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: white;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .app-info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4DD0E1;
+            position: relative;
+        }
+
+        .app-info h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .app-info p {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .song-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 100px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .song-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .play-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4DD0E1;
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .song-info {
+            flex: 1;
+        }
+
+        .song-title {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .song-artist {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .player-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 16px;
+            max-width: 480px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin: 16px 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #4DD0E1;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .control-center {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .control-button:hover {
+            transform: scale(1.1);
+            color: #4DD0E1;
+        }
+
+        .play-pause {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #4DD0E1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .volume-control {
+            position: absolute;
+            right: 16px;
+            top: -80px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .volume-control.active {
+            display: block;
+        }
+
+        #volume-slider {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: 60px;
+        }
+
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+            transition: right 0.3s;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .settings-panel.active {
+            right: 0;
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .settings-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .sleep-timer {
+            margin-top: 20px;
+        }
+
+        .timer-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .timer-button {
+            background: rgba(77, 208, 225, 0.1);
+            border: 1px solid #4DD0E1;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .timer-button:hover {
+            background: #4DD0E1;
+        }
+
+        .timer-button.active {
+            background: #4DD0E1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="app-info">
+            <h1>Orbit Music</h1>
+            <p>Version 1.5 | Developed by Sultan</p>
+        </div>
+
+        <div class="song-list" id="songList">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="settings-close" id="settingsClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sleep-timer">
+                <h3>Sleep Timer</h3>
+                <div class="timer-options">
+                    <button class="timer-button" data-time="5">5 min</button>
+                    <button class="timer-button" data-time="15">15 min</button>
+                    <button class="timer-button" data-time="30">30 min</button>
+                    <button class="timer-button" data-time="45">45 min</button>
+                    <button class="timer-button" data-time="60">1 hour</button>
+                    <button class="timer-button" data-time="0">Off</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <div class="song-info">
+                <div class="song-title" id="currentSongTitle">Select a song</div>
+                <div class="song-artist" id="currentArtist">-</div>
+            </div>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="time-info">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">0:00</span>
+            </div>
+
+            <div class="control-buttons">
+                <button class="control-button" id="shuffleBtn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <div class="control-center">
+                    <button class="control-button" id="prevBtn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-button play-pause" id="playPauseBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-button" id="nextBtn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+                <button class="control-button" id="volumeBtn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+
+            <div class="volume-control" id="volumeControl">
+                <input type="range" id="volume-slider" min="0" max="100" value="100">
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script>
+        const songs = [
+            {
+                title: "Summer Vibes",
+                artist: "Acoustic Breeze",
+                url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+                title: "Tala' Al Badru 'Alayna",
+                artist: "Islamic Traditional",
+                url: "https://example.com/islamic-music/tala-al-badru.mp3"
+            },
+            {
+                title: "Hasbi Rabbi",
+                artist: "Sami Yusuf",
+                url: "https://example.com/islamic-music/hasbi-rabbi.mp3"
+            },
+            {
+                title: "Rahman Ya Rahman",
+                artist: "Maher Zain",
+                url: "https://example.com/islamic-music/rahman-ya-rahman.mp3"
+            },
+            {
+                title: "Ya Nabi Salam Alayka",
+                artist: "Maher Zain",
+                url: "https://example.com/islamic-music/ya-nabi-salam.mp3"
+            },
+            {
+                title: "Asma-ul-Husna",
+                artist: "Islamic Traditional",
+                url: "https://example.com/islamic-music/asma-ul-husna.mp3"
+            },
+            {
+                title: "Qasida Burda",
+                artist: "Islamic Traditional",
+                url: "https://example.com/islamic-music/qasida-burda.mp3"
+            },
+            {
+                title: "Ya Taiba",
+                artist: "Ahmed Bukhatir",
+                url: "https://example.com/islamic-music/ya-taiba.mp3"
+            },
+            {
+                title: "Mawlaya",
+                artist: "Sami Yusuf",
+                url: "https://example.com/islamic-music/mawlaya.mp3"
+            },
+            {
+                title: "Al-Mu'allim",
+                artist: "Sami Yusuf",
+                url: "https://example.com/islamic-music/al-muallim.mp3"
+            }
+            // Add more songs as needed
+        ];
+
+        let currentSongIndex = 0;
+        let isPlaying = false;
+        let isShuffled = false;
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const volumeControl = document.getElementById('volumeControl');
+        const volumeSlider = document.getElementById('volume-slider');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+        const currentSongTitle = document.getElementById('currentSongTitle');
+        const currentArtist = document.getElementById('currentArtist');
+        const songList = document.getElementById('songList');
+
+        // Add settings button to the header
+        const headerDiv = document.querySelector('.app-info');
+        const settingsButton = document.createElement('button');
+        settingsButton.className = 'control-button';
+        settingsButton.innerHTML = '<i class="fas fa-cog"></i>';
+        settingsButton.style.position = 'absolute';
+        settingsButton.style.right = '20px';
+        settingsButton.style.top = '20px';
+        headerDiv.appendChild(settingsButton);
+
+        // Settings and Sleep Timer functionality
+        const settingsPanel = document.getElementById('settingsPanel');
+        const settingsClose = document.getElementById('settingsClose');
+        let sleepTimeout = null;
+
+        settingsButton.addEventListener('click', () => {
+            settingsPanel.classList.add('active');
+        });
+
+        settingsClose.addEventListener('click', () => {
+            settingsPanel.classList.remove('active');
+        });
+
+        // Populate song list
+        songs.forEach((song, index) => {
+            const songItem = document.createElement('div');
+            songItem.className = 'song-item';
+            songItem.innerHTML = `
+                <button class="play-button" data-index="${index}">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="song-info">
+                    <div class="song-title">${song.title}</div>
+                    <div class="song-artist">${song.artist}</div>
+                </div>
+            `;
+            songList.appendChild(songItem);
+        });
+
+        // Play specific song
+        function playSong(index) {
+            currentSongIndex = index;
+            audioPlayer.src = songs[index].url;
+            audioPlayer.play();
+            isPlaying = true;
+            updatePlayPauseIcon();
+            updateSongInfo();
+        }
+
+        // Update play/pause icon
+        function updatePlayPauseIcon() {
+            playPauseBtn.innerHTML = `<i class="fas ${isPlaying ? 'fa-pause' : 'fa-play'}"></i>`;
+            const buttons = document.querySelectorAll('.play-button');
+            buttons.forEach((btn, index) => {
+                btn.innerHTML = `<i class="fas ${isPlaying && index === currentSongIndex ? 'fa-pause' : 'fa-play'}"></i>`;
+            });
+        }
+
+        // Update song information
+        function updateSongInfo() {
+            currentSongTitle.textContent = songs[currentSongIndex].title;
+            currentArtist.textContent = songs[currentSongIndex].artist;
+        }
+
+        // Sleep Timer
+        document.querySelectorAll('.timer-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const minutes = parseInt(button.dataset.time);
+                clearTimeout(sleepTimeout);
+                
+                document.querySelectorAll('.timer-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                if (minutes > 0) {
+                    button.classList.add('active');
+                    sleepTimeout = setTimeout(() => {
+                        audioPlayer.pause();
+                        isPlaying = false;
+                        updatePlayPauseIcon();
+                    }, minutes * 60 * 1000);
+                }
+            });
+        });
+
+        // Event Listeners
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audioPlayer.pause();
+            } else {
+                audioPlayer.play();
+            }
+            isPlaying = !isPlaying;
+            updatePlayPauseIcon();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            playSong(currentSongIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            playSong(currentSongIndex);
+        });
+
+        shuffleBtn.addEventListener('click', () => {
+            isShuffled = !isShuffled;
+            shuffleBtn.style.color = isShuffled ? '#4DD0E1' : 'white';
+        });
+
+        volumeBtn.addEventListener('click', () => {
+            volumeControl.classList.toggle('active');
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            audioPlayer.volume = e.target.value / 100;
+        });
+
+        // Progress bar
+        audioPlayer.addEventListener('timeupdate', () => {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            const currentMinutes = Math.floor(audioPlayer.currentTime / 60);
+            const currentSeconds = Math.floor(audioPlayer.currentTime % 60);
+            currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
+            
+            if (audioPlayer.duration) {
+                const totalMinutes = Math.floor(audioPlayer.duration / 60);
+                const totalSeconds = Math.floor(audioPlayer.duration % 60);
+                totalTimeDisplay.textContent = `${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+            }
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        });
+
+        // Song ended event
+        audioPlayer.addEventListener('ended', () => {
+            if (isShuffled) {
+                let nextIndex;
+                do {
+                    nextIndex = Math.floor(Math.random() * songs.length);
+                } while (nextIndex === currentSongIndex);
+                currentSongIndex = nextIndex;
+            } else {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+            }
+            playSong(currentSongIndex);
+        });
+
+        // Song list click handlers
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const index = parseInt(button.dataset.index);
+                if (currentSongIndex === index && isPlaying) {
+                    audioPlayer.pause();
+                    isPlaying = false;
+                } else {
+                    playSong(index);
+                }
+                updatePlayPauseIcon();
+            });
+        });
+    </script>
+</body>
+</html>
+
