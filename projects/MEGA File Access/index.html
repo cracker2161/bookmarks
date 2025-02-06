@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA File Access Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .link-cards {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 400px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .icon {
+            font-size: 64px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .btn {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .feature h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            opacity: 0.9;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .developer-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .developer-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .card {
+                padding: 30px;
+            }
+
+            .icon {
+                font-size: 50px;
+            }
+        }
+
+        .footer {
+            margin-top: 60px;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MEGA File Access Portal</h1>
+            <p class="subtitle">Simple and secure way to upload and access your files through MEGA cloud storage</p>
+        </div>
+        
+        <div class="link-cards">
+            <a href="https://mega.nz/filerequest/o_tYuS3sUII" target="_blank" class="card">
+                <span class="icon">📤</span>
+                <h2>File Upload</h2>
+                <p>Upload new files securely to the cloud storage</p>
+                <span class="btn">Upload Files</span>
+            </a>
+
+            <a href="https://mega.nz/folder/CIsSSKzB#Qi4Ie8W1WWT2zt7TRjiWaA" target="_blank" class="card">
+                <span class="icon">📂</span>
+                <h2>File Viewer</h2>
+                <p>Access and manage your uploaded files</p>
+                <span class="btn">View Files</span>
+            </a>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🔒 Secure Access</h3>
+                <p>All files are encrypted and securely stored in MEGA's cloud infrastructure</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 Fast Transfer</h3>
+                <p>High-speed upload and download capabilities for efficient file management</p>
+            </div>
+            <div class="feature">
+                <h3>💫 Easy to Use</h3>
+                <p>Simple interface for quick file uploads and easy access to stored content</p>
+            </div>
+        </div>
+
+        <div class="developer-info">
+            <p>Developer: Developed by Sultan</p>
+            <p>Version: 1.2</p>
+        </div>
+
+        <div class="footer">
+            <p>Access your files anytime, anywhere with MEGA cloud storage</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth hover effects
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function(e) {
+                    this.style.transform = 'translateY(-10px)';
+                });
+
+                card.addEventListener('mouseleave', function(e) {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add loading animation
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+        });
+    </script>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+</body>
+</html>
+
