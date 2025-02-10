@@ -1,82 +1,225 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/jamuna.png",Jamuna | Chowdhury
-http://lkn1.chowdhury-shaheb.com/jamuna/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/dbc.png",DBC | Chowdhury
-http://lkn1.chowdhury-shaheb.com/dbc/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/tsports.png",T-Sports | Chowdhury
-http://lkn1.chowdhury-shaheb.com/tsport/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/tsports.png",T-Sports | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportshd.png",T-Sports HD | Hoichoi
 https://cdn.hoichoi24.com/TSportsHD/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/superlaliga.png",Super Laliga | Chowdhury
-http://lkn1.chowdhury-shaheb.com/superlaliga/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/superlaliga.png",Super Laliga | Hoichoi
-https://cdn.hoichoi24.com/SuperLaLigaHD/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten1.png",Sony Ten 1 | Chowdhury
-http://lkn1.chowdhury-shaheb.com/sonyten1/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten1.png",Sony Ten 1 | Hoichoi
-https://cdn.hoichoi24.com/sonyten1hd/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten3.png",Sony Ten 3 | Chowdhury
-http://lkn1.chowdhury-shaheb.com/sonyten3/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten3.png",Sony Ten 3 | Hoichoi
-https://cdn.hoichoi24.com/sonyten3hd/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sports18.png",Sports 18 | Chowdhury
-http://lkn1.chowdhury-shaheb.com/sports18/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/sports18.png",Sports 18 | Hoichoi
-https://cdn.hoichoi24.com/sports18hd/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/nick.png",Nick | Chowdhury
-http://lkn1.chowdhury-shaheb.com/nick/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/nick.png",Nick | Hoichoi
-https://cdn.hoichoi24.com/NickTVHDPlus/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/pogo.png",Pogo | Chowdhury
-http://lkn1.chowdhury-shaheb.com/pogo/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/pogo.png",Pogo | Hoichoi
-https://cdn.hoichoi24.com/Pogo/video.m3u8
-
-#EXTINF:-1 tvg-logo="https://logo-url.com/saudiquran.png",Saudi Quran | Chowdhury
-http://lkn1.chowdhury-shaheb.com/hajjtv/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://logo-url.com/skysportsgolf.png",Sky Sports Golf | Hoichoi
 https://cdn.hoichoi24.com/SkySportsGolf/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/skysportscricket.png",Sky Sports Cricket HD | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/superlaligahd.png",Super LaLiga HD | Hoichoi
+https://cdn.hoichoi24.com/SuperLaLigaHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/skysportscrickethd.png",Sky Sports Cricket HD | Hoichoi
 https://cdn.hoichoi24.com/SkySportsCricketHD/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/superpremierleague.png",Super Premier League | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/superpremierleagueahd.png",Super Premier League AHD | Hoichoi
 https://cdn.hoichoi24.com/SuperPremierLeagueAHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/nicktvhdplus.png",Nick TV HD Plus | Hoichoi
+https://cdn.hoichoi24.com/NickTVHDPlus/video.m3u8
 
 #EXTINF:-1 tvg-logo="https://logo-url.com/discoverykids.png",Discovery Kids | Hoichoi
 https://cdn.hoichoi24.com/DiscoveryKids/video.m3u8
 
+#EXTINF:-1 tvg-logo="https://logo-url.com/pogo.png",Pogo | Hoichoi
+https://cdn.hoichoi24.com/Pogo/video.m3u8
+
 #EXTINF:-1 tvg-logo="https://logo-url.com/discoveryhd.png",Discovery HD | Hoichoi
 https://cdn.hoichoi24.com/DiscoveryHD/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/sonypix.png",Sony Pix HD | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/andpicturetv.png",And Picture TV | Hoichoi
+https://cdn.hoichoi24.com/AndPictureTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/andprivehd.png",And Prive HD | Hoichoi
+https://cdn.hoichoi24.com/AndPriveHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/arydigital.png",ARY Digital | Hoichoi
+https://cdn.hoichoi24.com/ARYDigital/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/starlifehd.png",Star Life HD | Hoichoi
+https://cdn.hoichoi24.com/StarLifeHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/andflixhd.png",And Flix HD | Hoichoi
+https://cdn.hoichoi24.com/AndFlixHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonypixhd.png",Sony Pix HD | Hoichoi
 https://cdn.hoichoi24.com/SonyPixHD/video.m3u8
 
 #EXTINF:-1 tvg-logo="https://logo-url.com/axnhd.png",AXN HD | Hoichoi
 https://cdn.hoichoi24.com/AXNHD/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/starmovies.png",Star Movies HD | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/starmovieshd.png",Star Movies HD | Hoichoi
 https://cdn.hoichoi24.com/StarMoviesHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/mastii.png",Mastii | Hoichoi
+https://cdn.hoichoi24.com/Mastii/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/9xm.png",9XM | Hoichoi
+https://cdn.hoichoi24.com/9XM/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/colorsbanglahd.png",Colors Bangla HD | Hoichoi
+https://cdn.hoichoi24.com/colorsbanglahd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sbharathd.png",S Bharat HD | Hoichoi
+https://cdn.hoichoi24.com/sbharathd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonymaxhd.png",Sony Max HD | Hoichoi
+https://cdn.hoichoi24.com/sonymaxhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/mtvindia.png",MTV India | Hoichoi
+https://cdn.hoichoi24.com/mtvindia/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyhd.png",Sony HD | Hoichoi
+https://cdn.hoichoi24.com/sonyhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportsfhd.png",T-Sports FHD | Hoichoi
+https://cdn.hoichoi24.com/tsportsfhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sprime.png",S Prime | Hoichoi
+https://cdn.hoichoi24.com/sprime/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten1hd.png",Sony Ten 1 HD | Hoichoi
+https://cdn.hoichoi24.com/sonyten1hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten3hd.png",Sony Ten 3 HD | Hoichoi
+https://cdn.hoichoi24.com/sonyten3hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sports18hd.png",Sports 18 HD | Hoichoi
+https://cdn.hoichoi24.com/sports18hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/beinsports3.png",Bein Sports 3 | Hoichoi
+https://cdn.hoichoi24.com/beinsports3/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tntsports2hd.png",TNT Sports 2 HD | Hoichoi
+https://cdn.hoichoi24.com/tntsports2hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/supercricket1hd.png",Super Cricket 1 HD | Hoichoi
+https://cdn.hoichoi24.com/supercricket1hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportshdl.png",T-Sports HD L | Hoichoi
+https://cdn.hoichoi24.com/tsportshdL/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/asportse.png",A Sports E | Hoichoi
+https://cdn.hoichoi24.com/asportse/video.m3u8
 
 #EXTINF:-1 tvg-logo="https://logo-url.com/cartoonnetwork.png",Cartoon Network | Hoichoi
 https://cdn.hoichoi24.com/cartoonnetwork/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://logo-url.com/natgeohd.png",National Geographic HD | Hoichoi
+#EXTINF:-1 tvg-logo="https://logo-url.com/natgeohd.png",Nat Geo HD | Hoichoi
 https://cdn.hoichoi24.com/NatGeoHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/colorsinfinityhd.png",Colors Infinity HD | Hoichoi
+https://cdn.hoichoi24.com/ColorsInfinityHD/video.m3u8
+
+<!-------- Hoichoi24 Link ------>
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportshd.png",T-Sports HD | Hoichoi
+https://cdn.hoichoi24.com/TSportsHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/skysportsgolf.png",Sky Sports Golf | Hoichoi
+https://cdn.hoichoi24.com/SkySportsGolf/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/superlaligahd.png",Super LaLiga HD | Hoichoi
+https://cdn.hoichoi24.com/SuperLaLigaHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/skysportscrickethd.png",Sky Sports Cricket HD | Hoichoi
+https://cdn.hoichoi24.com/SkySportsCricketHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/superpremierleagueahd.png",Super Premier League AHD | Hoichoi
+https://cdn.hoichoi24.com/SuperPremierLeagueAHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/nicktvhdplus.png",Nick TV HD Plus | Hoichoi
+https://cdn.hoichoi24.com/NickTVHDPlus/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/discoverykids.png",Discovery Kids | Hoichoi
+https://cdn.hoichoi24.com/DiscoveryKids/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/pogo.png",Pogo | Hoichoi
+https://cdn.hoichoi24.com/Pogo/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/discoveryhd.png",Discovery HD | Hoichoi
+https://cdn.hoichoi24.com/DiscoveryHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/andpicturetv.png",And Picture TV | Hoichoi
+https://cdn.hoichoi24.com/AndPictureTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/andprivehd.png",And Prive HD | Hoichoi
+https://cdn.hoichoi24.com/AndPriveHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/arydigital.png",ARY Digital | Hoichoi
+https://cdn.hoichoi24.com/ARYDigital/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/starlifehd.png",Star Life HD | Hoichoi
+https://cdn.hoichoi24.com/StarLifeHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/andflixhd.png",And Flix HD | Hoichoi
+https://cdn.hoichoi24.com/AndFlixHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonypixhd.png",Sony Pix HD | Hoichoi
+https://cdn.hoichoi24.com/SonyPixHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/axnhd.png",AXN HD | Hoichoi
+https://cdn.hoichoi24.com/AXNHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/starmovieshd.png",Star Movies HD | Hoichoi
+https://cdn.hoichoi24.com/StarMoviesHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/mastii.png",Mastii | Hoichoi
+https://cdn.hoichoi24.com/Mastii/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/9xm.png",9XM | Hoichoi
+https://cdn.hoichoi24.com/9XM/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/colorsbanglahd.png",Colors Bangla HD | Hoichoi
+https://cdn.hoichoi24.com/colorsbanglahd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sbharathd.png",S Bharat HD | Hoichoi
+https://cdn.hoichoi24.com/sbharathd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonymaxhd.png",Sony Max HD | Hoichoi
+https://cdn.hoichoi24.com/sonymaxhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/mtvindia.png",MTV India | Hoichoi
+https://cdn.hoichoi24.com/mtvindia/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyhd.png",Sony HD | Hoichoi
+https://cdn.hoichoi24.com/sonyhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportsfhd.png",T-Sports FHD | Hoichoi
+https://cdn.hoichoi24.com/tsportsfhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sprime.png",S Prime | Hoichoi
+https://cdn.hoichoi24.com/sprime/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten1hd.png",Sony Ten 1 HD | Hoichoi
+https://cdn.hoichoi24.com/sonyten1hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sonyten3hd.png",Sony Ten 3 HD | Hoichoi
+https://cdn.hoichoi24.com/sonyten3hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/sports18hd.png",Sports 18 HD | Hoichoi
+https://cdn.hoichoi24.com/sports18hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/beinsports3.png",Bein Sports 3 | Hoichoi
+https://cdn.hoichoi24.com/beinsports3/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tntsports2hd.png",TNT Sports 2 HD | Hoichoi
+https://cdn.hoichoi24.com/tntsports2hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/supercricket1hd.png",Super Cricket 1 HD | Hoichoi
+https://cdn.hoichoi24.com/supercricket1hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/tsportshdl.png",T-Sports HD L | Hoichoi
+https://cdn.hoichoi24.com/tsportshdL/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/asportse.png",A Sports E | Hoichoi
+https://cdn.hoichoi24.com/asportse/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/cartoonnetwork.png",Cartoon Network | Hoichoi
+https://cdn.hoichoi24.com/cartoonnetwork/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/natgeohd.png",Nat Geo HD | Hoichoi
+https://cdn.hoichoi24.com/NatGeoHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://logo-url.com/colorsinfinityhd.png",Colors Infinity HD | Hoichoi
+https://cdn.hoichoi24.com/ColorsInfinityHD/video.m3u8
