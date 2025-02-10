@@ -1,0 +1,73 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/T_Sports_Logo.png/150px-T_Sports_Logo.png", T Sports HD
+https://cdn.hoichoi24.com/TSportsHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Sky_Sports_logo_2020.png/150px-Sky_Sports_logo_2020.png", Sky Sports Golf
+https://cdn.hoichoi24.com/SkySportsGolf/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Super_LaLiga_logo.svg/150px-Super_LaLiga_logo.svg.png", Super LaLiga HD
+https://cdn.hoichoi24.com/SuperLaLigaHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/1a/Sky_Sports_Cricket_logo.png", Sky Sports Cricket HD
+https://cdn.hoichoi24.com/SkySportsCricketHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/2c/Nick_HD%2B_logo.png", Nick TV HD Plus
+https://cdn.hoichoi24.com/NickTVHDPlus/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/d5/Discovery_Kids_India_logo.png", Discovery Kids
+https://cdn.hoichoi24.com/DiscoveryKids/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Pogo_Logo.svg/150px-Pogo_Logo.svg.png", Pogo
+https://cdn.hoichoi24.com/Pogo/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Discovery_Channel_logo.svg/150px-Discovery_Channel_logo.svg.png", Discovery HD
+https://cdn.hoichoi24.com/DiscoveryHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/6/6e/AndPictures_Logo.png", And Pictures TV
+https://cdn.hoichoi24.com/AndPictureTV/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7c/Sony_Pix_HD_logo.png", Sony Pix HD
+https://cdn.hoichoi24.com/SonyPixHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/ae/AXN_HD_Logo.png", AXN HD
+https://cdn.hoichoi24.com/AXNHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/9/97/Star_Movies_India.png/150px-Star_Movies_India.png", Star Movies HD
+https://cdn.hoichoi24.com/StarMoviesHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/f/f8/Mastii_TV_logo.png", Mastii
+https://cdn.hoichoi24.com/Mastii/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/5/5e/9XM_logo.png", 9XM
+https://cdn.hoichoi24.com/9XM/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/d/da/Colors_Bangla_HD_Logo.png", Colors Bangla HD
+https://cdn.hoichoi24.com/colorsbanglahd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/1d/Sony_MAX_HD_Logo.png", Sony Max HD
+https://cdn.hoichoi24.com/sonymaxhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/MTV_India_2015.png/150px-MTV_India_2015.png", MTV India
+https://cdn.hoichoi24.com/mtvindia/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/Sony_HD_India_Logo.png/150px-Sony_HD_India_Logo.png", Sony HD
+https://cdn.hoichoi24.com/sonyhd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/9/9d/Sony_Ten_1_logo.png", Sony Ten 1 HD
+https://cdn.hoichoi24.com/sonyten1hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/8/8f/Sony_Ten_3_logo.png", Sony Ten 3 HD
+https://cdn.hoichoi24.com/sonyten3hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/8/89/Sports18_logo.png", Sports 18 HD
+https://cdn.hoichoi24.com/sports18hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/5/5d/TNT_Sports_logo.png", TNT Sports 2 HD
+https://cdn.hoichoi24.com/tntsports2hd/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/1/1f/National_Geographic_India_logo.png", Nat Geo HD
+https://cdn.hoichoi24.com/NatGeoHD/video.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/en/3/38/Colors_Infinity_HD.png", Colors Infinity HD
+https://cdn.hoichoi24.com/ColorsInfinityHD/video.m3u8
