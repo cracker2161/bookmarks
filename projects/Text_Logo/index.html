@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placehold Text Logo Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #fff;
+            padding: 15px 0;
+            border-bottom: 2px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .tool-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .tool-header p {
+            color: #666;
+        }
+
+        .control-panel {
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .input-control:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .color-input {
+            height: 42px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        .preview-section {
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .preview-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .preview-container {
+            border: 2px dashed #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .url-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            padding-right: 110px;
+            border: 2px solid #f0f0f0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 8px 15px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #555;
+        }
+
+        .footer {
+            background: #fff;
+            border-top: 2px solid #f0f0f0;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .social-links a {
+            color: #333;
+            margin-left: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #555;
+        }
+
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .tool-header h1 {
+                font-size: 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .social-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">Placehold Text Logo Creator</a>
+            <nav class="nav-menu">
+                <a href="#">Home</a>
+                <a href="#">Tools</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tool-header">
+            <h1>Create Your Text Logo</h1>
+            <p>Simple and customizable text-based logo generator</p>
+        </div>
+
+        <div class="control-panel">
+            <div class="input-group">
+                <label>Text</label>
+                <input type="text" id="text" class="input-control" value="Channel 1">
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" id="description" class="input-control" value="HD Quality">
+            </div>
+
+            <div class="input-group">
+                <label>Text Color</label>
+                <input type="color" id="textColor" class="input-control color-input" value="#FF0000">
+            </div>
+
+            <div class="input-group">
+                <label>Background Color</label>
+                <input type="color" id="bgColor" class="input-control color-input" value="#FFFFFF">
+            </div>
+
+            <div class="input-group">
+                <label>Font Size</label>
+                <input type="number" id="fontSize" class="input-control" value="40">
+            </div>
+
+            <div class="input-group">
+                <label>Width</label>
+                <input type="number" id="width" class="input-control" value="600">
+            </div>
+
+            <div class="input-group">
+                <label>Height</label>
+                <input type="number" id="height" class="input-control" value="600">
+            </div>
+
+            <div class="input-group">
+                <label>Font</label>
+                <select id="font" class="input-control">
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button onclick="generateImage()" class="btn">Generate Logo</button>
+        </div>
+
+        <div class="preview-section">
+            <h3 class="preview-title">Preview</h3>
+            <div class="preview-container">
+                <img id="preview" class="preview-image" src="" alt="Generated Logo">
+            </div>
+
+            <div class="url-container">
+                <input type="text" id="imageUrl" class="url-input" readonly>
+                <button onclick="copyUrl()" class="copy-btn">Copy URL</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>© 2024 Placehold Text Logo Creator</p>
+                <p>Developed by Sultan ♥️ | Version 1.0.2</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copy-notification" id="copyNotification">URL Copied!</div>
+
+    <script>
+        function generateImage() {
+            let text = encodeURIComponent(document.getElementById("text").value);
+            let description = encodeURIComponent(document.getElementById("description").value);
+            let textColor = document.getElementById("textColor").value.substring(1);
+            let bgColor = document.getElementById("bgColor").value.substring(1);
+            let fontSize = document.getElementById("fontSize").value;
+            let width = document.getElementById("width").value;
+            let height = document.getElementById("height").value;
+            let font = encodeURIComponent(document.getElementById("font").value);
+            
+            let imageUrl = `https://placehold.co/${width}x${height}/${bgColor}/${textColor}?text=${text}%5Cn${description}&font=${font}`;
+            
+            document.getElementById("preview").src = imageUrl;
+            document.getElementById("imageUrl").value = imageUrl;
+        }
+
+        function copyUrl() {
+            let urlInput = document.getElementById("imageUrl");
+            urlInput.select();
+            document.execCommand("copy");
+            
+            let notification = document.getElementById("copyNotification");
+            notification.style.display = "block";
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 2000);
+        }
+
+        // Generate initial preview
+        window.onload = generateImage;
+    </script>
+</body>
+</html>
