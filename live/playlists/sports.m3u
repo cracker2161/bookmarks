@@ -1,5 +1,14 @@
 #EXTM3U
 
+#EXTINF:-1 tvg-logo="https://placehold.co/1000x1000/white/red?text=Discovery Kids" group-title="", Discovery Kids
+http://10.11.12.13:8089/Discovery-KIDS/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-logo="https://placehold.co/1000x1000/white/red?text=Pogo Hindi" group-title="", Pogo Hindi
+http://10.11.12.13:8089/POGO/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-logo="https://placehold.co/1000x1000/white/red?text=CN Network" group-title="", CN Network
+http://10.11.12.13:8089/CNN-HD/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-logo="https://placehold.co/1000x1000/white/red?text=Sony Ten 1" group-title="", Sony Ten 1
+http://103.175.242.10:8080/sonyten1/index.m3u8
+
 #EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+SPORTS+1", T SPORTS 1
 https://live.tsports.com/mobile_hls/tsports_live_1/playlist.m3u8
 
