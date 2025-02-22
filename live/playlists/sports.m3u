@@ -1,67 +1,82 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=T SPORTS 1" group-title="Sports", T SPORTS 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+SPORTS+1", T SPORTS 1
 https://live.tsports.com/mobile_hls/tsports_live_1/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=T SPORTS 2" group-title="Sports", T SPORTS 2
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+SPORTS+2", T SPORTS 2
 https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Ten Sports HD" group-title="Sports", Ten Sports HD
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Ten+Sports+HD", Ten Sports HD
 http://125.209.88.166:45793/BRN/TenSports.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=WILLOW CRICKET 1" group-title="Sports", WILLOW CRICKET 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=WILLOW+CRICKET+1", WILLOW CRICKET 1
 http://extraott.com:80/live/3969424152/3723991250/175793.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=T Sports HD" group-title="Sports", T Sports HD
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+Sports+HD", T Sports HD
 http://stvlive.net:8080/tsports2/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Star Sports 2 HD" group-title="Sports", Star Sports 2 HD
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Star+Sports+2+HD", Star Sports 2 HD
 http://stvlive.net:8080/starsports1/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=T sports" group-title="Sports", T sports
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+Sports", T Sports
 https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=T sports 2" group-title="Sports", T sports 2
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=T+Sports+2", T Sports 2
 https://cdn.hoichoi24.com/TSportsHD/video.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=willowusa" group-title="Sports", willowusa
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Willow+USA", Willow USA
 https://123456789-10.tiiny.io/crichd/playerstream.php?id=willowusa
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Sony ten 1" group-title="Sports", Sony ten 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Sony+Ten+1", Sony Ten 1
 http://103.175.242.10:8080/sonyten1/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Sony sports 5" group-title="Sports", Sony sports 5
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Sony+Sports+5", Sony Sports 5
 http://103.175.242.10:8080/sonyten3/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Star sports 1" group-title="Sports", Star sports 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Star+Sports+1", Star Sports 1
 http://103.175.242.10:8080/starsports1/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Aym sports" group-title="Sports", Aym sports
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=AYM+Sports", AYM Sports
 https://aym-as.otteravision.com/aym/as/as_720p_high.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Tube fox sports" group-title="Sports", Tube fox sports
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Tube+Fox+Sports", Tube Fox Sports
 https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Fox-Sports-Espanol2.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Star Sports select 1" group-title="Sports", Star Sports select 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Star+Sports+Select+1", Star Sports Select 1
 http://41.205.93.154/STARSPORTS1/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=PTV" group-title="Sports", PTV
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=PTV", PTV
 http://45.148.145.57/ptvS/tracks-v1a1/mono.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Ssc1" group-title="Sports", Ssc1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=SSC1", SSC1
 https://cma.footballii.ir/hls2/ssc1.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=A sports" group-title="Sports", A sports
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=A+Sports", A Sports
 http://125.209.88.166:45793/BRN/ArySports.stream/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=Astro Super Sports" group-title="Sports", Astro Super Sports
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Astro+Super+Sports", Astro Super Sports
 https://bcovlive-a.akamaihd.net/r2d2c4ca5bf57456fb1d16255c1a535c8/eu-west-1/6058004203001/playlist.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=beIN Sports HD 1" group-title="Sports", beIN Sports HD 1
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+Xtra+SD", Bein Sports Xtra SD
+https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+Xtra+HD", Bein Sports Xtra HD
+https://bein-esp-xumo.amagi.tv/playlistR720P.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+2", Bein Sports 2
+http://175.107.244.52:4457/play/a06x/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+5+Arabic", Bein Sports 5 Arabic
+http://175.107.244.52:4457/play/a06y/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+HD+1", Bein Sports HD 1
 https://cma.footballii.ir/hls2/b1.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=beIN Sports HD 2" group-title="Sports", beIN Sports HD 2
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+HD+2", Bein Sports HD 2
 https://cma.footballii.ir/hls2/b2.m3u8
 
-#EXTINF:-1 tvg-logo="https://placehold.co/600x600/ffffff/ff0000?text=beIN Sports HD 3" group-title="Sports", beIN Sports HD 3
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+HD+3", Bein Sports HD 3
 https://cma.footballii.ir/hls2/b3.m3u8
+
+#EXTINF:-1 tvg-logo="https://placehold.co/512x512/white/red?text=Bein+Sports+HD", Bein Sports HD
+http://fl2.moveonjoy.com/BEIN_SPORTS/index.m3u8
